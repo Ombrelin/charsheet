@@ -1,5 +1,6 @@
 package fr.arsene.charsheet;
 
+import fr.arsene.charsheet.controller.MainController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Parent;
@@ -27,6 +28,8 @@ public class CharsheetFX extends Application {
         FxWeaver fxWeaver = applicationContext.getBean(FxWeaver.class);
         Parent root = fxWeaver.loadView(MainController.class);
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+        stage.setTitle("CharSheet");
         stage.setScene(scene);
         stage.show();
     }

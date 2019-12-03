@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+           <ListView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+       </AnchorPane>
+   </left>
+   <center>
+      <GridPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" hgap="25" vgap="25">
+          <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+          <children>
+
+              <JFXTextField promptText="Nom" labelFloat="true" GridPane.columnIndex="0" GridPane.rowIndex="0"></JFXTextField>
+              <JFXTextField promptText="Sexe" labelFloat="true" GridPane.columnIndex="1" GridPane.rowIndex="0"></JFXTextField>
+              <JFXTextField promptText="Origine" labelFloat="true" GridPane.columnIndex="0" GridPane.rowIndex="1"></JFXTextField>
+              <JFXTextField promptText="Métier" labelFloat="true" GridPane.columnIndex="1" GridPane.rowIndex="1"></JFXTextField>
+          </children>
+      </GridPane >
+   </center>
+</BorderPane>
