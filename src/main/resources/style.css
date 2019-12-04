@@ -76,3 +76,17 @@
 .progress-bar{
     -fx-accent: rgb(0,52,104);
 }
+
+.separator {
+    -fx-fill: white;
+}
+
+/* Custom CSS*/
+
+.lifeBar > .bar {
+    -fx-background-color: #D50000;
+}
+
+.manaBar > .bar {
+    -fx-background-color: #2962FF;
+}
