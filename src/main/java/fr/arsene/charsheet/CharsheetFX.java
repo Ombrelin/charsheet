@@ -29,6 +29,8 @@ public class CharsheetFX extends Application {
         Parent root = fxWeaver.loadView(MainController.class);
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+        stage.setMinWidth(1300);
+        stage.setMinHeight(780);
         stage.setTitle("CharSheet");
         stage.setScene(scene);
         stage.show();

@@ -1,0 +1,24 @@
+{
+  "professions" : [
+    {
+      "name": "Paladin",
+      "notes": "Personnage doué pour le combat au corps à corps, charismatique, pouvant faire appel occasionnellement à des prodiges."
+    }
+    ,
+    {
+      "name": "Guerrier",
+      "notes": "Personnage destiné à la baston en première ligne."
+    }
+  ],
+  "races" : [
+    {
+      "name": "Humain",
+      "notes": "L'humain est le personnage le plus polyvalent, il peut faire n'importe quoi, s'équiper comme il veut"
+    }
+    ,
+    {
+      "name": "Elfe Sylvain",
+      "notes": "Personnage doué en milieu naturel, dangereux sur les attaques à distance. Pas d'arme à 2 mains."
+    }
+  ]
+}
