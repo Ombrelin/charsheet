@@ -83,53 +83,8 @@
                     <Label GridPane.columnIndex="0" GridPane.rowIndex="12" text="Attaque"/>
                     <Label GridPane.columnIndex="0" GridPane.rowIndex="13" text="Parade"/>
 
-                    <CharacteristicBar GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-<!--
+                    <CharacteristicBar fx:id="forceCharBar" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
-                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                        <JFXButton text="-" prefWidth="32"/>
-                        <JFXTextField prefWidth="32" alignment="CENTER"/>
-                        <JFXButton text="+" prefWidth="32"/>
-                        <JFXProgressBar/>
-                    </FlowPane>
-                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                        <JFXButton text="-" prefWidth="32"/>
-                        <JFXTextField prefWidth="32" alignment="CENTER"/>
-                        <JFXButton text="+" prefWidth="32"/>
-                        <JFXProgressBar/>
-                    </FlowPane>
-                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="9">
-                        <JFXButton text="-" prefWidth="32"/>
-                        <JFXTextField fx:id="courageField" onKeyReleased="#handleChangeCourage" prefWidth="32" alignment="CENTER"/>
-                        <JFXButton text="+" prefWidth="32"/>
-                        <JFXProgressBar fx:id="courageBar"/>
-                    </FlowPane>
-                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="10">
-                        <JFXButton text="-" prefWidth="32"/>
-                        <JFXTextField prefWidth="32" alignment="CENTER"/>
-                        <JFXButton text="+" prefWidth="32"/>
-                        <JFXProgressBar/>
-                    </FlowPane>
-                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="11">
-                        <JFXButton text="-" prefWidth="32"/>
-                        <JFXTextField prefWidth="32" alignment="CENTER"/>
-                        <JFXButton text="+" prefWidth="32"/>
-                        <JFXProgressBar/>
-                    </FlowPane>
-                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="12">
-                        <JFXButton text="-" prefWidth="32"/>
-                        <JFXTextField prefWidth="32" alignment="CENTER"/>
-                        <JFXButton text="+" prefWidth="32"/>
-                        <JFXProgressBar/>
-                    </FlowPane>
-                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="13">
-                        <JFXButton text="-" prefWidth="32"/>
-                        <JFXTextField prefWidth="32" alignment="CENTER"/>
-                        <JFXButton text="+" prefWidth="32"/>
-                        <JFXProgressBar/>
-                    </FlowPane>
-
--->
                     <Label text="Armures et protections" GridPane.columnIndex="0" GridPane.rowIndex="14"
                            GridPane.columnSpan="2">
                         <font>
@@ -176,7 +131,7 @@
                 <Insets top="8" right="8" bottom="8" left="8"/>
             </padding>
             <children>
-                <JFXButton text="Sauvegarder"/>
+                <JFXButton fx:id="saveButton" onAction="#handleClickSave" text="Sauvegarder"/>
             </children>
         </FlowPane>
     </bottom>
