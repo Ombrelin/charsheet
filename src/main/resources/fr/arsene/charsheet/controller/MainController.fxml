@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
+<?import fr.arsene.charsheet.components.CharacteristicBar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<BorderPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720" fx:controller="fr.arsene.charsheet.controller.MainController"
+<BorderPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720"
+            fx:controller="fr.arsene.charsheet.controller.MainController"
             minWidth="1280" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
@@ -36,96 +38,134 @@
     <center>
         <ScrollPane fitToWidth="true" BorderPane.alignment="CENTER">
 
-                <GridPane BorderPane.alignment="CENTER" hgap="25" vgap="25" AnchorPane.bottomAnchor="0.0"
-                          AnchorPane.leftAnchor="0.0"
-                          AnchorPane.rightAnchor="0.0"
-                          AnchorPane.topAnchor="0.0">
-                    <padding>
-                        <Insets top="25" right="25" bottom="25" left="25"/>
-                    </padding>
-                    <children>
+            <GridPane BorderPane.alignment="CENTER" hgap="25" vgap="25" AnchorPane.bottomAnchor="0.0"
+                      AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="0.0">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+                <children>
 
-                        <JFXTextField promptText="Nom" labelFloat="true" GridPane.columnIndex="0"
-                                      GridPane.rowIndex="0"/>
-                        <JFXComboBox fx:id="comboboxGender" prefWidth="Infinity" promptText="Sexe" labelFloat="true"
-                                     GridPane.columnIndex="1"
-                                     GridPane.rowIndex="0"/>
-                        <JFXComboBox fx:id="comboboxRace" promptText="Origine" labelFloat="true"
-                                     GridPane.columnIndex="0"
-                                     GridPane.rowIndex="1" prefWidth="Infinity"/>
-                        <JFXComboBox fx:id="comboboxProfession" promptText="Métier" labelFloat="true"
-                                     GridPane.columnIndex="1"
-                                     GridPane.rowIndex="1" prefWidth="Infinity"/>
-                        <Label text="Energie Vitale" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                        <JFXProgressBar fx:id="lifeBar" prefHeight="16.0" prefWidth="Infinity" styleClass="lifeBar"
-                                        GridPane.columnIndex="0"
-                                        progress="Infinity"
-                                        GridPane.rowIndex="3" GridPane.columnSpan="2"/>
-                        <Label text="Energie Astrale" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-                        <JFXProgressBar fx:id="manaBar" prefHeight="16.0" prefWidth="Infinity" styleClass="manaBar"
-                                        GridPane.columnIndex="0"
-                                        progress="Infinity"
-                                        GridPane.rowIndex="5" GridPane.columnSpan="2"/>
+                    <JFXTextField promptText="Nom" labelFloat="true" GridPane.columnIndex="0"
+                                  GridPane.rowIndex="0"/>
+                    <JFXComboBox fx:id="comboboxGender" prefWidth="Infinity" promptText="Sexe" labelFloat="true"
+                                 GridPane.columnIndex="1"
+                                 GridPane.rowIndex="0"/>
+                    <JFXComboBox fx:id="comboboxRace" promptText="Origine" labelFloat="true"
+                                 GridPane.columnIndex="0"
+                                 GridPane.rowIndex="1" prefWidth="Infinity"/>
+                    <JFXComboBox fx:id="comboboxProfession" promptText="Métier" labelFloat="true"
+                                 GridPane.columnIndex="1"
+                                 GridPane.rowIndex="1" prefWidth="Infinity"/>
+                    <Label text="Energie Vitale" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <JFXProgressBar fx:id="lifeBar" prefHeight="16.0" prefWidth="Infinity" styleClass="lifeBar"
+                                    GridPane.columnIndex="0"
+                                    progress="Infinity"
+                                    GridPane.rowIndex="3" GridPane.columnSpan="2"/>
+                    <Label text="Energie Astrale" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <JFXProgressBar fx:id="manaBar" prefHeight="16.0" prefWidth="Infinity" styleClass="manaBar"
+                                    GridPane.columnIndex="0"
+                                    progress="Infinity"
+                                    GridPane.rowIndex="5" GridPane.columnSpan="2"/>
 
-                        <Label text="Caractéristiques" GridPane.columnIndex="0" GridPane.rowIndex="6"
-                               GridPane.columnSpan="2">
-                            <font>
-                                <Font size="18.0"/>
-                            </font>
-                        </Label>
-                        <Label GridPane.columnIndex="0" GridPane.rowIndex="7" text="Force"/>
-                        <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Intelligence"/>
-                        <Label GridPane.columnIndex="0" GridPane.rowIndex="9" text="Courage"/>
-                        <Label GridPane.columnIndex="0" GridPane.rowIndex="10" text="Force"/>
-                        <Label GridPane.columnIndex="0" GridPane.rowIndex="11" text="Adresse"/>
-                        <Label GridPane.columnIndex="0" GridPane.rowIndex="12" text="Attaque"/>
-                        <Label GridPane.columnIndex="0" GridPane.rowIndex="13" text="Parade"/>
+                    <Label text="Caractéristiques" GridPane.columnIndex="0" GridPane.rowIndex="6"
+                           GridPane.columnSpan="2">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="7" text="Force"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Intelligence"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="9" text="Courage"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="10" text="Force"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="11" text="Adresse"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="12" text="Attaque"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="13" text="Parade"/>
 
-                        <JFXProgressBar prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-                        <JFXProgressBar prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
-                        <JFXProgressBar prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
-                        <JFXProgressBar prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
-                        <JFXProgressBar prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
-                        <JFXProgressBar prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
-                        <JFXProgressBar prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
-                        <JFXProgressBar prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+                    <CharacteristicBar GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+<!--
 
-                        <Label text="Armures et protections" GridPane.columnIndex="0" GridPane.rowIndex="14"
-                               GridPane.columnSpan="2">
-                            <font>
-                                <Font size="18.0"/>
-                            </font>
-                        </Label>
-                        <JFXListView GridPane.columnIndex="0" GridPane.rowIndex="15"/>
-                        <Label text="Armement" GridPane.columnIndex="1" GridPane.rowIndex="14">
-                            <font>
-                                <Font size="18.0"/>
-                            </font>
-                        </Label>
-                        <JFXListView GridPane.columnIndex="1" GridPane.rowIndex="15"/>
+                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                        <JFXButton text="-" prefWidth="32"/>
+                        <JFXTextField prefWidth="32" alignment="CENTER"/>
+                        <JFXButton text="+" prefWidth="32"/>
+                        <JFXProgressBar/>
+                    </FlowPane>
+                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                        <JFXButton text="-" prefWidth="32"/>
+                        <JFXTextField prefWidth="32" alignment="CENTER"/>
+                        <JFXButton text="+" prefWidth="32"/>
+                        <JFXProgressBar/>
+                    </FlowPane>
+                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                        <JFXButton text="-" prefWidth="32"/>
+                        <JFXTextField fx:id="courageField" onKeyReleased="#handleChangeCourage" prefWidth="32" alignment="CENTER"/>
+                        <JFXButton text="+" prefWidth="32"/>
+                        <JFXProgressBar fx:id="courageBar"/>
+                    </FlowPane>
+                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                        <JFXButton text="-" prefWidth="32"/>
+                        <JFXTextField prefWidth="32" alignment="CENTER"/>
+                        <JFXButton text="+" prefWidth="32"/>
+                        <JFXProgressBar/>
+                    </FlowPane>
+                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                        <JFXButton text="-" prefWidth="32"/>
+                        <JFXTextField prefWidth="32" alignment="CENTER"/>
+                        <JFXButton text="+" prefWidth="32"/>
+                        <JFXProgressBar/>
+                    </FlowPane>
+                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                        <JFXButton text="-" prefWidth="32"/>
+                        <JFXTextField prefWidth="32" alignment="CENTER"/>
+                        <JFXButton text="+" prefWidth="32"/>
+                        <JFXProgressBar/>
+                    </FlowPane>
+                    <FlowPane hgap="16" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                        <JFXButton text="-" prefWidth="32"/>
+                        <JFXTextField prefWidth="32" alignment="CENTER"/>
+                        <JFXButton text="+" prefWidth="32"/>
+                        <JFXProgressBar/>
+                    </FlowPane>
 
-                        <Label text="Equipement" GridPane.columnIndex="0" GridPane.rowIndex="16"
-                               GridPane.columnSpan="2">
-                            <font>
-                                <Font size="18.0"/>
-                            </font>
-                        </Label>
-                        <JFXListView GridPane.columnIndex="0" GridPane.rowIndex="17"/>
+-->
+                    <Label text="Armures et protections" GridPane.columnIndex="0" GridPane.rowIndex="14"
+                           GridPane.columnSpan="2">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <JFXListView GridPane.columnIndex="0" GridPane.rowIndex="15"/>
+                    <Label text="Armement" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <JFXListView GridPane.columnIndex="1" GridPane.rowIndex="15"/>
 
-                        <Label text="Compétences" GridPane.columnIndex="1" GridPane.rowIndex="16"
-                               GridPane.columnSpan="2">
-                            <font>
-                                <Font size="18.0"/>
-                            </font>
-                        </Label>
-                        <JFXListView GridPane.columnIndex="1" GridPane.rowIndex="17"/>
+                    <Label text="Equipement" GridPane.columnIndex="0" GridPane.rowIndex="16"
+                           GridPane.columnSpan="2">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <JFXListView GridPane.columnIndex="0" GridPane.rowIndex="17"/>
 
-                    </children>
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0"/>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0"/>
-                    </columnConstraints>
-                </GridPane>
+                    <Label text="Compétences" GridPane.columnIndex="1" GridPane.rowIndex="16"
+                           GridPane.columnSpan="2">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <JFXListView GridPane.columnIndex="1" GridPane.rowIndex="17"/>
+
+                </children>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0"/>
+                </columnConstraints>
+            </GridPane>
 
         </ScrollPane>
     </center>

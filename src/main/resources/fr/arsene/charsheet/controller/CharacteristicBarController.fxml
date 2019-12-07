@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<FlowPane xmlns="http://javafx.com/javafx" hgap="16"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="fr.arsene.charsheet.controller.CharacteristicBarController">
+    <JFXButton text="-" prefWidth="32"/>
+    <JFXTextField prefWidth="32" alignment="CENTER"/>
+    <JFXButton text="+" prefWidth="32"/>
+    <JFXProgressBar/>
+</FlowPane>
