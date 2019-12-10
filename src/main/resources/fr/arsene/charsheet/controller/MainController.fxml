@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
-<?import fr.arsene.charsheet.components.CharacteristicBar?>
+<?import fr.arsene.charsheet.ui.components.CharacteristicBar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import fr.arsene.charsheet.ui.components.EnergyBar?>
 <BorderPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720"
             fx:controller="fr.arsene.charsheet.controller.MainController"
             minWidth="1280" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -58,16 +59,11 @@
                     <JFXComboBox fx:id="comboboxProfession" promptText="Métier" labelFloat="true"
                                  GridPane.columnIndex="1"
                                  GridPane.rowIndex="1" prefWidth="Infinity"/>
-                    <Label text="Energie Vitale" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                    <JFXProgressBar fx:id="lifeBar" prefHeight="16.0" prefWidth="Infinity" styleClass="lifeBar"
-                                    GridPane.columnIndex="0"
-                                    progress="Infinity"
-                                    GridPane.rowIndex="3" GridPane.columnSpan="2"/>
-                    <Label text="Energie Astrale" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-                    <JFXProgressBar fx:id="manaBar" prefHeight="16.0" prefWidth="Infinity" styleClass="manaBar"
-                                    GridPane.columnIndex="0"
-                                    progress="Infinity"
-                                    GridPane.rowIndex="5" GridPane.columnSpan="2"/>
+
+                    <EnergyBar styleClass="lifeBar" max="30" name="Energie Vitale" GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <EnergyBar styleClass="manaBar" max="30" name="Energie Astrale" GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+                    <!--<EnergyBar name="Energie Astrale"/>-->
 
                     <Label text="Caractéristiques" GridPane.columnIndex="0" GridPane.rowIndex="6"
                            GridPane.columnSpan="2">
@@ -83,7 +79,13 @@
                     <Label GridPane.columnIndex="0" GridPane.rowIndex="12" text="Attaque"/>
                     <Label GridPane.columnIndex="0" GridPane.rowIndex="13" text="Parade"/>
 
-                    <CharacteristicBar fx:id="forceCharBar" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                    <CharacteristicBar fx:id="courageBar" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                    <CharacteristicBar fx:id="intellBar" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+                    <CharacteristicBar fx:id="charBar" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                    <CharacteristicBar fx:id="adrBar" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+                    <CharacteristicBar fx:id="forceBar" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+                    <CharacteristicBar fx:id="attackBar" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+                    <CharacteristicBar fx:id="blockBar" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
 
                     <Label text="Armures et protections" GridPane.columnIndex="0" GridPane.rowIndex="14"
                            GridPane.columnSpan="2">
@@ -91,13 +93,13 @@
                             <Font size="18.0"/>
                         </font>
                     </Label>
-                    <JFXListView GridPane.columnIndex="0" GridPane.rowIndex="15"/>
+                    <JFXTreeTableView fx:id="protections" GridPane.columnIndex="0" GridPane.rowIndex="15"/>
                     <Label text="Armement" GridPane.columnIndex="1" GridPane.rowIndex="14">
                         <font>
                             <Font size="18.0"/>
                         </font>
                     </Label>
-                    <JFXListView GridPane.columnIndex="1" GridPane.rowIndex="15"/>
+                    <JFXTreeTableView GridPane.columnIndex="1" GridPane.rowIndex="15"/>
 
                     <Label text="Equipement" GridPane.columnIndex="0" GridPane.rowIndex="16"
                            GridPane.columnSpan="2">
@@ -105,7 +107,7 @@
                             <Font size="18.0"/>
                         </font>
                     </Label>
-                    <JFXListView GridPane.columnIndex="0" GridPane.rowIndex="17"/>
+                    <JFXTreeTableView GridPane.columnIndex="0" GridPane.rowIndex="17"/>
 
                     <Label text="Compétences" GridPane.columnIndex="1" GridPane.rowIndex="16"
                            GridPane.columnSpan="2">
@@ -113,7 +115,7 @@
                             <Font size="18.0"/>
                         </font>
                     </Label>
-                    <JFXListView GridPane.columnIndex="1" GridPane.rowIndex="17"/>
+                    <JFXTreeTableView GridPane.columnIndex="1" GridPane.rowIndex="17"/>
 
                 </children>
                 <columnConstraints>

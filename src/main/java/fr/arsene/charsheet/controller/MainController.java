@@ -1,11 +1,10 @@
 package fr.arsene.charsheet.controller;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXProgressBar;
-import com.jfoenix.controls.JFXTextField;
-import fr.arsene.charsheet.components.CharacteristicBar;
+import com.jfoenix.controls.*;
+import fr.arsene.charsheet.ui.components.CharacteristicBar;
 import fr.arsene.charsheet.model.character.Gender;
+import fr.arsene.charsheet.model.character.Protection;
+import fr.arsene.charsheet.model.character.Weapon;
 import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
@@ -18,8 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
@@ -51,14 +48,39 @@ public class MainController {
     // Characteristics
 
     @FXML
-    private CharacteristicBar forceCharBar;
+    private CharacteristicBar courageBar;
 
+    @FXML
+    private CharacteristicBar intellBar;
 
+    @FXML
+    private CharacteristicBar charBar;
 
+    @FXML
+    private CharacteristicBar adrBar;
 
-    // Control maps
+    @FXML
+    private CharacteristicBar forceBar;
 
-    private Map<JFXTextField, JFXProgressBar> fieldBarMap = new HashMap<>();
+    @FXML
+    private CharacteristicBar attackBar;
+
+    @FXML
+    private CharacteristicBar blockBar;
+
+    @FXML
+    private JFXTreeTableView<Protection> protections;
+
+    @FXML
+    private JFXTreeTableView<Weapon> weapons;
+
+    /*
+    @FXML
+    private JFXTreeTableRow<Item> ;
+
+    @FXML
+    private JFXTreeTableRow<Weapon> weapons;
+    */
 
     @FXML
     public void initialize() {
@@ -73,7 +95,7 @@ public class MainController {
 
     @FXML
     private void handleClickSave(ActionEvent event){
-        System.out.println(forceCharBar.getValue());
+        System.out.println(forceBar.getValue());
     }
 
 }

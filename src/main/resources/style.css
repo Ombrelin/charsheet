@@ -84,10 +84,10 @@
 
 /* Custom CSS*/
 
-.lifeBar > .bar {
+.lifeBar .bar {
     -fx-background-color: #D50000;
 }
 
-.manaBar > .bar {
+.manaBar .bar {
     -fx-background-color: #2962FF;
 }
