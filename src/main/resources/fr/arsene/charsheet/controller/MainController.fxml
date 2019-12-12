@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import fr.arsene.charsheet.ui.components.EnergyBar?>
+<?import fr.arsene.charsheet.ui.adapters.ProtectionTable?>
 <BorderPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720"
             fx:controller="fr.arsene.charsheet.controller.MainController"
             minWidth="1280" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -87,13 +88,16 @@
                     <CharacteristicBar fx:id="attackBar" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
                     <CharacteristicBar fx:id="blockBar" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
 
-                    <Label text="Armures et protections" GridPane.columnIndex="0" GridPane.rowIndex="14"
-                           GridPane.columnSpan="2">
+                    <FlowPane GridPane.columnIndex="0" GridPane.rowIndex="14"
+                              GridPane.columnSpan="2">
+                    <Label text="Armures et protections" >
                         <font>
                             <Font size="18.0"/>
                         </font>
                     </Label>
-                    <JFXTreeTableView fx:id="protections" GridPane.columnIndex="0" GridPane.rowIndex="15"/>
+                        <JFXButton text="+" textAlignment="CENTER" onAction="#handleClickAddProtection"/>
+                    </FlowPane>
+                    <ProtectionTable fx:id="protections" GridPane.columnIndex="0" GridPane.rowIndex="15"/>
                     <Label text="Armement" GridPane.columnIndex="1" GridPane.rowIndex="14">
                         <font>
                             <Font size="18.0"/>

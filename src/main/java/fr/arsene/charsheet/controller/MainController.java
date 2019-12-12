@@ -1,17 +1,23 @@
 package fr.arsene.charsheet.controller;
 
-import com.jfoenix.controls.*;
-import fr.arsene.charsheet.ui.components.CharacteristicBar;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTreeTableView;
 import fr.arsene.charsheet.model.character.Gender;
 import fr.arsene.charsheet.model.character.Protection;
-import fr.arsene.charsheet.model.character.Weapon;
 import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
+import fr.arsene.charsheet.ui.adapters.ProtectionTable;
+import fr.arsene.charsheet.ui.adapters.ProtectionTableItem;
+import fr.arsene.charsheet.ui.adapters.WeaponTableItem;
+import fr.arsene.charsheet.ui.components.CharacteristicBar;
+import fr.arsene.charsheet.ui.components.Dialog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -69,10 +75,10 @@ public class MainController {
     private CharacteristicBar blockBar;
 
     @FXML
-    private JFXTreeTableView<Protection> protections;
+    private ProtectionTable protections;
 
     @FXML
-    private JFXTreeTableView<Weapon> weapons;
+    private JFXTreeTableView<WeaponTableItem> weapons;
 
     /*
     @FXML
@@ -82,11 +88,15 @@ public class MainController {
     private JFXTreeTableRow<Weapon> weapons;
     */
 
+    @Autowired
+    private FxWeaver fxWeaver;
+
     @FXML
     public void initialize() {
         this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(gender -> new Label(gender.toString())).collect(Collectors.toList()));
         this.comboboxGender.setFocusColor(new Color(50f / 255f, 50 / 255f, 50 / 255f, 1));
 
+        this.protections.add(new Protection("test", "test notes", 12f, 3, 4));
 
         GameModel model = gameModelService.getGameModel();
         this.comboboxRace.getItems().addAll(model.getRaces().stream().map(race -> new Label(race.getName())).collect(Collectors.toList()));
@@ -98,4 +108,8 @@ public class MainController {
         System.out.println(forceBar.getValue());
     }
 
+    @FXML
+    private void handleClickAddProtection(ActionEvent event){
+        fxWeaver.loadController(Dialog.class).show();
+    }
 }

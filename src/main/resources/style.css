@@ -91,3 +91,15 @@
 .manaBar .bar {
     -fx-background-color: #2962FF;
 }
+
+.tree-table-view{
+    -fx-text-fill: white;
+}
+
+.tree-table-row-cell:selected .tree-table-cell {
+    -fx-text-fill: white;
+}
+
+.tree-table-row-cell:selected {
+    -fx-background-color: rgb(0, 102, 204);
+}
