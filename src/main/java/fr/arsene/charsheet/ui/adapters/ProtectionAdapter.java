@@ -4,7 +4,7 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import fr.arsene.charsheet.model.character.Protection;
 import javafx.beans.property.*;
 
-public class ProtectionTableItem extends RecursiveTreeObject<ProtectionTableItem> {
+public class ProtectionAdapter extends RecursiveTreeObject<ProtectionAdapter> {
 
     private StringProperty name;
     private StringProperty notes;
@@ -12,7 +12,15 @@ public class ProtectionTableItem extends RecursiveTreeObject<ProtectionTableItem
     private IntegerProperty breakthrough;
     private IntegerProperty defense;
 
-    public ProtectionTableItem(Protection protection) {
+    public ProtectionAdapter(){
+        this.name = new SimpleStringProperty();
+        this.notes = new SimpleStringProperty();
+        this.weight = new SimpleFloatProperty();
+        this.breakthrough = new SimpleIntegerProperty();
+        this.defense = new SimpleIntegerProperty();
+    }
+
+    public ProtectionAdapter(Protection protection) {
         this.name = new SimpleStringProperty(protection.getName());
         this.notes = new SimpleStringProperty(protection.getNotes());
         this.weight = new SimpleFloatProperty(protection.getWeight());

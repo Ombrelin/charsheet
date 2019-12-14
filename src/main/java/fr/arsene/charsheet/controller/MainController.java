@@ -4,15 +4,13 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTreeTableView;
 import fr.arsene.charsheet.model.character.Gender;
-import fr.arsene.charsheet.model.character.Protection;
 import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
-import fr.arsene.charsheet.ui.adapters.ProtectionTable;
-import fr.arsene.charsheet.ui.adapters.ProtectionTableItem;
-import fr.arsene.charsheet.ui.adapters.WeaponTableItem;
+import fr.arsene.charsheet.ui.components.ProtectionTable;
+import fr.arsene.charsheet.ui.adapters.WeaponAdapter;
 import fr.arsene.charsheet.ui.components.CharacteristicBar;
-import fr.arsene.charsheet.ui.components.Dialog;
+import fr.arsene.charsheet.ui.components.ProtectionDialog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -78,7 +76,7 @@ public class MainController {
     private ProtectionTable protections;
 
     @FXML
-    private JFXTreeTableView<WeaponTableItem> weapons;
+    private JFXTreeTableView<WeaponAdapter> weapons;
 
     /*
     @FXML
@@ -96,20 +94,25 @@ public class MainController {
         this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(gender -> new Label(gender.toString())).collect(Collectors.toList()));
         this.comboboxGender.setFocusColor(new Color(50f / 255f, 50 / 255f, 50 / 255f, 1));
 
-        this.protections.add(new Protection("test", "test notes", 12f, 3, 4));
-
         GameModel model = gameModelService.getGameModel();
         this.comboboxRace.getItems().addAll(model.getRaces().stream().map(race -> new Label(race.getName())).collect(Collectors.toList()));
         this.comboboxProfession.getItems().addAll(model.getProfessions().stream().map(profession -> new Label(profession.getName())).collect(Collectors.toList()));
     }
 
     @FXML
-    private void handleClickSave(ActionEvent event){
+    private void handleClickSave(ActionEvent event) {
         System.out.println(forceBar.getValue());
     }
 
     @FXML
-    private void handleClickAddProtection(ActionEvent event){
-        fxWeaver.loadController(Dialog.class).show();
+    private void handleClickAddProtection(ActionEvent event) {
+        fxWeaver.loadController(ProtectionDialog.class).show(e -> {
+            this.protections.add(e);
+        });
+    }
+
+    @FXML
+    public void handleClickRemoveProtection(ActionEvent actionEvent) {
+        this.protections.remove(this.protections.getSelectionModel().getSelectedItem());
     }
 }

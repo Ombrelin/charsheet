@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import fr.arsene.charsheet.ui.components.EnergyBar?>
-<?import fr.arsene.charsheet.ui.adapters.ProtectionTable?>
+<?import fr.arsene.charsheet.ui.components.ProtectionTable?>
 <BorderPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720"
             fx:controller="fr.arsene.charsheet.controller.MainController"
             minWidth="1280" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -96,6 +96,7 @@
                         </font>
                     </Label>
                         <JFXButton text="+" textAlignment="CENTER" onAction="#handleClickAddProtection"/>
+                        <JFXButton text="-" textAlignment="CENTER" onAction="#handleClickRemoveProtection"/>
                     </FlowPane>
                     <ProtectionTable fx:id="protections" GridPane.columnIndex="0" GridPane.rowIndex="15"/>
                     <Label text="Armement" GridPane.columnIndex="1" GridPane.rowIndex="14">
