@@ -17,9 +17,9 @@
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="70.0" prefWidth="100.0"/>
 
     </columnConstraints>
-    <JFXButton GridPane.columnIndex="0" text="-" prefWidth="32" onAction="#handleClickMinus"/>
+    <JFXButton fx:id="minus" GridPane.columnIndex="0" text="-" prefWidth="32" onAction="#handleClickMinus"/>
     <JFXTextField GridPane.columnIndex="1" fx:id="field" prefWidth="32" alignment="CENTER"
                   onKeyReleased="#handleInput"/>
-    <JFXButton GridPane.columnIndex="2" text="+" prefWidth="32" onAction="#handleClickPlus"/>
+    <JFXButton fx:id="plus" GridPane.columnIndex="2" text="+" prefWidth="32" onAction="#handleClickPlus"/>
     <JFXProgressBar GridPane.columnIndex="3" prefWidth="Infinity" fx:id="bar"/>
 </fx:root>

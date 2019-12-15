@@ -3,6 +3,7 @@ package fr.arsene.charsheet.ui.components;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.function.Consumer;
@@ -16,9 +17,11 @@ public abstract class AbstractDialog<T> {
 
     public void initialize() {
         this.stage = new Stage();
+        this.stage.initModality(Modality.APPLICATION_MODAL);
         this.scene = new Scene(new FlowPane());
         this.stage.setScene(this.scene);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+
     }
 
     public void show(Consumer<T> validationHandler) {
@@ -32,7 +35,7 @@ public abstract class AbstractDialog<T> {
     }
 
     @FXML
-    public void validate(){
+    public void validate() {
         this.validationHandler.accept(this.result);
         this.stage.close();
     }

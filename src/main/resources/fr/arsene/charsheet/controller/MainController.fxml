@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
-<?import fr.arsene.charsheet.ui.components.CharacteristicBar?>
+<?import fr.arsene.charsheet.ui.components.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import fr.arsene.charsheet.ui.components.EnergyBar?>
-<?import fr.arsene.charsheet.ui.components.ProtectionTable?>
 <BorderPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720"
             fx:controller="fr.arsene.charsheet.controller.MainController"
             minWidth="1280" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -32,11 +30,6 @@
             </menus>
         </MenuBar>
     </top>
-    <left>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER_LEFT">
-            <JFXListView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-        </AnchorPane>
-    </left>
     <center>
         <ScrollPane fitToWidth="true" BorderPane.alignment="CENTER">
 
@@ -61,66 +54,101 @@
                                  GridPane.columnIndex="1"
                                  GridPane.rowIndex="1" prefWidth="Infinity"/>
 
-                    <EnergyBar styleClass="lifeBar" max="30" name="Energie Vitale" GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-                    <EnergyBar styleClass="manaBar" max="30" name="Energie Astrale" GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <EnergyBar styleClass="lifeBar" max="30" name="Energie Vitale" GridPane.columnSpan="2"
+                               GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <EnergyBar styleClass="manaBar" max="30" name="Energie Astrale" GridPane.columnSpan="2"
+                               GridPane.columnIndex="0" GridPane.rowIndex="4"/>
 
-                    <!--<EnergyBar name="Energie Astrale"/>-->
+                    <HBox spacing="64" GridPane.columnIndex="0" GridPane.rowIndex="6" alignment="CENTER">
+                        <Counter fx:id="golds" name="Or"/>
+                        <Counter fx:id="silvers" name="Argent"/>
+                        <Counter fx:id="coppers" name="Cuivre"/>
+                    </HBox>
 
-                    <Label text="Caractéristiques" GridPane.columnIndex="0" GridPane.rowIndex="6"
+                    <HBox spacing="64" GridPane.columnIndex="1" GridPane.rowIndex="6" alignment="CENTER">
+                        <Counter fx:id="level" name="Level"/>
+                    </HBox>
+
+                    <Label text="Caractéristiques" GridPane.columnIndex="0" GridPane.rowIndex="7"
                            GridPane.columnSpan="2">
                         <font>
                             <Font size="18.0"/>
                         </font>
                     </Label>
-                    <Label GridPane.columnIndex="0" GridPane.rowIndex="7" text="Force"/>
-                    <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Intelligence"/>
-                    <Label GridPane.columnIndex="0" GridPane.rowIndex="9" text="Courage"/>
-                    <Label GridPane.columnIndex="0" GridPane.rowIndex="10" text="Force"/>
-                    <Label GridPane.columnIndex="0" GridPane.rowIndex="11" text="Adresse"/>
-                    <Label GridPane.columnIndex="0" GridPane.rowIndex="12" text="Attaque"/>
-                    <Label GridPane.columnIndex="0" GridPane.rowIndex="13" text="Parade"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Courage"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="9" text="Intelligence"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="10" text="Courage"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="11" text="Force"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="12" text="Adresse"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="13" text="Attaque"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="14" text="Parade"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="15" text="Magie Psy"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="16" text="Magie Physique"/>
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="17" text="Resistance à la Magie"/>
 
-                    <CharacteristicBar fx:id="courageBar" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-                    <CharacteristicBar fx:id="intellBar" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
-                    <CharacteristicBar fx:id="charBar" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
-                    <CharacteristicBar fx:id="adrBar" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
-                    <CharacteristicBar fx:id="forceBar" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
-                    <CharacteristicBar fx:id="attackBar" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
-                    <CharacteristicBar fx:id="blockBar" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+                    <CharacteristicBar fx:id="courageBar" onValueUpdated="#handleChangeCou" GridPane.columnIndex="1"
+                                       GridPane.rowIndex="8"/>
+                    <CharacteristicBar fx:id="intellBar" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                    <CharacteristicBar fx:id="charBar" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+                    <CharacteristicBar fx:id="adrBar" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+                    <CharacteristicBar fx:id="forceBar" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+                    <CharacteristicBar fx:id="attackBar" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+                    <CharacteristicBar fx:id="blockBar" GridPane.columnIndex="1" GridPane.rowIndex="14"/>
+                    <CharacteristicBar fx:id="physBar" readonly="true" GridPane.columnIndex="1" GridPane.rowIndex="15"/>
+                    <CharacteristicBar fx:id="psyBar" readonly="true" GridPane.columnIndex="1" GridPane.rowIndex="16"/>
+                    <CharacteristicBar fx:id="resistBar" readonly="true" GridPane.columnIndex="1"
+                                       GridPane.rowIndex="17"/>
 
-                    <FlowPane GridPane.columnIndex="0" GridPane.rowIndex="14"
+
+                    <FlowPane hgap="8" GridPane.columnIndex="0" GridPane.rowIndex="18"
                               GridPane.columnSpan="2">
-                    <Label text="Armures et protections" >
-                        <font>
-                            <Font size="18.0"/>
-                        </font>
-                    </Label>
-                        <JFXButton text="+" textAlignment="CENTER" onAction="#handleClickAddProtection"/>
-                        <JFXButton text="-" textAlignment="CENTER" onAction="#handleClickRemoveProtection"/>
+                        <Label text="Armures et protections">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <JFXButton prefWidth="32" text="+" textAlignment="CENTER" onAction="#handleClickAddProtection"/>
+                        <JFXButton prefWidth="32" text="-" textAlignment="CENTER"
+                                   onAction="#handleClickRemoveProtection"/>
                     </FlowPane>
-                    <ProtectionTable fx:id="protections" GridPane.columnIndex="0" GridPane.rowIndex="15"/>
-                    <Label text="Armement" GridPane.columnIndex="1" GridPane.rowIndex="14">
-                        <font>
-                            <Font size="18.0"/>
-                        </font>
-                    </Label>
-                    <JFXTreeTableView GridPane.columnIndex="1" GridPane.rowIndex="15"/>
+                    <ProtectionTable fx:id="protections" GridPane.columnIndex="0" GridPane.rowIndex="19"/>
 
-                    <Label text="Equipement" GridPane.columnIndex="0" GridPane.rowIndex="16"
-                           GridPane.columnSpan="2">
-                        <font>
-                            <Font size="18.0"/>
-                        </font>
-                    </Label>
-                    <JFXTreeTableView GridPane.columnIndex="0" GridPane.rowIndex="17"/>
+                    <FlowPane hgap="8" GridPane.columnIndex="1" GridPane.rowIndex="18">
+                        <Label text="Armement">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <JFXButton prefWidth="32" text="+" textAlignment="CENTER" onAction="#handleClickAddWeapon"/>
+                        <JFXButton prefWidth="32" text="-" textAlignment="CENTER" onAction="#handleClickRemoveWeapon"/>
 
-                    <Label text="Compétences" GridPane.columnIndex="1" GridPane.rowIndex="16"
-                           GridPane.columnSpan="2">
-                        <font>
-                            <Font size="18.0"/>
-                        </font>
-                    </Label>
-                    <JFXTreeTableView GridPane.columnIndex="1" GridPane.rowIndex="17"/>
+                    </FlowPane>
+                    <WeaponTable fx:id="weapons" GridPane.columnIndex="1" GridPane.rowIndex="19"/>
+
+                    <FlowPane hgap="8" GridPane.columnIndex="0" GridPane.rowIndex="20"
+                              GridPane.columnSpan="2">
+                        <Label text="Equipement">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <JFXButton prefWidth="32" text="+" textAlignment="CENTER" onAction="#handleClickAddItem"/>
+                        <JFXButton prefWidth="32" text="-" textAlignment="CENTER" onAction="#handleClickRemoveItem"/>
+
+                    </FlowPane>
+                    <ItemTable fx:id="items" GridPane.columnIndex="0" GridPane.rowIndex="21"/>
+
+                    <FlowPane GridPane.columnIndex="1" GridPane.rowIndex="20"
+                              GridPane.columnSpan="2" hgap="16">
+                        <Label text="Compétences">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <JFXButton prefWidth="32" text="+" textAlignment="CENTER" onAction="#handleClickAddAbility"/>
+                        <JFXButton prefWidth="32" text="-" textAlignment="CENTER" onAction="#handleClickRemoveAbility"/>
+                    </FlowPane>
+                    <AbilityTable GridPane.columnIndex="1" GridPane.rowIndex="21"/>
 
                 </children>
                 <columnConstraints>

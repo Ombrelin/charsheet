@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import fr.arsene.charsheet.model.character.Protection;
 import fr.arsene.charsheet.ui.adapters.ProtectionAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,7 +47,7 @@ public class ProtectionTable extends JFXTreeTableView<ProtectionAdapter> {
         this.setShowRoot(false);
     }
 
-    public void add(ProtectionAdapter protection){
+    public void add(ProtectionAdapter protection) {
         protections.add(protection);
     }
 

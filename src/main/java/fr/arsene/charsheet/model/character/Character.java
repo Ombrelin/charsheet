@@ -35,6 +35,10 @@ public class Character {
     private Characteristic attack;
     private Characteristic block;
 
+    // Abilities
+
+    List<Ability> abilities;
+
     // Belongings
 
     private List<Protection> protections;
@@ -42,9 +46,9 @@ public class Character {
 
     private List<Item> inventory;
 
-    // Constructeurs
+    // Constructors
 
-    public Character(String name, Gender gender, Race race, Profession profession, int maxHealth, int currentHealth, int maxMana, int currentMana, int experience, int fatePoints, int golds, int silvers, int coppers, Characteristic courage, Characteristic intelligence, Characteristic charisma, Characteristic agility, Characteristic strength, Characteristic attack, Characteristic block, List<Protection> protections, List<Weapon> weapons, List<Item> inventory) {
+    public Character(String name, Gender gender, Race race, Profession profession, int maxHealth, int currentHealth, int maxMana, int currentMana, int experience, int fatePoints, int golds, int silvers, int coppers, Characteristic courage, Characteristic intelligence, Characteristic charisma, Characteristic agility, Characteristic strength, Characteristic attack, Characteristic block, List<Ability> abilities, List<Protection> protections, List<Weapon> weapons, List<Item> inventory) {
         this.name = name;
         this.gender = gender;
         this.race = race;
@@ -65,17 +69,26 @@ public class Character {
         this.strength = strength;
         this.attack = attack;
         this.block = block;
+        this.abilities = abilities;
         this.protections = protections;
         this.weapons = weapons;
         this.inventory = inventory;
     }
 
+
     // Services
 
 
-
-
     // Getters & Setters
+
+
+    public List<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(List<Ability> abilities) {
+        this.abilities = abilities;
+    }
 
     public String getName() {
         return name;

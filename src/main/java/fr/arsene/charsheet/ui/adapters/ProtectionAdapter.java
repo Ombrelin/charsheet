@@ -12,7 +12,7 @@ public class ProtectionAdapter extends RecursiveTreeObject<ProtectionAdapter> {
     private IntegerProperty breakthrough;
     private IntegerProperty defense;
 
-    public ProtectionAdapter(){
+    public ProtectionAdapter() {
         this.name = new SimpleStringProperty();
         this.notes = new SimpleStringProperty();
         this.weight = new SimpleFloatProperty();

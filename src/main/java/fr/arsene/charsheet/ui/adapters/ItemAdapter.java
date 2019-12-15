@@ -1,22 +1,21 @@
 package fr.arsene.charsheet.ui.adapters;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.beans.property.*;
+import javafx.beans.property.FloatProperty;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-public class WeaponAdapter extends RecursiveTreeObject<WeaponAdapter> {
+public class ItemAdapter extends RecursiveTreeObject<ItemAdapter> {
 
     private StringProperty name;
     private StringProperty notes;
     private FloatProperty weight;
-    private IntegerProperty breakthrough;
-    private IntegerProperty damage;
 
-    public WeaponAdapter() {
+    public ItemAdapter() {
         this.name = new SimpleStringProperty();
         this.notes = new SimpleStringProperty();
         this.weight = new SimpleFloatProperty();
-        this.breakthrough = new SimpleIntegerProperty();
-        this.damage = new SimpleIntegerProperty();
     }
 
     public String getName() {
@@ -53,29 +52,5 @@ public class WeaponAdapter extends RecursiveTreeObject<WeaponAdapter> {
 
     public void setWeight(float weight) {
         this.weight.set(weight);
-    }
-
-    public int getBreakthrough() {
-        return breakthrough.get();
-    }
-
-    public IntegerProperty breakthroughProperty() {
-        return breakthrough;
-    }
-
-    public void setBreakthrough(int breakthrough) {
-        this.breakthrough.set(breakthrough);
-    }
-
-    public int getDamage() {
-        return damage.get();
-    }
-
-    public IntegerProperty damageProperty() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage.set(damage);
     }
 }

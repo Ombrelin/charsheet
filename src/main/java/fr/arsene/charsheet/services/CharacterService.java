@@ -19,7 +19,7 @@ public class CharacterService {
         characters.add(character);
     }
 
-    public List<Character> findAll(){
+    public List<Character> findAll() {
         return this.characters;
     }
 

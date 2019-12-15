@@ -2,15 +2,12 @@ package fr.arsene.charsheet.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTreeTableView;
 import fr.arsene.charsheet.model.character.Gender;
 import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
-import fr.arsene.charsheet.ui.components.ProtectionTable;
-import fr.arsene.charsheet.ui.adapters.WeaponAdapter;
-import fr.arsene.charsheet.ui.components.CharacteristicBar;
-import fr.arsene.charsheet.ui.components.ProtectionDialog;
+import fr.arsene.charsheet.ui.components.*;
+import fr.arsene.charsheet.ui.events.ValueUpdatedEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -76,15 +73,13 @@ public class MainController {
     private ProtectionTable protections;
 
     @FXML
-    private JFXTreeTableView<WeaponAdapter> weapons;
-
-    /*
-    @FXML
-    private JFXTreeTableRow<Item> ;
+    private WeaponTable weapons;
 
     @FXML
-    private JFXTreeTableRow<Weapon> weapons;
-    */
+    private ItemTable items;
+
+    @FXML
+    private AbilityTable abilities;
 
     @Autowired
     private FxWeaver fxWeaver;
@@ -114,5 +109,46 @@ public class MainController {
     @FXML
     public void handleClickRemoveProtection(ActionEvent actionEvent) {
         this.protections.remove(this.protections.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
+    public void handleClickAddWeapon(ActionEvent actionEvent) {
+        fxWeaver.loadController(WeaponDialog.class).show(e -> {
+            this.weapons.add(e);
+        });
+    }
+
+    @FXML
+    public void handleClickRemoveWeapon(ActionEvent actionEvent) {
+        this.weapons.remove(this.weapons.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
+    public void handleClickAddItem(ActionEvent actionEvent) {
+        fxWeaver.loadController(ItemDialog.class).show(e -> {
+            this.items.add(e);
+        });
+    }
+
+    @FXML
+    public void handleClickRemoveItem(ActionEvent actionEvent) {
+        this.items.remove(this.items.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
+    public void handleClickAddAbility(ActionEvent actionEvent) {
+        fxWeaver.loadController(AbilityDialog.class).show(e -> {
+            this.abilities.add(e);
+        });
+    }
+
+    @FXML
+    public void handleClickRemoveAbility(ActionEvent actionEvent) {
+        this.abilities.remove(this.abilities.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
+    public void handleChangeCou(ValueUpdatedEvent event) {
+        System.out.println("=======================");
     }
 }

@@ -1,52 +1,51 @@
 package fr.arsene.charsheet.ui.components;
 
 import com.jfoenix.controls.JFXProgressBar;
+import com.jfoenix.controls.JFXTextField;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.util.converter.NumberStringConverter;
 
-import java.io.IOException;
-
-public class EnergyBar extends GridPane {
+public class EnergyBar extends Component {
 
     private String name;
-    private SimpleFloatProperty value = new SimpleFloatProperty();
-    private int max;
+    private SimpleIntegerProperty value = new SimpleIntegerProperty();
+    private SimpleIntegerProperty max = new SimpleIntegerProperty();
+    private SimpleFloatProperty barValue = new SimpleFloatProperty();
 
     @FXML
     private JFXProgressBar bar;
 
     @FXML
-    private Label label;
+    private JFXTextField field;
+
+    @FXML
+    JFXTextField maxField;
 
     public EnergyBar() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
-                "EnergyBar.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        super("EnergyBar.fxml");
+        this.bar.progressProperty().bind(this.barValue);
+        Bindings.bindBidirectional(this.maxField.textProperty(), this.max, new NumberStringConverter());
+        Bindings.bindBidirectional(this.field.textProperty(), this.value, new NumberStringConverter());
 
-        this.label.setText(this.getName());
-        this.bar.progressProperty().bind(this.value);
+        this.value.addListener(event -> this.barValue.set(this.getValue() / (float) this.getMax()));
     }
 
     @FXML
     private void handleClickMinus(ActionEvent event) {
-        if (this.valueProperty().get() > 1f / this.max) {
-            this.valueProperty().set(this.valueProperty().get() - (1f / this.max));
+        if (this.valueProperty().get() > 0) {
+            this.valueProperty().set(this.valueProperty().get() - 1);
         }
     }
 
     @FXML
     private void handleClickPlus(ActionEvent event) {
-        this.valueProperty().set(this.valueProperty().get() + (1f / this.max));
+        if (this.valueProperty().get() < this.max.get()) {
+            this.valueProperty().set(this.valueProperty().get() + 1);
+        }
     }
 
     public String getName() {
@@ -57,23 +56,27 @@ public class EnergyBar extends GridPane {
         this.name = name;
     }
 
-    public float getValue() {
+    public int getValue() {
         return value.get();
     }
 
-    public SimpleFloatProperty valueProperty() {
+    public SimpleIntegerProperty valueProperty() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(int value) {
         this.value.set(value);
     }
 
     public int getMax() {
+        return max.get();
+    }
+
+    public SimpleIntegerProperty maxProperty() {
         return max;
     }
 
     public void setMax(int max) {
-        this.max = max;
+        this.max.set(max);
     }
 }

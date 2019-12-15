@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<VBox fx:id="dialog" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.232-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="fr.arsene.charsheet.ui.components.ItemDialog" spacing="16"
+>
+    <padding>
+        <Insets top="32" bottom="32" left="32" right="32"/>
+    </padding>
+
+    <JFXTextField fx:id="name" labelFloat="true" promptText="Nom"/>
+    <JFXTextField fx:id="notes" labelFloat="true" promptText="Notes"/>
+    <JFXTextField fx:id="poids" labelFloat="true" promptText="Poids"/>
+
+    <JFXButton prefWidth="Infinity" text="Annuler" onAction="#cancel"/>
+    <JFXButton prefWidth="Infinity" text="Valider" onAction="#validate"/>
+</VBox>
