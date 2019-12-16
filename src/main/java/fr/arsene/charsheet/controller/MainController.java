@@ -7,9 +7,9 @@ import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
 import fr.arsene.charsheet.ui.components.*;
-import fr.arsene.charsheet.ui.events.ValueUpdatedEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import net.rgielen.fxweaver.core.FxWeaver;
@@ -87,7 +87,7 @@ public class MainController {
     @FXML
     public void initialize() {
         this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(gender -> new Label(gender.toString())).collect(Collectors.toList()));
-        this.comboboxGender.setFocusColor(new Color(50f / 255f, 50 / 255f, 50 / 255f, 1));
+        //this.comboboxGender.setFocusColor(new Color(50f / 255f, 50 / 255f, 50 / 255f, 1));
 
         GameModel model = gameModelService.getGameModel();
         this.comboboxRace.getItems().addAll(model.getRaces().stream().map(race -> new Label(race.getName())).collect(Collectors.toList()));

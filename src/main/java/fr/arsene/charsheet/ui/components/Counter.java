@@ -6,8 +6,10 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.util.converter.NumberStringConverter;
 
 public class Counter extends Component {
@@ -16,7 +18,7 @@ public class Counter extends Component {
     private Label label;
 
     @FXML
-    private JFXTextField field;
+    private TextField field;
 
     private IntegerProperty balance = new SimpleIntegerProperty();
 
@@ -26,6 +28,16 @@ public class Counter extends Component {
         super("Counter.fxml");
         Bindings.bindBidirectional(this.field.textProperty(), balance, new NumberStringConverter("###"));
         this.label.textProperty().bind(this.name);
+    }
+
+    @FXML
+    public void handleClickMinus(ActionEvent event){
+        this.setBalance(this.getBalance() - 1);
+    }
+
+    @FXML
+    public void handleClickPlus(ActionEvent event){
+        this.setBalance(this.getBalance() + 1);
     }
 
     public String getName() {

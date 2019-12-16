@@ -42,11 +42,11 @@
                 </padding>
                 <children>
 
-                    <JFXTextField promptText="Nom" labelFloat="true" GridPane.columnIndex="0"
-                                  GridPane.rowIndex="0"/>
-                    <JFXComboBox fx:id="comboboxGender" prefWidth="Infinity" promptText="Sexe" labelFloat="true"
-                                 GridPane.columnIndex="1"
-                                 GridPane.rowIndex="0"/>
+                    <TextField promptText="Nom" GridPane.columnIndex="0"
+                               GridPane.rowIndex="0"/>
+                    <JFXComboBox fx:id="comboboxGender" prefWidth="Infinity" promptText="Sexe"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="0"/>
                     <JFXComboBox fx:id="comboboxRace" promptText="Origine" labelFloat="true"
                                  GridPane.columnIndex="0"
                                  GridPane.rowIndex="1" prefWidth="Infinity"/>
@@ -59,13 +59,13 @@
                     <EnergyBar styleClass="manaBar" max="30" name="Energie Astrale" GridPane.columnSpan="2"
                                GridPane.columnIndex="0" GridPane.rowIndex="4"/>
 
-                    <HBox spacing="64" GridPane.columnIndex="0" GridPane.rowIndex="6" alignment="CENTER">
+                    <HBox spacing="64" GridPane.columnIndex="0" GridPane.rowIndex="6" alignment="CENTER_LEFT">
                         <Counter fx:id="golds" name="Or"/>
                         <Counter fx:id="silvers" name="Argent"/>
                         <Counter fx:id="coppers" name="Cuivre"/>
                     </HBox>
 
-                    <HBox spacing="64" GridPane.columnIndex="1" GridPane.rowIndex="6" alignment="CENTER">
+                    <HBox spacing="64" GridPane.columnIndex="1" GridPane.rowIndex="6" alignment="CENTER_RIGHT">
                         <Counter fx:id="level" name="Level"/>
                     </HBox>
 
@@ -86,7 +86,7 @@
                     <Label GridPane.columnIndex="0" GridPane.rowIndex="16" text="Magie Physique"/>
                     <Label GridPane.columnIndex="0" GridPane.rowIndex="17" text="Resistance à la Magie"/>
 
-                    <CharacteristicBar fx:id="courageBar" onValueUpdated="#handleChangeCou" GridPane.columnIndex="1"
+                    <CharacteristicBar fx:id="courageBar" GridPane.columnIndex="1"
                                        GridPane.rowIndex="8"/>
                     <CharacteristicBar fx:id="intellBar" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
                     <CharacteristicBar fx:id="charBar" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
@@ -107,9 +107,11 @@
                                 <Font size="18.0"/>
                             </font>
                         </Label>
-                        <JFXButton prefWidth="32" text="+" textAlignment="CENTER" onAction="#handleClickAddProtection"/>
-                        <JFXButton prefWidth="32" text="-" textAlignment="CENTER"
+                        <JFXButton styleClass="counter-button,minus-button" textAlignment="CENTER"
                                    onAction="#handleClickRemoveProtection"/>
+                        <JFXButton styleClass="counter-button,plus-button" textAlignment="CENTER"
+                                   onAction="#handleClickAddProtection"/>
+
                     </FlowPane>
                     <ProtectionTable fx:id="protections" GridPane.columnIndex="0" GridPane.rowIndex="19"/>
 
@@ -119,8 +121,11 @@
                                 <Font size="18.0"/>
                             </font>
                         </Label>
-                        <JFXButton prefWidth="32" text="+" textAlignment="CENTER" onAction="#handleClickAddWeapon"/>
-                        <JFXButton prefWidth="32" text="-" textAlignment="CENTER" onAction="#handleClickRemoveWeapon"/>
+                        <JFXButton styleClass="counter-button,minus-button" textAlignment="CENTER"
+                                   onAction="#handleClickRemoveWeapon"/>
+                        <JFXButton styleClass="counter-button,plus-button" textAlignment="CENTER"
+                                   onAction="#handleClickAddWeapon"/>
+
 
                     </FlowPane>
                     <WeaponTable fx:id="weapons" GridPane.columnIndex="1" GridPane.rowIndex="19"/>
@@ -132,8 +137,11 @@
                                 <Font size="18.0"/>
                             </font>
                         </Label>
-                        <JFXButton prefWidth="32" text="+" textAlignment="CENTER" onAction="#handleClickAddItem"/>
-                        <JFXButton prefWidth="32" text="-" textAlignment="CENTER" onAction="#handleClickRemoveItem"/>
+                        <JFXButton styleClass="counter-button,minus-button" textAlignment="CENTER"
+                                   onAction="#handleClickRemoveItem"/>
+                        <JFXButton styleClass="counter-button,plus-button" textAlignment="CENTER"
+                                   onAction="#handleClickAddItem"/>
+
 
                     </FlowPane>
                     <ItemTable fx:id="items" GridPane.columnIndex="0" GridPane.rowIndex="21"/>
@@ -145,8 +153,11 @@
                                 <Font size="18.0"/>
                             </font>
                         </Label>
-                        <JFXButton prefWidth="32" text="+" textAlignment="CENTER" onAction="#handleClickAddAbility"/>
-                        <JFXButton prefWidth="32" text="-" textAlignment="CENTER" onAction="#handleClickRemoveAbility"/>
+                        <JFXButton styleClass="counter-button,minus-button" textAlignment="CENTER"
+                                   onAction="#handleClickRemoveAbility"/>
+                        <JFXButton styleClass="counter-button,plus-button" textAlignment="CENTER"
+                                   onAction="#handleClickAddAbility"/>
+
                     </FlowPane>
                     <AbilityTable GridPane.columnIndex="1" GridPane.rowIndex="21"/>
 

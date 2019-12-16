@@ -3,21 +3,19 @@ package fr.arsene.charsheet.ui.components;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXProgressBar;
 import com.jfoenix.controls.JFXTextField;
-import fr.arsene.charsheet.ui.events.ValueUpdatedEvent;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ObjectPropertyBase;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
 public class CharacteristicBar extends Component {
 
     @FXML
-    private JFXTextField field;
+    private TextField field;
 
     @FXML
     private JFXProgressBar bar;
@@ -28,24 +26,6 @@ public class CharacteristicBar extends Component {
     @FXML
     private JFXButton minus;
 
-    private ObjectProperty<EventHandler<ValueUpdatedEvent>> onValueUpdated = new ObjectPropertyBase<EventHandler<ValueUpdatedEvent>>() {
-        @Override
-        public Object getBean() {
-            return CharacteristicBar.this;
-        }
-
-
-        @Override
-        protected void invalidated() {
-            setEventHandler(new EventType<>(Event.ANY, "onValueUpdated"), get());
-        }
-
-
-        @Override
-        public String getName() {
-            return "onValueUpdated";
-        }
-    };
 
     private SimpleFloatProperty value = new SimpleFloatProperty();
 
@@ -53,13 +33,10 @@ public class CharacteristicBar extends Component {
 
     public CharacteristicBar() {
         super("CharacteristicBar.fxml");
-        value.addListener(
-                newValue -> {
-                    ValueUpdatedEvent event = new ValueUpdatedEvent();
-                    event.setValue(value.get());
-                    fireEvent(event);
-                }
-        );
+
+//        plus.setGraphic(new ImageView(new Image(this.getClass().getClassLoader().getResourceAsStream("images/add.png"), 8, 8, true, true)));
+//        minus.setGraphic(new ImageView(new Image(this.getClass().getClassLoader().getResourceAsStream("images/remove.png"), 8, 8, true, true)));
+//
 
         bar.progressProperty().bind(this.value);
         if (this.readonly) {
@@ -103,17 +80,5 @@ public class CharacteristicBar extends Component {
         this.field.setEditable(!readonly);
         this.minus.setVisible(!readonly);
         this.plus.setVisible(!readonly);
-    }
-
-    public EventHandler<ValueUpdatedEvent> getOnValueUpdated() {
-        return onValueUpdated.get();
-    }
-
-    public ObjectProperty<EventHandler<ValueUpdatedEvent>> onValueUpdatedProperty() {
-        return onValueUpdated;
-    }
-
-    public void setOnValueUpdated(EventHandler<ValueUpdatedEvent> onValueUpdated) {
-        this.onValueUpdated.set(onValueUpdated);
     }
 }

@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.util.converter.NumberStringConverter;
 
 public class EnergyBar extends Component {
@@ -20,10 +21,10 @@ public class EnergyBar extends Component {
     private JFXProgressBar bar;
 
     @FXML
-    private JFXTextField field;
+    private TextField field;
 
     @FXML
-    JFXTextField maxField;
+    TextField maxField;
 
     public EnergyBar() {
         super("EnergyBar.fxml");
