@@ -146,9 +146,4 @@ public class MainController {
     public void handleClickRemoveAbility(ActionEvent actionEvent) {
         this.abilities.remove(this.abilities.getSelectionModel().getSelectedItem());
     }
-
-    @FXML
-    public void handleChangeCou(ValueUpdatedEvent event) {
-        System.out.println("=======================");
-    }
 }
