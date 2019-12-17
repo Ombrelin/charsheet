@@ -1,8 +1,8 @@
 package fr.arsene.charsheet.ui.components;
 
-import com.jfoenix.controls.JFXTextField;
 import fr.arsene.charsheet.ui.adapters.AbilityAdapter;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Component;
@@ -15,10 +15,10 @@ public class AbilityDialog extends AbstractDialog<AbilityAdapter> {
     private VBox dialog;
 
     @FXML
-    JFXTextField name;
+    private TextField name;
 
     @FXML
-    JFXTextField description;
+    private TextField description;
 
     @FXML
     @Override

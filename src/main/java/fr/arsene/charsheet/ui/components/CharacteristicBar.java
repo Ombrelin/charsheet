@@ -2,15 +2,13 @@ package fr.arsene.charsheet.ui.components;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXProgressBar;
-import com.jfoenix.controls.JFXTextField;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
+import javafx.util.converter.NumberStringConverter;
 
 public class CharacteristicBar extends Component {
 
@@ -26,19 +24,17 @@ public class CharacteristicBar extends Component {
     @FXML
     private JFXButton minus;
 
-
-    private SimpleFloatProperty value = new SimpleFloatProperty();
+    private SimpleIntegerProperty value = new SimpleIntegerProperty();
+    private SimpleFloatProperty barValue = new SimpleFloatProperty();
 
     private boolean readonly = false;
 
     public CharacteristicBar() {
         super("CharacteristicBar.fxml");
+        this.bar.progressProperty().bind(this.barValue);
+        Bindings.bindBidirectional(this.field.textProperty(), this.value, new NumberStringConverter());
 
-//        plus.setGraphic(new ImageView(new Image(this.getClass().getClassLoader().getResourceAsStream("images/add.png"), 8, 8, true, true)));
-//        minus.setGraphic(new ImageView(new Image(this.getClass().getClassLoader().getResourceAsStream("images/remove.png"), 8, 8, true, true)));
-//
-
-        bar.progressProperty().bind(this.value);
+        this.value.addListener(event -> this.barValue.set(this.getValue() / 20f));
         if (this.readonly) {
             this.field.setEditable(false);
             this.minus.setVisible(false);
@@ -47,28 +43,17 @@ public class CharacteristicBar extends Component {
     }
 
     @FXML
-    private void handleInput(KeyEvent event) {
-        try {
-            value.set(Float.parseFloat(field.getText()) / 20f);
-        } catch (NumberFormatException exception) {
-            field.setText("");
+    private void handleClickMinus(ActionEvent event) {
+        if (this.valueProperty().get() > 0) {
+            this.valueProperty().set(this.valueProperty().get() - 1);
         }
     }
 
-    public float getValue() {
-        return value.get() * 20f;
-    }
-
     @FXML
-    public void handleClickPlus(ActionEvent event) {
-        this.value.set((this.value.get() * 20f + 1f) / 20f);
-        this.field.setText(String.valueOf(this.value.get() * 20));
-    }
-
-    @FXML
-    public void handleClickMinus(ActionEvent event) {
-        this.value.set((this.value.get() * 20f - 1f) / 20f);
-        this.field.setText(String.valueOf(this.value.get() * 20));
+    private void handleClickPlus(ActionEvent event) {
+        if (this.valueProperty().get() < 20f) {
+            this.valueProperty().set(this.valueProperty().get() + 1);
+        }
     }
 
     public boolean isReadonly() {
@@ -80,5 +65,17 @@ public class CharacteristicBar extends Component {
         this.field.setEditable(!readonly);
         this.minus.setVisible(!readonly);
         this.plus.setVisible(!readonly);
+    }
+
+    public int getValue() {
+        return value.get();
+    }
+
+    public SimpleIntegerProperty valueProperty() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value.set(value);
     }
 }

@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -31,6 +32,7 @@ public class CharsheetFX extends Application {
         scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
         stage.setMinWidth(1300);
         stage.setMinHeight(780);
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         stage.setTitle("CharSheet");
         stage.setScene(scene);
         stage.show();

@@ -1,17 +1,18 @@
 package fr.arsene.charsheet.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import fr.arsene.charsheet.model.character.Character;
 import fr.arsene.charsheet.model.character.Gender;
 import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
 import fr.arsene.charsheet.ui.components.*;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TextField;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,13 @@ public class MainController {
     @Autowired
     CharacterService characterService;
 
+    @Autowired
+    private FxWeaver fxWeaver;
+
     // FXML Controls
+
+    @FXML
+    private TextField name;
 
     @FXML
     private JFXComboBox<Label> comboboxGender;
@@ -44,9 +51,25 @@ public class MainController {
     private JFXComboBox<Label> comboboxProfession;
 
     @FXML
-    private JFXButton saveButton;
+    private EnergyBar lifeBar;
 
-    // Characteristics
+    @FXML
+    private EnergyBar manaBar;
+
+    @FXML
+    private Counter golds;
+
+    @FXML
+    private Counter silvers;
+
+    @FXML
+    private Counter coppers;
+
+    @FXML
+    private Counter level;
+
+    @FXML
+    private Counter fate;
 
     @FXML
     private CharacteristicBar courageBar;
@@ -70,6 +93,15 @@ public class MainController {
     private CharacteristicBar blockBar;
 
     @FXML
+    private CharacteristicBar physBar;
+
+    @FXML
+    private CharacteristicBar psyBar;
+
+    @FXML
+    private CharacteristicBar resistBar;
+
+    @FXML
     private ProtectionTable protections;
 
     @FXML
@@ -81,22 +113,149 @@ public class MainController {
     @FXML
     private AbilityTable abilities;
 
-    @Autowired
-    private FxWeaver fxWeaver;
+    @FXML
+    private ProgressIndicator loader;
 
     @FXML
     public void initialize() {
-        this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(gender -> new Label(gender.toString())).collect(Collectors.toList()));
-        //this.comboboxGender.setFocusColor(new Color(50f / 255f, 50 / 255f, 50 / 255f, 1));
 
+
+        this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(gender -> new Label(gender.toString())).collect(Collectors.toList()));
         GameModel model = gameModelService.getGameModel();
         this.comboboxRace.getItems().addAll(model.getRaces().stream().map(race -> new Label(race.getName())).collect(Collectors.toList()));
         this.comboboxProfession.getItems().addAll(model.getProfessions().stream().map(profession -> new Label(profession.getName())).collect(Collectors.toList()));
+
+        this.courageBar.valueProperty().addListener(this::updateCalculatedCharacs);
+        this.intellBar.valueProperty().addListener(this::updateCalculatedCharacs);
+        this.charBar.valueProperty().addListener(this::updateCalculatedCharacs);
+        this.adrBar.valueProperty().addListener(this::updateCalculatedCharacs);
+        this.forceBar.valueProperty().addListener(this::updateCalculatedCharacs);
+
+        this.loader.setVisible(false);
+    }
+
+    private void updateCalculatedCharacs(ObservableValue<? extends Number> observableValue, Number object, Number object1) {
+        this.physBar.setValue((this.intellBar.getValue() + this.adrBar.getValue()) / 2);
+        this.psyBar.setValue((this.intellBar.getValue() + this.charBar.getValue()) / 2);
+        this.resistBar.setValue((this.intellBar.getValue() + this.courageBar.getValue() + this.forceBar.getValue()) / 3);
+    }
+
+    private Character character = new Character();
+
+    @FXML
+    private void handleClickLoad(ActionEvent event) {
+        this.loader.setVisible(true);
+        this.character = this.characterService.load();
+
+        if (this.character != null) {
+            // Base
+            this.name.setText(character.getName());
+
+
+            comboboxGender.getSelectionModel().select(comboboxGender.getItems().stream().filter(e -> e.getText().equals(this.character.getGender().toString())).collect(Collectors.toList()).get(0));
+            comboboxRace.getSelectionModel().select(comboboxRace.getItems().stream().filter(e -> e.getText().equals(this.character.getRace().getName())).collect(Collectors.toList()).get(0));
+            comboboxProfession.getSelectionModel().select(comboboxProfession.getItems().stream().filter(e -> e.getText().equals(this.character.getProfession().getName())).collect(Collectors.toList()).get(0));
+
+
+            // Energies
+            this.lifeBar.setMax(character.getMaxHealth());
+            this.manaBar.setMax(character.getMaxMana());
+            this.lifeBar.setValue(character.getCurrentHealth());
+            this.manaBar.setValue(character.getCurrentMana());
+
+            // Currencies
+            this.golds.setBalance(character.getGolds());
+            this.silvers.setBalance(character.getSilvers());
+            this.coppers.setBalance(character.getCoppers());
+
+            // Fate
+            this.fate.setBalance(character.getFatePoints());
+
+            // Level
+            this.level.setBalance(character.getExperience());
+
+            // Characteristics
+            this.courageBar.setValue(character.getCourage());
+            this.intellBar.setValue(character.getIntelligence());
+            this.charBar.setValue(character.getCharisma());
+            this.adrBar.setValue(character.getAgility());
+            this.forceBar.setValue(character.getStrength());
+            this.attackBar.setValue(character.getAttack());
+            this.blockBar.setValue(character.getBlock());
+
+            // Stuff
+
+            this.weapons.setAll(character.getWeapons());
+            this.items.setAll(character.getInventory());
+            this.protections.setAll(character.getProtections());
+
+            character.getWeapons().forEach(System.out::println);
+            this.weapons.getAll().forEach(System.out::println);
+
+            // Abilities
+            this.abilities.setAll(character.getAbilities());
+
+        }
+        this.loader.setVisible(false);
+
     }
 
     @FXML
     private void handleClickSave(ActionEvent event) {
-        System.out.println(forceBar.getValue());
+        this.loader.setVisible(true);
+        GameModel model = gameModelService.getGameModel();
+
+        // Base
+        character.setName(this.name.getText());
+        if (this.comboboxGender.getSelectionModel().getSelectedItem() != null) {
+            character.setGender(Gender.valueOf(this.comboboxGender.getSelectionModel().getSelectedItem().getText()));
+        }
+        if (comboboxRace.getSelectionModel().getSelectedItem() != null) {
+            character.setRace(model.getRaces().stream().filter(e -> e.getName().equals(comboboxRace.getSelectionModel().getSelectedItem().getText())).collect(Collectors.toList()).get(0));
+
+        }
+        if (comboboxProfession.getSelectionModel().getSelectedItem() != null) {
+            character.setProfession(model.getProfessions().stream().filter(e -> e.getName().equals(comboboxProfession.getSelectionModel().getSelectedItem().getText())).collect(Collectors.toList()).get(0));
+
+        }
+
+        // Energies
+        character.setMaxHealth(this.lifeBar.getMax());
+        character.setMaxMana(this.manaBar.getMax());
+        character.setCurrentHealth(this.lifeBar.getValue());
+        character.setCurrentMana(this.manaBar.getValue());
+
+
+        // Currencies
+        character.setGolds(this.golds.getBalance());
+        character.setSilvers(this.silvers.getBalance());
+        character.setCoppers(this.coppers.getBalance());
+
+        // Fate
+        character.setFatePoints(this.fate.getBalance());
+
+        // Level
+        character.setExperience(this.level.getBalance());
+
+        // Characteristics
+        character.setCourage(this.courageBar.getValue());
+        character.setIntelligence(this.intellBar.getValue());
+        character.setCharisma(this.charBar.getValue());
+        character.setAgility(this.adrBar.getValue());
+        character.setStrength(this.forceBar.getValue());
+        character.setAttack(this.attackBar.getValue());
+        character.setBlock(this.blockBar.getValue());
+
+        // Stuff
+        character.setWeapons(this.weapons.getAll());
+        character.setInventory(this.items.getAll());
+        character.setProtections(this.protections.getAll());
+
+        // Abilities
+        character.setAbilities(this.abilities.getAll());
+
+        this.characterService.save(character);
+        this.loader.setVisible(false);
     }
 
     @FXML
@@ -146,4 +305,5 @@ public class MainController {
     public void handleClickRemoveAbility(ActionEvent actionEvent) {
         this.abilities.remove(this.abilities.getSelectionModel().getSelectedItem());
     }
+
 }

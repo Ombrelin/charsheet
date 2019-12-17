@@ -25,6 +25,7 @@
      * text; selected items in menus, lists, trees, and tables; progress bars */
     -fx-accent: rgb(0, 102, 204);
 
+
     /* color of non-focused yet selected elements */
     -fx-selection-bar-non-focused: rgb(50, 50, 50);
     -fx-faint-focus-color: transparent;
@@ -86,13 +87,28 @@
 
 /* Custom CSS*/
 
+.jfx-combo-box .label {
+    -fx-text-fill: white !important;
+}
 
 .jfx-button{
     -fx-cursor: hand;
 }
 
+.cancel-button {
+    -fx-background-color: #424242;
+}
+
+.cancel-button:hover{
+    -fx-background-color: #616161;
+}
+
 .counter-button {
     -fx-background-radius: 5em !important;
+    -fx-max-width: 24px;
+    -fx-min-width: 24px;
+    -fx-max-height: 24px;
+    -fx-min-height: 24px;
     -fx-background-size: 16px 16px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;

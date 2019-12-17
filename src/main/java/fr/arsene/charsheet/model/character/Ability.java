@@ -10,6 +10,9 @@ public class Ability {
         this.description = description;
     }
 
+    public Ability() {
+    }
+
     public String getName() {
         return name;
     }

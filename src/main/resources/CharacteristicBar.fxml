@@ -18,7 +18,7 @@
         <JFXButton styleClass="counter-button,minus-button" fx:id="minus" GridPane.columnIndex="0"
                    onAction="#handleClickMinus"/>
         <TextField GridPane.columnIndex="1" fx:id="field" prefWidth="32" alignment="CENTER"
-                   onKeyReleased="#handleInput"/>
+                   />
         <JFXButton styleClass="counter-button,plus-button" fx:id="plus" GridPane.columnIndex="2"
                    onAction="#handleClickPlus"/>
     </FlowPane>

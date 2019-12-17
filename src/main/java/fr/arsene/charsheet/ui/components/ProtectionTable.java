@@ -4,10 +4,16 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import fr.arsene.charsheet.model.character.Protection;
 import fr.arsene.charsheet.ui.adapters.ProtectionAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProtectionTable extends JFXTreeTableView<ProtectionAdapter> {
 
@@ -53,5 +59,16 @@ public class ProtectionTable extends JFXTreeTableView<ProtectionAdapter> {
 
     public void remove(TreeItem<ProtectionAdapter> selectedItem) {
         protections.remove(selectedItem.getValue());
+    }
+
+    public List<Protection> getAll() {
+        return this.protections.stream().map(ProtectionAdapter::toProtection).collect(Collectors.toList());
+    }
+
+    public void setAll(List<Protection> protections) {
+        this.protections.clear();
+        for(Protection protection:protections){
+            this.add(new ProtectionAdapter(protection));
+        }
     }
 }

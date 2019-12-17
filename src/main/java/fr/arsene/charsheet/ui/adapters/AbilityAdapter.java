@@ -1,6 +1,7 @@
 package fr.arsene.charsheet.ui.adapters;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import fr.arsene.charsheet.model.character.Ability;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -12,6 +13,12 @@ public class AbilityAdapter extends RecursiveTreeObject<AbilityAdapter> {
     public AbilityAdapter() {
         this.name = new SimpleStringProperty();
         this.description = new SimpleStringProperty();
+    }
+
+    public AbilityAdapter(Ability e) {
+        this();
+        this.setName(e.getName());
+        this.setDescription(e.getDescription());
     }
 
     public String getName() {
@@ -36,5 +43,9 @@ public class AbilityAdapter extends RecursiveTreeObject<AbilityAdapter> {
 
     public void setDescription(String description) {
         this.description.set(description);
+    }
+
+    public Ability toAbility() {
+        return new Ability(name.get(), description.get());
     }
 }

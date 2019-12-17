@@ -9,6 +9,9 @@ public class Protection extends Equipment {
         this.defense = defense;
     }
 
+    public Protection() {
+    }
+
     public int getDefense() {
         return defense;
     }

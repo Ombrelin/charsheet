@@ -10,6 +10,9 @@ public abstract class Equipment extends Item {
         this.breakthrough = breakthrough;
     }
 
+    public Equipment() {
+    }
+
     public int getBreakthrough() {
         return breakthrough;
     }

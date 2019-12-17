@@ -3,17 +3,20 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
-<VBox fx:id="dialog" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.232-ea"
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<VBox fx:id="dialog" alignment="CENTER" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.232-ea"
       xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="fr.arsene.charsheet.ui.components.AbilityDialog" spacing="16"
+      fx:controller="fr.arsene.charsheet.ui.components.AbilityDialog" spacing="16"
 >
     <padding>
         <Insets top="32" bottom="32" left="32" right="32"/>
     </padding>
 
-    <JFXTextField fx:id="name" labelFloat="true" promptText="Nom"/>
-    <JFXTextField fx:id="description" labelFloat="true" promptText="Description"/>
+    <HBox><Label prefWidth="256" text="Nom : "/><TextField fx:id="name" promptText="Nom"/></HBox>
+    <HBox><Label prefWidth="256" text="Description : "/><TextField fx:id="description" promptText="Description"/></HBox>
 
-    <JFXButton prefWidth="Infinity" text="Annuler" onAction="#cancel"/>
+    <JFXButton prefWidth="Infinity" styleClass="cancel-button" text="Annuler" onAction="#cancel"/>
     <JFXButton prefWidth="Infinity" text="Valider" onAction="#validate"/>
 </VBox>

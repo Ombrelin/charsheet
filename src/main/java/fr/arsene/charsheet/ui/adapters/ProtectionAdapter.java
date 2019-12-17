@@ -87,4 +87,8 @@ public class ProtectionAdapter extends RecursiveTreeObject<ProtectionAdapter> {
     public void setDefense(int defense) {
         this.defense.set(defense);
     }
+
+    public Protection toProtection() {
+        return new Protection(name.get(), notes.get(), weight.get(), breakthrough.get(), defense.get());
+    }
 }

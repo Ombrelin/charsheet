@@ -26,18 +26,17 @@ public class Character {
 
     // Characteristics
 
-    private Characteristic courage;
-    private Characteristic intelligence;
-    private Characteristic charisma;
-    private Characteristic agility;
-    private Characteristic strength;
-
-    private Characteristic attack;
-    private Characteristic block;
+    private int courage;
+    private int intelligence;
+    private int charisma;
+    private int agility;
+    private int strength;
+    private int attack;
+    private int block;
 
     // Abilities
 
-    List<Ability> abilities;
+    private List<Ability> abilities;
 
     // Belongings
 
@@ -46,9 +45,11 @@ public class Character {
 
     private List<Item> inventory;
 
+    private int maxWeightCarried;
+
     // Constructors
 
-    public Character(String name, Gender gender, Race race, Profession profession, int maxHealth, int currentHealth, int maxMana, int currentMana, int experience, int fatePoints, int golds, int silvers, int coppers, Characteristic courage, Characteristic intelligence, Characteristic charisma, Characteristic agility, Characteristic strength, Characteristic attack, Characteristic block, List<Ability> abilities, List<Protection> protections, List<Weapon> weapons, List<Item> inventory) {
+    public Character(String name, Gender gender, Race race, Profession profession, int maxHealth, int currentHealth, int maxMana, int currentMana, int experience, int fatePoints, int golds, int silvers, int coppers, int courage, int intelligence, int charisma, int agility, int strength, int attack, int block, List<Ability> abilities, List<Protection> protections, List<Weapon> weapons, List<Item> inventory) {
         this.name = name;
         this.gender = gender;
         this.race = race;
@@ -73,6 +74,11 @@ public class Character {
         this.protections = protections;
         this.weapons = weapons;
         this.inventory = inventory;
+    }
+
+    public Character() {
+
+
     }
 
 
@@ -194,59 +200,60 @@ public class Character {
         this.coppers = coppers;
     }
 
-    public Characteristic getCourage() {
+
+    public int getCourage() {
         return courage;
     }
 
-    public void setCourage(Characteristic courage) {
+    public void setCourage(int courage) {
         this.courage = courage;
     }
 
-    public Characteristic getIntelligence() {
+    public int getIntelligence() {
         return intelligence;
     }
 
-    public void setIntelligence(Characteristic intelligence) {
+    public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
 
-    public Characteristic getCharisma() {
+    public int getCharisma() {
         return charisma;
     }
 
-    public void setCharisma(Characteristic charisma) {
+    public void setCharisma(int charisma) {
         this.charisma = charisma;
     }
 
-    public Characteristic getAgility() {
+    public int getAgility() {
         return agility;
     }
 
-    public void setAgility(Characteristic agility) {
+    public void setAgility(int agility) {
         this.agility = agility;
     }
 
-    public Characteristic getStrength() {
+    public int getStrength() {
         return strength;
     }
 
-    public void setStrength(Characteristic strength) {
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 
-    public Characteristic getAttack() {
+    public int getAttack() {
         return attack;
     }
 
-    public void setAttack(Characteristic attack) {
+    public void setAttack(int attack) {
         this.attack = attack;
     }
 
-    public Characteristic getBlock() {
+    public int getBlock() {
         return block;
     }
 
-    public void setBlock(Characteristic block) {
+    public void setBlock(int block) {
         this.block = block;
     }
 
@@ -272,5 +279,13 @@ public class Character {
 
     public void setInventory(List<Item> inventory) {
         this.inventory = inventory;
+    }
+
+    public int getMaxWeightCarried() {
+        return maxWeightCarried;
+    }
+
+    public void setMaxWeightCarried(int maxWeightCarried) {
+        this.maxWeightCarried = maxWeightCarried;
     }
 }

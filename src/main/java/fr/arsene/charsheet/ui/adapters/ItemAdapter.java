@@ -1,6 +1,7 @@
 package fr.arsene.charsheet.ui.adapters;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import fr.arsene.charsheet.model.character.Item;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,6 +17,13 @@ public class ItemAdapter extends RecursiveTreeObject<ItemAdapter> {
         this.name = new SimpleStringProperty();
         this.notes = new SimpleStringProperty();
         this.weight = new SimpleFloatProperty();
+    }
+
+    public ItemAdapter(Item item) {
+        this();
+        this.setName(item.getName());
+        this.setNotes(item.getNotes());
+        this.setWeight(item.getWeight());
     }
 
     public String getName() {
@@ -52,5 +60,9 @@ public class ItemAdapter extends RecursiveTreeObject<ItemAdapter> {
 
     public void setWeight(float weight) {
         this.weight.set(weight);
+    }
+
+    public Item toItem() {
+        return new Item(name.get(), notes.get(), weight.get());
     }
 }

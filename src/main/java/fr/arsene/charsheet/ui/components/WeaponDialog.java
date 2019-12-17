@@ -1,9 +1,9 @@
 package fr.arsene.charsheet.ui.components;
 
-import com.jfoenix.controls.JFXTextField;
 import fr.arsene.charsheet.ui.adapters.WeaponAdapter;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.util.converter.NumberStringConverter;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -17,19 +17,22 @@ public class WeaponDialog extends AbstractDialog<WeaponAdapter> {
     private VBox dialog;
 
     @FXML
-    JFXTextField name;
+    private TextField name;
 
     @FXML
-    JFXTextField notes;
+    private TextField notes;
 
     @FXML
-    JFXTextField poids;
+    private TextField poids;
 
     @FXML
-    JFXTextField rupture;
+    private TextField rupture;
 
     @FXML
-    JFXTextField damage;
+    private TextField damage;
+
+    @FXML
+    private TextField refire;
 
     @FXML
     @Override
@@ -42,6 +45,8 @@ public class WeaponDialog extends AbstractDialog<WeaponAdapter> {
         Bindings.bindBidirectional(poids.textProperty(), this.getResult().weightProperty(), new NumberStringConverter("###"));
         Bindings.bindBidirectional(rupture.textProperty(), this.getResult().breakthroughProperty(), new NumberStringConverter("###"));
         Bindings.bindBidirectional(damage.textProperty(), this.getResult().damageProperty(), new NumberStringConverter("###"));
+        Bindings.bindBidirectional(refire.textProperty(), this.getResult().refireRateProperty(), new NumberStringConverter("###"));
+
 
         this.getScene().setRoot(dialog);
     }

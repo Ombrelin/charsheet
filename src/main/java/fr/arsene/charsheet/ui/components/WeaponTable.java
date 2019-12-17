@@ -4,13 +4,19 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import fr.arsene.charsheet.model.character.Weapon;
 import fr.arsene.charsheet.ui.adapters.WeaponAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class WeaponTable extends JFXTreeTableView<WeaponAdapter> {
 
+    private JFXTreeTableColumn<WeaponAdapter, Integer> refireColumn;
     private JFXTreeTableColumn<WeaponAdapter, String> nameColumn;
     private JFXTreeTableColumn<WeaponAdapter, String> notesColmun;
     private JFXTreeTableColumn<WeaponAdapter, Float> weightColumn;
@@ -41,7 +47,11 @@ public class WeaponTable extends JFXTreeTableView<WeaponAdapter> {
         this.attackColumn.setCellValueFactory(param -> param.getValue().getValue().damageProperty().asObject());
         this.attackColumn.setPrefWidth(75);
 
-        this.getColumns().setAll(nameColumn, notesColmun, weightColumn, breakthoughColumn, attackColumn);
+        this.refireColumn = new JFXTreeTableColumn<WeaponAdapter, Integer>("Cadence");
+        this.refireColumn.setCellValueFactory(param -> param.getValue().getValue().refireRateProperty().asObject());
+        this.refireColumn.setPrefWidth(75);
+
+        this.getColumns().setAll(nameColumn, notesColmun, weightColumn, breakthoughColumn, attackColumn, refireColumn);
         final TreeItem<WeaponAdapter> root = new RecursiveTreeItem<WeaponAdapter>(this.weapons, RecursiveTreeObject::getChildren);
         this.setRoot(root);
         this.setShowRoot(false);
@@ -53,5 +63,16 @@ public class WeaponTable extends JFXTreeTableView<WeaponAdapter> {
 
     public void remove(TreeItem<WeaponAdapter> selectedItem) {
         this.weapons.remove(selectedItem);
+    }
+
+    public List<Weapon> getAll(){
+        return this.weapons.stream().map(WeaponAdapter::toWeapon).collect(Collectors.toList());
+    }
+
+    public void setAll(List<Weapon> weapons) {
+        this.weapons.clear();
+        for(Weapon weapon:weapons){
+            this.weapons.add(new WeaponAdapter(weapon));
+        }
     }
 }

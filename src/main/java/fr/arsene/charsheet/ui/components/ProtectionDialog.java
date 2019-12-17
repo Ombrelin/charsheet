@@ -1,9 +1,9 @@
 package fr.arsene.charsheet.ui.components;
 
-import com.jfoenix.controls.JFXTextField;
 import fr.arsene.charsheet.ui.adapters.ProtectionAdapter;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.util.converter.NumberStringConverter;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -16,19 +16,19 @@ public class ProtectionDialog extends AbstractDialog<ProtectionAdapter> {
     private VBox dialog;
 
     @FXML
-    JFXTextField name;
+    private TextField name;
 
     @FXML
-    JFXTextField notes;
+    private TextField notes;
 
     @FXML
-    JFXTextField poids;
+    private TextField poids;
 
     @FXML
-    JFXTextField rupture;
+    private TextField rupture;
 
     @FXML
-    JFXTextField defense;
+    private TextField defense;
 
 
     @FXML

@@ -18,12 +18,12 @@
     </columnConstraints>
 
     <FlowPane GridPane.columnIndex="0" alignment="CENTER" hgap="8">
-        <JFXButton styleClass="counter-button,minus-button" alignment="CENTER" text="-" prefWidth="32"
+        <JFXButton styleClass="counter-button,minus-button" alignment="CENTER" prefWidth="32"
                    onAction="#handleClickMinus"/>
 
         <TextField prefWidth="32" fx:id="field" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-        <JFXButton styleClass="counter-button,plus-button" alignment="CENTER" text="+" prefWidth="32"
+        <JFXButton styleClass="counter-button,plus-button" alignment="CENTER" prefWidth="32"
                    onAction="#handleClickPlus"/>
     </FlowPane>
 

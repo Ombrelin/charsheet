@@ -1,6 +1,5 @@
 package fr.arsene.charsheet.ui.components;
 
-import com.jfoenix.controls.JFXTextField;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -31,12 +30,12 @@ public class Counter extends Component {
     }
 
     @FXML
-    public void handleClickMinus(ActionEvent event){
+    public void handleClickMinus(ActionEvent event) {
         this.setBalance(this.getBalance() - 1);
     }
 
     @FXML
-    public void handleClickPlus(ActionEvent event){
+    public void handleClickPlus(ActionEvent event) {
         this.setBalance(this.getBalance() + 1);
     }
 

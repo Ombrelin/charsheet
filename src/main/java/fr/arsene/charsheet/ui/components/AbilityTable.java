@@ -4,10 +4,15 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import fr.arsene.charsheet.model.character.Ability;
 import fr.arsene.charsheet.ui.adapters.AbilityAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AbilityTable extends JFXTreeTableView<AbilityAdapter> {
 
@@ -41,4 +46,14 @@ public class AbilityTable extends JFXTreeTableView<AbilityAdapter> {
     }
 
 
+    public List<Ability> getAll() {
+        return this.items.stream().map(AbilityAdapter::toAbility).collect(Collectors.toList());
+    }
+
+    public void setAll(List<Ability> abilities) {
+        this.items.clear();
+        for(Ability ability:abilities){
+            this.items.addAll(new AbilityAdapter(ability));
+        }
+    }
 }

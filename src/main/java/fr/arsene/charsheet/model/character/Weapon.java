@@ -11,11 +11,22 @@ public class Weapon extends Equipment {
         this.refireRate = refireRate;
     }
 
+    public Weapon() {
+    }
+
     public int getDamages() {
         return damages;
     }
 
     public void setDamages(int damages) {
         this.damages = damages;
+    }
+
+    public int getRefireRate() {
+        return refireRate;
+    }
+
+    public void setRefireRate(int refireRate) {
+        this.refireRate = refireRate;
     }
 }

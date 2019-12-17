@@ -4,10 +4,15 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import fr.arsene.charsheet.model.character.Item;
 import fr.arsene.charsheet.ui.adapters.ItemAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ItemTable extends JFXTreeTableView<ItemAdapter> {
 
@@ -44,4 +49,14 @@ public class ItemTable extends JFXTreeTableView<ItemAdapter> {
         items.remove(selectedItem.getValue());
     }
 
+    public List<Item> getAll() {
+        return this.items.stream().map(ItemAdapter::toItem).collect(Collectors.toList());
+    }
+
+    public void setAll(List<Item> inventory) {
+        this.items.clear();
+        for(Item item:inventory){
+            this.items.add(new ItemAdapter(item));
+        }
+    }
 }

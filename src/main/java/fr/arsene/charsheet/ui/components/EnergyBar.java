@@ -1,7 +1,6 @@
 package fr.arsene.charsheet.ui.components;
 
 import com.jfoenix.controls.JFXProgressBar;
-import com.jfoenix.controls.JFXTextField;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;

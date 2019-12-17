@@ -2,9 +2,11 @@ package fr.arsene.charsheet.ui.components;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.function.Consumer;
 
@@ -18,6 +20,7 @@ public abstract class AbstractDialog<T> {
     public void initialize() {
         this.stage = new Stage();
         this.stage.initModality(Modality.APPLICATION_MODAL);
+        this.stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         this.scene = new Scene(new FlowPane());
         this.stage.setScene(this.scene);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
@@ -29,6 +32,8 @@ public abstract class AbstractDialog<T> {
         stage.show();
     }
 
+
+
     @FXML
     public void cancel() {
         this.stage.close();
@@ -38,6 +43,14 @@ public abstract class AbstractDialog<T> {
     public void validate() {
         this.validationHandler.accept(this.result);
         this.stage.close();
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
     public Scene getScene() {
