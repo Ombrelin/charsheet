@@ -1,24 +1,106 @@
 {
-  "professions" : [
+  "professions": [
     {
       "name": "Paladin",
       "notes": "Personnage doué pour le combat au corps à corps, charismatique, pouvant faire appel occasionnellement à des prodiges."
-    }
-    ,
+    },
     {
       "name": "Guerrier",
       "notes": "Personnage destiné à la baston en première ligne."
+    },
+    {
+      "name": "Ninja, Assassin",
+      "notes": ""
+    },
+    {
+      "name": "Voleur",
+      "notes": ""
+    },
+    {
+      "name": "Prêtre",
+      "notes": ""
+    },
+    {
+      "name": "Mage, Sorcier",
+      "notes": ""
+    },
+    {
+      "name": "Ranger",
+      "notes": ""
+    },
+    {
+      "name": "Ménestrel",
+      "notes": ""
+    },
+    {
+      "name": "Pirate",
+      "notes": ""
+    },
+    {
+      "name": "Marchand",
+      "notes": ""
+    },
+    {
+      "name": "Ingénieur",
+      "notes": ""
+    },
+    {
+      "name": "Bourgeois",
+      "notes": ""
     }
   ],
-  "races" : [
+  "races": [
     {
       "name": "Humain",
       "notes": "L'humain est le personnage le plus polyvalent, il peut faire n'importe quoi, s'équiper comme il veut"
-    }
-    ,
+    },
     {
       "name": "Elfe Sylvain",
       "notes": "Personnage doué en milieu naturel, dangereux sur les attaques à distance. Pas d'arme à 2 mains."
+    },
+    {
+      "name": "Barbare",
+      "notes": "Le Barbare a une endurance très élevée. Il n'aime pas tout ce qui est compliqué. Il résiste au froid, au chaud, à la douleur.\nC'est un humain différent des autres, car plus robuste et beaucoup moins polyvalent."
+    },
+    {
+      "name": "Nain",
+      "notes": ""
+    },
+    {
+      "name": "Haut Elfe\n",
+      "notes": ""
+    },
+    {
+      "name": "Demi-Elfe",
+      "notes": ""
+    },
+    {
+      "name": "Elfe Noir",
+      "notes": ""
+    },
+    {
+      "name": "Orque",
+      "notes": ""
+    },
+    {
+      "name": "Demi-Orque",
+      "notes": ""
+    },
+    {
+      "name": "Gobelin",
+      "notes": ""
+    },
+    {
+      "name": "OGRE",
+      "notes": ""
+    },
+    {
+      "name": "Semi-Homme",
+      "notes": ""
+    },
+    {
+      "name": "Gnôme des forêts du Nord",
+      "notes": ""
     }
   ]
 }
