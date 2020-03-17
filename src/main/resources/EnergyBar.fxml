@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXProgressBar?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 <fx:root xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
          type="GridPane">
     <columnConstraints>
 
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="15.0" prefWidth="100.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="75.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0"/>
 
 
     </columnConstraints>
 
     <FlowPane GridPane.columnIndex="0" alignment="CENTER" hgap="8">
-        <JFXButton styleClass="counter-button,minus-button" alignment="CENTER" prefWidth="32"
+        <Button defaultButton="true" styleClass="counter-button,minus-button" alignment="CENTER" prefWidth="32"
                    onAction="#handleClickMinus"/>
 
-        <TextField prefWidth="32" fx:id="field" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <TextField prefWidth="64" fx:id="field" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-        <JFXButton styleClass="counter-button,plus-button" alignment="CENTER" prefWidth="32"
-                   onAction="#handleClickPlus"/>
+        <Button defaultButton="true" styleClass="counter-button,plus-button" alignment="CENTER" prefWidth="32"
+                onAction="#handleClickPlus"/>
     </FlowPane>
 
-    <JFXProgressBar GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="bar" prefHeight="16.0" prefWidth="Infinity"
+    <ProgressBar GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="bar" prefHeight="16.0" prefWidth="Infinity"
     />
 
     <HBox GridPane.rowIndex="0" GridPane.columnIndex="2" alignment="CENTER">
-        <TextField fx:id="maxField" alignment="CENTER" prefWidth="32"/>
+        <TextField fx:id="maxField" prefWidth="64"/>
     </HBox>
 </fx:root>

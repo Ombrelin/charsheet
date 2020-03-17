@@ -5,106 +5,31 @@
 
 /* Redefine base colors */
 .root {
-    -fx-base: rgb(50, 50, 50);
-    -fx-background: rgb(50, 50, 50);
-
-    /* make controls (buttons, thumb, etc.) slightly lighter */
-    -fx-color: derive(-fx-base, 10%);
-
-    /* text fields and table rows background */
-    -fx-control-inner-background: rgb(40, 40, 40);
-    /* version of -fx-control-inner-background for alternative rows */
-    -fx-control-inner-background-alt: derive(-fx-control-inner-background, 2.5%);
-
-    /* text colors depending on background's brightness */
-    -fx-light-text-color: rgb(220, 220, 220);
-    -fx-mid-text-color: rgb(100, 100, 100);
-    -fx-dark-text-color: rgb(20, 20, 20);
-
-    /* A bright blue for highlighting/accenting objects.  For example: selected
-     * text; selected items in menus, lists, trees, and tables; progress bars */
-    -fx-accent: rgb(0, 102, 204);
-
-
-    /* color of non-focused yet selected elements */
-    -fx-selection-bar-non-focused: rgb(50, 50, 50);
-    -fx-faint-focus-color: transparent;
-    -fx-focus-color: #0066CC; /* here rgba (corrected) */
-}
-
-/* Fix derived prompt color for text fields */
-.text-input {
-    -fx-prompt-text-fill: derive(-fx-control-inner-background, +50%);
-}
-
-/* Keep prompt invisible when focused (above color fix overrides it) */
-.text-input:focused {
-    -fx-prompt-text-fill: transparent;
-}
-
-/* Fix scroll bar buttons arrows colors */
-.scroll-bar > .increment-button > .increment-arrow,
-.scroll-bar > .decrement-button > .decrement-arrow {
-    -fx-background-color: -fx-mark-highlight-color, rgb(220, 220, 220);
-}
-
-.scroll-bar > .increment-button:hover > .increment-arrow,
-.scroll-bar > .decrement-button:hover > .decrement-arrow {
-    -fx-background-color: -fx-mark-highlight-color, rgb(240, 240, 240);
-}
-
-.scroll-bar > .increment-button:pressed > .increment-arrow,
-.scroll-bar > .decrement-button:pressed > .decrement-arrow {
-    -fx-background-color: -fx-mark-highlight-color, rgb(255, 255, 255);
+    -fx-base: #1D1D1D;
+    -fx-background: #1D1D1D;
 }
 
 .menu-bar{
-    -fx-background-color: rgb(50, 50, 50);
-}
-
-.button{
-    -fx-background-radius: 1;
-    -fx-background-color: rgb(0, 102, 204);
-}
-
-.button:hover{
-    -fx-background-color: #1E88E5;
+    -fx-background-color: #1D1D1D;
 }
 
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
-
     -fx-text-fill: white;
 }
 
-.progress-bar{
-    -fx-accent: rgb(0,52,104);
+.button:focused {
+    -fx-border-width: 0;
 }
 
-.separator {
-    -fx-fill: white;
+.progress-indicator:indeterminate {
+    -fx-border-color: #1D1D1D;
 }
-
 
 /* Custom CSS*/
 
-.jfx-combo-box .label {
-    -fx-text-fill: white !important;
-}
-
-.jfx-button{
-    -fx-cursor: hand;
-}
-
-.cancel-button {
-    -fx-background-color: #424242;
-}
-
-.cancel-button:hover{
-    -fx-background-color: #616161;
-}
-
 .counter-button {
     -fx-background-radius: 5em !important;
+    -fx-border-radius: 5em !important;
     -fx-max-width: 24px;
     -fx-min-width: 24px;
     -fx-max-height: 24px;
@@ -113,6 +38,10 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-pref-width: 26px;
+}
+
+.counter-button:hover{
+    -fx-cursor: pointer;
 }
 
 .plus-button{
@@ -131,24 +60,4 @@
 
 .manaBar .bar {
     -fx-background-color: #2962FF;
-}
-
-.tree-table-view{
-    -fx-text-fill: white;
-}
-
-.column-header{
-    -fx-border-color: #424242;
-}
-
-.column-header-background{
-    -fx-border-color: #424242;
-}
-
-.tree-table-row-cell:selected .tree-table-cell {
-    -fx-text-fill: white;
-}
-
-.tree-table-row-cell:selected {
-    -fx-background-color: rgb(0, 102, 204);
 }

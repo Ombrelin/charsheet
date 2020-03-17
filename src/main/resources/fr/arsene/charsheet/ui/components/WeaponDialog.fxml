@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <VBox fx:id="dialog" alignment="CENTER" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.232-ea"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="fr.arsene.charsheet.ui.components.WeaponDialog" spacing="16"
@@ -22,6 +19,6 @@
     <HBox><Label prefWidth="256" text="Cadence : "/><TextField fx:id="refire" promptText="Cadence"/></HBox>
 
 
-    <JFXButton prefWidth="Infinity" styleClass="cancel-button" text="Annuler" onAction="#cancel"/>
-    <JFXButton prefWidth="Infinity" text="Valider" onAction="#validate"/>
+    <Button prefWidth="Infinity" text="Annuler" onAction="#cancel"/>
+    <Button defaultButton="true" prefWidth="Infinity" text="Valider" onAction="#validate"/>
 </VBox>

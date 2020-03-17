@@ -1,11 +1,11 @@
 package fr.arsene.charsheet.ui.components;
 
-import com.jfoenix.controls.JFXProgressBar;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.util.converter.NumberStringConverter;
 
@@ -17,7 +17,7 @@ public class EnergyBar extends Component {
     private SimpleFloatProperty barValue = new SimpleFloatProperty();
 
     @FXML
-    private JFXProgressBar bar;
+    private ProgressBar bar;
 
     @FXML
     private TextField field;
