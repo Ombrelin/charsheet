@@ -1,10 +1,9 @@
 package fr.arsene.charsheet.ui.adapters;
 
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import fr.arsene.charsheet.model.character.Protection;
 import javafx.beans.property.*;
 
-public class ProtectionAdapter extends RecursiveTreeObject<ProtectionAdapter> {
+public class ProtectionAdapter {
 
     private StringProperty name;
     private StringProperty notes;

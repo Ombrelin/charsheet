@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro.JMetro;
+import jfxtras.styles.jmetro.Style;
 import net.rgielen.fxweaver.core.FxWeaver;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -29,6 +31,8 @@ public class CharsheetFX extends Application {
         FxWeaver fxWeaver = applicationContext.getBean(FxWeaver.class);
         Parent root = fxWeaver.loadView(MainController.class);
         Scene scene = new Scene(root);
+        JMetro jMetro = new JMetro(Style.DARK);
+        jMetro.setScene(scene);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
         stage.setMinWidth(1300);
         stage.setMinHeight(780);

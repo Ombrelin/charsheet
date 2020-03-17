@@ -1,11 +1,10 @@
 package fr.arsene.charsheet.ui.adapters;
 
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import fr.arsene.charsheet.model.character.Ability;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class AbilityAdapter extends RecursiveTreeObject<AbilityAdapter> {
+public class AbilityAdapter {
 
     public StringProperty name;
     public StringProperty description;

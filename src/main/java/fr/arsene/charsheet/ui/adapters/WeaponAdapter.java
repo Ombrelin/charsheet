@@ -1,10 +1,9 @@
 package fr.arsene.charsheet.ui.adapters;
 
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import fr.arsene.charsheet.model.character.Weapon;
 import javafx.beans.property.*;
 
-public class WeaponAdapter extends RecursiveTreeObject<WeaponAdapter> {
+public class WeaponAdapter {
 
     private StringProperty name;
     private StringProperty notes;

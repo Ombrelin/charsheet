@@ -1,59 +1,54 @@
 package fr.arsene.charsheet.ui.components;
 
-import com.jfoenix.controls.JFXTreeTableColumn;
-import com.jfoenix.controls.JFXTreeTableView;
-import com.jfoenix.controls.RecursiveTreeItem;
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import fr.arsene.charsheet.model.character.Weapon;
 import fr.arsene.charsheet.ui.adapters.WeaponAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableView;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class WeaponTable extends JFXTreeTableView<WeaponAdapter> {
+public class WeaponTable extends TreeTableView<WeaponAdapter> {
 
-    private JFXTreeTableColumn<WeaponAdapter, Integer> refireColumn;
-    private JFXTreeTableColumn<WeaponAdapter, String> nameColumn;
-    private JFXTreeTableColumn<WeaponAdapter, String> notesColmun;
-    private JFXTreeTableColumn<WeaponAdapter, Float> weightColumn;
-    private JFXTreeTableColumn<WeaponAdapter, Integer> breakthoughColumn;
-    private JFXTreeTableColumn<WeaponAdapter, Integer> attackColumn;
+    private TreeTableColumn<WeaponAdapter, Integer> refireColumn;
+    private TreeTableColumn<WeaponAdapter, String> nameColumn;
+    private TreeTableColumn<WeaponAdapter, String> notesColmun;
+    private TreeTableColumn<WeaponAdapter, Float> weightColumn;
+    private TreeTableColumn<WeaponAdapter, Integer> breakthoughColumn;
+    private TreeTableColumn<WeaponAdapter, Integer> attackColumn;
 
     private ObservableList<WeaponAdapter> weapons = FXCollections.observableArrayList();
 
     public WeaponTable() {
 
-        this.nameColumn = new JFXTreeTableColumn<WeaponAdapter, String>("Nom");
+        this.nameColumn = new TreeTableColumn<WeaponAdapter, String>("Nom");
         this.nameColumn.setCellValueFactory(param -> param.getValue().getValue().nameProperty());
         this.nameColumn.setPrefWidth(140);
 
-        this.notesColmun = new JFXTreeTableColumn<WeaponAdapter, String>("Notes");
+        this.notesColmun = new TreeTableColumn<WeaponAdapter, String>("Notes");
         this.notesColmun.setCellValueFactory(param -> param.getValue().getValue().notesProperty());
         this.notesColmun.setPrefWidth(150);
 
-        this.weightColumn = new JFXTreeTableColumn<WeaponAdapter, Float>("Poids");
+        this.weightColumn = new TreeTableColumn<WeaponAdapter, Float>("Poids");
         this.weightColumn.setCellValueFactory(param -> param.getValue().getValue().weightProperty().asObject());
         this.weightColumn.setPrefWidth(50);
 
-        this.breakthoughColumn = new JFXTreeTableColumn<WeaponAdapter, Integer>("Rupture");
+        this.breakthoughColumn = new TreeTableColumn<WeaponAdapter, Integer>("Rupture");
         this.breakthoughColumn.setCellValueFactory(param -> param.getValue().getValue().breakthroughProperty().asObject());
         this.breakthoughColumn.setPrefWidth(75);
 
-        this.attackColumn = new JFXTreeTableColumn<WeaponAdapter, Integer>("Dégats");
+        this.attackColumn = new TreeTableColumn<WeaponAdapter, Integer>("Dégats");
         this.attackColumn.setCellValueFactory(param -> param.getValue().getValue().damageProperty().asObject());
         this.attackColumn.setPrefWidth(75);
 
-        this.refireColumn = new JFXTreeTableColumn<WeaponAdapter, Integer>("Cadence");
+        this.refireColumn = new TreeTableColumn<WeaponAdapter, Integer>("Cadence");
         this.refireColumn.setCellValueFactory(param -> param.getValue().getValue().refireRateProperty().asObject());
         this.refireColumn.setPrefWidth(75);
 
         this.getColumns().setAll(nameColumn, notesColmun, weightColumn, breakthoughColumn, attackColumn, refireColumn);
-        final TreeItem<WeaponAdapter> root = new RecursiveTreeItem<WeaponAdapter>(this.weapons, RecursiveTreeObject::getChildren);
-        this.setRoot(root);
         this.setShowRoot(false);
     }
 

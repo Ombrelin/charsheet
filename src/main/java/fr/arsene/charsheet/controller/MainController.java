@@ -1,6 +1,5 @@
 package fr.arsene.charsheet.controller;
 
-import com.jfoenix.controls.JFXComboBox;
 import fr.arsene.charsheet.model.character.Character;
 import fr.arsene.charsheet.model.character.Gender;
 import fr.arsene.charsheet.model.game.GameModel;
@@ -10,9 +9,11 @@ import fr.arsene.charsheet.ui.components.*;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import jfxtras.styles.jmetro.JMetro;
+import jfxtras.styles.jmetro.Style;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,13 +43,13 @@ public class MainController {
     private TextField name;
 
     @FXML
-    private JFXComboBox<Label> comboboxGender;
+    private ComboBox<Label> comboboxGender;
 
     @FXML
-    private JFXComboBox<Label> comboboxRace;
+    private ComboBox<Label> comboboxRace;
 
     @FXML
-    private JFXComboBox<Label> comboboxProfession;
+    private ComboBox<Label> comboboxProfession;
 
     @FXML
     private EnergyBar lifeBar;
@@ -145,9 +146,11 @@ public class MainController {
     @FXML
     private void handleClickLoad(ActionEvent event) {
         this.loader.setVisible(true);
-        this.character = this.characterService.load();
+
 
         if (this.character != null) {
+            this.character = this.characterService.load();
+
             // Base
             this.name.setText(character.getName());
 
@@ -306,4 +309,18 @@ public class MainController {
         this.abilities.remove(this.abilities.getSelectionModel().getSelectedItem());
     }
 
+    @FXML
+    public void handleClickAbout(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        JMetro jMetro = new JMetro(Style.DARK);
+        jMetro.setScene(alert.getDialogPane().getScene());
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
+        stage.getScene().getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+        alert.setTitle("A propos");
+        alert.setHeaderText("A propos");
+        alert.setContentText("Logiciel developpé par Arsène Lapostolet (https://arsenelapostolet.fr) sous licence Creative Commons Attribution-NonCommercial-ShareAlike");
+
+        alert.showAndWait();
+    }
 }
