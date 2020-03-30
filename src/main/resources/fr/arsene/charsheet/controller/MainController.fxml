@@ -4,7 +4,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <StackPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720"
            fx:controller="fr.arsene.charsheet.controller.MainController"
            minWidth="1280" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -69,9 +68,6 @@
 
                         <Label text="Caractéristiques" GridPane.columnIndex="0" GridPane.rowIndex="7"
                                GridPane.columnSpan="2">
-                            <font>
-                                <Font size="18.0"/>
-                            </font>
                         </Label>
                         <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Courage"/>
                         <Label GridPane.columnIndex="0" GridPane.rowIndex="9" text="Intelligence"/>

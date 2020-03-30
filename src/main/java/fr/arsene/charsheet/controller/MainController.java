@@ -2,6 +2,8 @@ package fr.arsene.charsheet.controller;
 
 import fr.arsene.charsheet.model.character.Character;
 import fr.arsene.charsheet.model.character.Gender;
+import fr.arsene.charsheet.model.character.Profession;
+import fr.arsene.charsheet.model.character.Race;
 import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
@@ -43,13 +45,13 @@ public class MainController {
     private TextField name;
 
     @FXML
-    private ComboBox<Label> comboboxGender;
+    private ComboBox<String> comboboxGender;
 
     @FXML
-    private ComboBox<Label> comboboxRace;
+    private ComboBox<String> comboboxRace;
 
     @FXML
-    private ComboBox<Label> comboboxProfession;
+    private ComboBox<String> comboboxProfession;
 
     @FXML
     private EnergyBar lifeBar;
@@ -121,10 +123,10 @@ public class MainController {
     public void initialize() {
 
 
-        this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(gender -> new Label(gender.toString())).collect(Collectors.toList()));
+        this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(Enum::name).collect(Collectors.toList()));
         GameModel model = gameModelService.getGameModel();
-        this.comboboxRace.getItems().addAll(model.getRaces().stream().map(race -> new Label(race.getName())).collect(Collectors.toList()));
-        this.comboboxProfession.getItems().addAll(model.getProfessions().stream().map(profession -> new Label(profession.getName())).collect(Collectors.toList()));
+        this.comboboxRace.getItems().addAll(model.getRaces().stream().map(Race::getName).collect(Collectors.toList()));
+        this.comboboxProfession.getItems().addAll(model.getProfessions().stream().map(Profession::getName).collect(Collectors.toList()));
 
         this.courageBar.valueProperty().addListener(this::updateCalculatedCharacs);
         this.intellBar.valueProperty().addListener(this::updateCalculatedCharacs);
@@ -147,17 +149,17 @@ public class MainController {
     private void handleClickLoad(ActionEvent event) {
         this.loader.setVisible(true);
 
-
+        this.character = this.characterService.load();
         if (this.character != null) {
-            this.character = this.characterService.load();
+
 
             // Base
             this.name.setText(character.getName());
 
 
-            comboboxGender.getSelectionModel().select(comboboxGender.getItems().stream().filter(e -> e.getText().equals(this.character.getGender().toString())).collect(Collectors.toList()).get(0));
-            comboboxRace.getSelectionModel().select(comboboxRace.getItems().stream().filter(e -> e.getText().equals(this.character.getRace().getName())).collect(Collectors.toList()).get(0));
-            comboboxProfession.getSelectionModel().select(comboboxProfession.getItems().stream().filter(e -> e.getText().equals(this.character.getProfession().getName())).collect(Collectors.toList()).get(0));
+            comboboxGender.getSelectionModel().select(comboboxGender.getItems().stream().filter(e -> e.equals(this.character.getGender().toString())).collect(Collectors.toList()).get(0));
+            comboboxRace.getSelectionModel().select(comboboxRace.getItems().stream().filter(e -> e.equals(this.character.getRace().getName())).collect(Collectors.toList()).get(0));
+            comboboxProfession.getSelectionModel().select(comboboxProfession.getItems().stream().filter(e -> e.equals(this.character.getProfession().getName())).collect(Collectors.toList()).get(0));
 
 
             // Energies
@@ -211,14 +213,14 @@ public class MainController {
         // Base
         character.setName(this.name.getText());
         if (this.comboboxGender.getSelectionModel().getSelectedItem() != null) {
-            character.setGender(Gender.valueOf(this.comboboxGender.getSelectionModel().getSelectedItem().getText()));
+            character.setGender(Gender.valueOf(this.comboboxGender.getSelectionModel().getSelectedItem()));
         }
         if (comboboxRace.getSelectionModel().getSelectedItem() != null) {
-            character.setRace(model.getRaces().stream().filter(e -> e.getName().equals(comboboxRace.getSelectionModel().getSelectedItem().getText())).collect(Collectors.toList()).get(0));
+            character.setRace(model.getRaces().stream().filter(e -> e.getName().equals(comboboxRace.getSelectionModel().getSelectedItem())).collect(Collectors.toList()).get(0));
 
         }
         if (comboboxProfession.getSelectionModel().getSelectedItem() != null) {
-            character.setProfession(model.getProfessions().stream().filter(e -> e.getName().equals(comboboxProfession.getSelectionModel().getSelectedItem().getText())).collect(Collectors.toList()).get(0));
+            character.setProfession(model.getProfessions().stream().filter(e -> e.getName().equals(comboboxProfession.getSelectionModel().getSelectedItem())).collect(Collectors.toList()).get(0));
 
         }
 
