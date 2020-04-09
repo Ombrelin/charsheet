@@ -1,21 +1,27 @@
 package fr.arsene.charsheet.controller;
 
-import com.jfoenix.controls.JFXComboBox;
 import fr.arsene.charsheet.model.character.Character;
 import fr.arsene.charsheet.model.character.Gender;
+import fr.arsene.charsheet.model.character.Profession;
+import fr.arsene.charsheet.model.character.Race;
 import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
+import fr.arsene.charsheet.services.RichPresence;
 import fr.arsene.charsheet.ui.components.*;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import jfxtras.styles.jmetro.JMetro;
+import jfxtras.styles.jmetro.Style;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -26,15 +32,17 @@ import java.util.stream.Collectors;
 public class MainController {
 
     // Services
+    private GameModelService gameModelService;
 
-    @Autowired
-    GameModelService gameModelService;
+    private CharacterService characterService;
 
-    @Autowired
-    CharacterService characterService;
-
-    @Autowired
     private FxWeaver fxWeaver;
+
+    public MainController(GameModelService gameModelService, CharacterService characterService, FxWeaver fxWeaver) {
+        this.gameModelService = gameModelService;
+        this.characterService = characterService;
+        this.fxWeaver = fxWeaver;
+    }
 
     // FXML Controls
 
@@ -42,13 +50,13 @@ public class MainController {
     private TextField name;
 
     @FXML
-    private JFXComboBox<Label> comboboxGender;
+    private ComboBox<String> comboboxGender;
 
     @FXML
-    private JFXComboBox<Label> comboboxRace;
+    private ComboBox<String> comboboxRace;
 
     @FXML
-    private JFXComboBox<Label> comboboxProfession;
+    private ComboBox<String> comboboxProfession;
 
     @FXML
     private EnergyBar lifeBar;
@@ -118,12 +126,10 @@ public class MainController {
 
     @FXML
     public void initialize() {
-
-
-        this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(gender -> new Label(gender.toString())).collect(Collectors.toList()));
+        this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(Enum::name).collect(Collectors.toList()));
         GameModel model = gameModelService.getGameModel();
-        this.comboboxRace.getItems().addAll(model.getRaces().stream().map(race -> new Label(race.getName())).collect(Collectors.toList()));
-        this.comboboxProfession.getItems().addAll(model.getProfessions().stream().map(profession -> new Label(profession.getName())).collect(Collectors.toList()));
+        this.comboboxRace.getItems().addAll(model.getRaces().stream().map(Race::getName).collect(Collectors.toList()));
+        this.comboboxProfession.getItems().addAll(model.getProfessions().stream().map(Profession::getName).collect(Collectors.toList()));
 
         this.courageBar.valueProperty().addListener(this::updateCalculatedCharacs);
         this.intellBar.valueProperty().addListener(this::updateCalculatedCharacs);
@@ -145,16 +151,18 @@ public class MainController {
     @FXML
     private void handleClickLoad(ActionEvent event) {
         this.loader.setVisible(true);
-        this.character = this.characterService.load();
 
+        this.character = this.characterService.load();
         if (this.character != null) {
+
+
             // Base
             this.name.setText(character.getName());
 
 
-            comboboxGender.getSelectionModel().select(comboboxGender.getItems().stream().filter(e -> e.getText().equals(this.character.getGender().toString())).collect(Collectors.toList()).get(0));
-            comboboxRace.getSelectionModel().select(comboboxRace.getItems().stream().filter(e -> e.getText().equals(this.character.getRace().getName())).collect(Collectors.toList()).get(0));
-            comboboxProfession.getSelectionModel().select(comboboxProfession.getItems().stream().filter(e -> e.getText().equals(this.character.getProfession().getName())).collect(Collectors.toList()).get(0));
+            comboboxGender.getSelectionModel().select(comboboxGender.getItems().stream().filter(e -> e.equals(this.character.getGender().toString())).collect(Collectors.toList()).get(0));
+            comboboxRace.getSelectionModel().select(comboboxRace.getItems().stream().filter(e -> e.equals(this.character.getRace().getName())).collect(Collectors.toList()).get(0));
+            comboboxProfession.getSelectionModel().select(comboboxProfession.getItems().stream().filter(e -> e.equals(this.character.getProfession().getName())).collect(Collectors.toList()).get(0));
 
 
             // Energies
@@ -197,6 +205,7 @@ public class MainController {
 
         }
         this.loader.setVisible(false);
+        this.updateRichPresence();
 
     }
 
@@ -208,14 +217,14 @@ public class MainController {
         // Base
         character.setName(this.name.getText());
         if (this.comboboxGender.getSelectionModel().getSelectedItem() != null) {
-            character.setGender(Gender.valueOf(this.comboboxGender.getSelectionModel().getSelectedItem().getText()));
+            character.setGender(Gender.valueOf(this.comboboxGender.getSelectionModel().getSelectedItem()));
         }
         if (comboboxRace.getSelectionModel().getSelectedItem() != null) {
-            character.setRace(model.getRaces().stream().filter(e -> e.getName().equals(comboboxRace.getSelectionModel().getSelectedItem().getText())).collect(Collectors.toList()).get(0));
+            character.setRace(model.getRaces().stream().filter(e -> e.getName().equals(comboboxRace.getSelectionModel().getSelectedItem())).collect(Collectors.toList()).get(0));
 
         }
         if (comboboxProfession.getSelectionModel().getSelectedItem() != null) {
-            character.setProfession(model.getProfessions().stream().filter(e -> e.getName().equals(comboboxProfession.getSelectionModel().getSelectedItem().getText())).collect(Collectors.toList()).get(0));
+            character.setProfession(model.getProfessions().stream().filter(e -> e.getName().equals(comboboxProfession.getSelectionModel().getSelectedItem())).collect(Collectors.toList()).get(0));
 
         }
 
@@ -256,6 +265,8 @@ public class MainController {
 
         this.characterService.save(character);
         this.loader.setVisible(false);
+
+        this.updateRichPresence();
     }
 
     @FXML
@@ -306,4 +317,28 @@ public class MainController {
         this.abilities.remove(this.abilities.getSelectionModel().getSelectedItem());
     }
 
+    @FXML
+    public void handleClickAbout(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        JMetro jMetro = new JMetro(Style.DARK);
+        jMetro.setScene(alert.getDialogPane().getScene());
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
+        stage.getScene().getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+        alert.setTitle("A propos");
+        alert.setHeaderText("A propos");
+        alert.setContentText("Logiciel developpé par Arsène Lapostolet (https://arsenelapostolet.fr) sous licence Creative Commons Attribution-NonCommercial-ShareAlike");
+
+        alert.showAndWait();
+    }
+
+    private void updateRichPresence(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.character.getRace().getName());
+        sb.append(" ");
+        sb.append(this.character.getProfession().getName());
+        sb.append(" Niv. ");
+        sb.append(this.character.getExperience());
+        RichPresence.getINSTANCE().updateMessage(sb.toString(),this.character.getName());
+    }
 }

@@ -1,13 +1,12 @@
 package fr.arsene.charsheet.ui.adapters;
 
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import fr.arsene.charsheet.model.character.Item;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class ItemAdapter extends RecursiveTreeObject<ItemAdapter> {
+public class ItemAdapter {
 
     private StringProperty name;
     private StringProperty notes;
