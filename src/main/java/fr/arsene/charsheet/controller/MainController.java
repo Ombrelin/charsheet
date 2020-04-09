@@ -7,18 +7,21 @@ import fr.arsene.charsheet.model.character.Race;
 import fr.arsene.charsheet.model.game.GameModel;
 import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
+import fr.arsene.charsheet.services.RichPresence;
 import fr.arsene.charsheet.ui.components.*;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -29,15 +32,17 @@ import java.util.stream.Collectors;
 public class MainController {
 
     // Services
+    private GameModelService gameModelService;
 
-    @Autowired
-    GameModelService gameModelService;
+    private CharacterService characterService;
 
-    @Autowired
-    CharacterService characterService;
-
-    @Autowired
     private FxWeaver fxWeaver;
+
+    public MainController(GameModelService gameModelService, CharacterService characterService, FxWeaver fxWeaver) {
+        this.gameModelService = gameModelService;
+        this.characterService = characterService;
+        this.fxWeaver = fxWeaver;
+    }
 
     // FXML Controls
 
@@ -121,8 +126,6 @@ public class MainController {
 
     @FXML
     public void initialize() {
-
-
         this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(Enum::name).collect(Collectors.toList()));
         GameModel model = gameModelService.getGameModel();
         this.comboboxRace.getItems().addAll(model.getRaces().stream().map(Race::getName).collect(Collectors.toList()));
@@ -202,6 +205,7 @@ public class MainController {
 
         }
         this.loader.setVisible(false);
+        this.updateRichPresence();
 
     }
 
@@ -261,6 +265,8 @@ public class MainController {
 
         this.characterService.save(character);
         this.loader.setVisible(false);
+
+        this.updateRichPresence();
     }
 
     @FXML
@@ -324,5 +330,15 @@ public class MainController {
         alert.setContentText("Logiciel developpé par Arsène Lapostolet (https://arsenelapostolet.fr) sous licence Creative Commons Attribution-NonCommercial-ShareAlike");
 
         alert.showAndWait();
+    }
+
+    private void updateRichPresence(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.character.getRace().getName());
+        sb.append(" ");
+        sb.append(this.character.getProfession().getName());
+        sb.append(" Niv. ");
+        sb.append(this.character.getExperience());
+        RichPresence.getINSTANCE().updateMessage(sb.toString(),this.character.getName());
     }
 }

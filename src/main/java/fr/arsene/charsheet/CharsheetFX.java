@@ -1,6 +1,7 @@
 package fr.arsene.charsheet;
 
 import fr.arsene.charsheet.controller.MainController;
+import fr.arsene.charsheet.services.RichPresence;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Parent;
@@ -28,6 +29,7 @@ public class CharsheetFX extends Application {
 
     @Override
     public void start(Stage stage) {
+        RichPresence.getINSTANCE().start();
         FxWeaver fxWeaver = applicationContext.getBean(FxWeaver.class);
         Parent root = fxWeaver.loadView(MainController.class);
         Scene scene = new Scene(root);
