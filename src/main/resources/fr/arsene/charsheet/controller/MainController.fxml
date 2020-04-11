@@ -3,6 +3,7 @@
 <?import fr.arsene.charsheet.ui.components.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.*?>
 <StackPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720"
            fx:controller="fr.arsene.charsheet.controller.MainController"
@@ -39,14 +40,14 @@
                         <TextField fx:id="name" promptText="Nom" GridPane.columnIndex="0"
                                    GridPane.rowIndex="0"/>
                         <ComboBox fx:id="comboboxGender" prefWidth="Infinity" promptText="Sexe"
-                                     GridPane.columnIndex="1"
-                                     GridPane.rowIndex="0"/>
+                                  GridPane.columnIndex="1"
+                                  GridPane.rowIndex="0"/>
                         <ComboBox fx:id="comboboxRace" promptText="Origine"
-                                     GridPane.columnIndex="0"
-                                     GridPane.rowIndex="1" prefWidth="Infinity"/>
+                                  GridPane.columnIndex="0"
+                                  GridPane.rowIndex="1" prefWidth="Infinity"/>
                         <ComboBox fx:id="comboboxProfession" promptText="Métier"
-                                     GridPane.columnIndex="1"
-                                     GridPane.rowIndex="1" prefWidth="Infinity"/>
+                                  GridPane.columnIndex="1"
+                                  GridPane.rowIndex="1" prefWidth="Infinity"/>
 
                         <EnergyBar fx:id="lifeBar" styleClass="lifeBar" max="30" name="Energie Vitale"
                                    GridPane.columnSpan="2"
@@ -66,7 +67,7 @@
                             <Counter fx:id="level" name="Niveau"/>
                         </HBox>
 
-                        <Label text="Caractéristiques" GridPane.columnIndex="0" GridPane.rowIndex="7"
+                        <Label text="Caractéristiques" styleClass="title" GridPane.columnIndex="0" GridPane.rowIndex="7"
                                GridPane.columnSpan="2">
                         </Label>
                         <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Courage"/>
@@ -98,23 +99,23 @@
 
                         <FlowPane hgap="8" GridPane.columnIndex="0" GridPane.rowIndex="18"
                                   GridPane.columnSpan="2">
-                            <Label text="Armures et protections">
+                            <Label styleClass="title" text="Armures et protections">
                             </Label>
                             <Button defaultButton="true" styleClass="counter-button,minus-button" textAlignment="CENTER"
-                                       onAction="#handleClickRemoveProtection"/>
+                                    onAction="#handleClickRemoveProtection"/>
                             <Button defaultButton="true" styleClass="counter-button,plus-button" textAlignment="CENTER"
-                                       onAction="#handleClickAddProtection"/>
+                                    onAction="#handleClickAddProtection"/>
 
                         </FlowPane>
                         <ProtectionTable fx:id="protections" GridPane.columnIndex="0" GridPane.rowIndex="19"/>
 
                         <FlowPane hgap="8" GridPane.columnIndex="1" GridPane.rowIndex="18">
-                            <Label text="Armement">
+                            <Label styleClass="title" text="Armement">
                             </Label>
-                            <Button  defaultButton="true" styleClass="counter-button,minus-button" textAlignment="CENTER"
-                                       onAction="#handleClickRemoveWeapon"/>
+                            <Button defaultButton="true" styleClass="counter-button,minus-button" textAlignment="CENTER"
+                                    onAction="#handleClickRemoveWeapon"/>
                             <Button defaultButton="true" styleClass="counter-button,plus-button" textAlignment="CENTER"
-                                       onAction="#handleClickAddWeapon"/>
+                                    onAction="#handleClickAddWeapon"/>
 
 
                         </FlowPane>
@@ -122,12 +123,12 @@
 
                         <FlowPane hgap="8" GridPane.columnIndex="0" GridPane.rowIndex="20"
                                   GridPane.columnSpan="2">
-                            <Label text="Equipement">
+                            <Label styleClass="title" text="Equipement">
                             </Label>
                             <Button defaultButton="true" styleClass="counter-button,minus-button" textAlignment="CENTER"
-                                       onAction="#handleClickRemoveItem"/>
+                                    onAction="#handleClickRemoveItem"/>
                             <Button defaultButton="true" styleClass="counter-button,plus-button" textAlignment="CENTER"
-                                       onAction="#handleClickAddItem"/>
+                                    onAction="#handleClickAddItem"/>
 
 
                         </FlowPane>
@@ -135,12 +136,12 @@
 
                         <FlowPane GridPane.columnIndex="1" GridPane.rowIndex="20"
                                   GridPane.columnSpan="2" hgap="16">
-                            <Label text="Compétences">
+                            <Label styleClass="title" text="Compétences">
                             </Label>
                             <Button defaultButton="true" styleClass="counter-button,minus-button" textAlignment="CENTER"
-                                       onAction="#handleClickRemoveAbility"/>
+                                    onAction="#handleClickRemoveAbility"/>
                             <Button defaultButton="true" styleClass="counter-button,plus-button" textAlignment="CENTER"
-                                       onAction="#handleClickAddAbility"/>
+                                    onAction="#handleClickAddAbility"/>
 
                         </FlowPane>
                         <AbilityTable fx:id="abilities" GridPane.columnIndex="1" GridPane.rowIndex="21"/>
@@ -155,14 +156,27 @@
             </ScrollPane>
         </center>
         <bottom>
-            <FlowPane hgap="32" BorderPane.alignment="BOTTOM_CENTER" alignment="CENTER_RIGHT">
-
-                <padding>
-                    <Insets top="8" right="8" bottom="8" left="8"/>
-                </padding>
-                <ProgressIndicator fx:id="loader" prefWidth="32" prefHeight="0"/>
-                <Button defaultButton="true" fx:id="saveButton" onAction="#handleClickSave" text="Sauvegarder"/>
-            </FlowPane>
+            <AnchorPane>
+                <FlowPane prefWidth="500">
+                    <Button text="4" onAction="#dice" styleClass="dice4, dice"/>
+                    <Button text="6" onAction="#dice" styleClass="dice6, dice"/>
+                    <Button text="8" onAction="#dice" styleClass="dice8, dice"/>
+                    <Button text="10" onAction="#dice" styleClass="dice10, dice"/>
+                    <Button text="12" onAction="#dice" styleClass="dice12, dice"/>
+                    <Button text="20" onAction="#dice" styleClass="dice20, dice"/>
+                    <Button text="100" onAction="#dice" styleClass="dice100, dice"/>
+                    <Separator orientation="VERTICAL"/>
+                    <Label fx:id="diceResult" styleClass="diceResult"/>
+                    <Label fx:id="diceThrow" visible="false"/>
+                </FlowPane>
+                <FlowPane hgap="32" alignment="BOTTOM_RIGHT" AnchorPane.rightAnchor="4">
+                    <padding>
+                        <Insets top="8" right="8" bottom="8" left="8"/>
+                    </padding>
+                    <ProgressIndicator fx:id="loader" prefWidth="32" prefHeight="0"/>
+                    <Button defaultButton="true" fx:id="saveButton" onAction="#handleClickSave" text="Sauvegarder"/>
+                </FlowPane>
+            </AnchorPane>
         </bottom>
     </BorderPane>
 </StackPane>

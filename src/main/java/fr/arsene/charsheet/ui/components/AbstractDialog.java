@@ -6,7 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 
@@ -28,14 +27,13 @@ public abstract class AbstractDialog<T> {
         jMetro.setScene(scene);
         this.stage.setScene(this.scene);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
-
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("theme.css").toExternalForm());
     }
 
     public void show(Consumer<T> validationHandler) {
         this.validationHandler = validationHandler;
         stage.show();
     }
-
 
 
     @FXML

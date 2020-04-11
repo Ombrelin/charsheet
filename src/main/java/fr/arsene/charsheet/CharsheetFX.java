@@ -36,6 +36,7 @@ public class CharsheetFX extends Application {
         JMetro jMetro = new JMetro(Style.DARK);
         jMetro.setScene(scene);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("theme.css").toExternalForm());
         stage.setMinWidth(1300);
         stage.setMinHeight(780);
         stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));

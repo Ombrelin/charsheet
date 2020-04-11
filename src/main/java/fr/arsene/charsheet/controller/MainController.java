@@ -9,22 +9,24 @@ import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
 import fr.arsene.charsheet.services.RichPresence;
 import fr.arsene.charsheet.ui.components.*;
+import javafx.animation.RotateTransition;
 import javafx.beans.value.ObservableValue;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Component;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Component
@@ -123,6 +125,14 @@ public class MainController {
 
     @FXML
     private ProgressIndicator loader;
+
+    // Dices
+
+    @FXML
+    private Label diceResult;
+
+    @FXML
+    private Label diceThrow;
 
     @FXML
     public void initialize() {
@@ -332,13 +342,48 @@ public class MainController {
         alert.showAndWait();
     }
 
-    private void updateRichPresence(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.character.getRace().getName());
-        sb.append(" ");
-        sb.append(this.character.getProfession().getName());
-        sb.append(" Niv. ");
-        sb.append(this.character.getExperience());
-        RichPresence.getINSTANCE().updateMessage(sb.toString(),this.character.getName());
+    private void updateRichPresence() {
+        if (this.character == null) {
+            RichPresence.getINSTANCE().updateMessage("Pas de personnage", "");
+        } else {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.character.getRace().getName());
+            sb.append(" ");
+            sb.append(this.character.getProfession().getName());
+            sb.append(" Niv. ");
+            sb.append(this.character.getExperience());
+            RichPresence.getINSTANCE().updateMessage(sb.toString(), this.character.getName());
+        }
+    }
+
+    @FXML
+    public void dice(ActionEvent event) {
+        Button diceButton = (Button) event.getSource();
+        int dicetype = Integer.parseInt(diceButton.getText());
+
+        diceThrow.getStyleClass().clear();
+        diceThrow.getStyleClass().addAll(
+                diceButton.getStyleClass().filtered(style -> style.contains("dice"))
+        );
+        
+        diceThrow.setVisible(true);
+        diceThrow.pseudoClassStateChanged(PseudoClass.getPseudoClass("thrown"), true);
+
+        RotateTransition rotateTransition = new RotateTransition();
+        rotateTransition.setDuration(Duration.millis(1000));
+        rotateTransition.setNode(diceThrow);
+        rotateTransition.setByAngle(360);
+        rotateTransition.setCycleCount(1);
+        rotateTransition.setAutoReverse(false);
+
+        rotateTransition.play();
+
+        rotateTransition.setOnFinished(finished -> {
+            diceThrow.setVisible(false);
+            Random secureRandom = new SecureRandom();
+            this.diceResult.setText(String.valueOf(secureRandom.nextInt(dicetype) + 1));
+        });
+
+
     }
 }

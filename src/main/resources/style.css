@@ -1,29 +1,4 @@
-/*
- * This is an adjustment of the original modena.css for a consistent dark theme.
- * Original modena.css here: https://gist.github.com/maxd/63691840fc372f22f470.
- */
 
-/* Redefine base colors */
-.root {
-    -fx-base: #201F1F;
-    -fx-background: #201F1F;
-}
-
-.menu-bar{
-    -fx-background-color: #1D1D1D;
-}
-
-.list-cell:filled:selected:focused, .list-cell:filled:selected {
-    -fx-text-fill: white;
-}
-
-.button:focused {
-    -fx-border-width: 0;
-}
-
-.progress-indicator:indeterminate {
-    -fx-border-color: #1D1D1D;
-}
 
 /* Custom CSS*/
 
@@ -41,7 +16,7 @@
 }
 
 .counter-button:hover{
-    -fx-cursor: pointer;
+    -fx-cursor: hand;
 }
 
 .plus-button{
@@ -62,108 +37,55 @@
     -fx-background-color: #2962FF;
 }
 
-.button:hover {
-    -fx-background-color: #4FC3F7;
-    -fx-border-style: none;
+.title {
+    -fx-font-size: 24px;
 }
 
-.text-field > .right-button{
-    -fx-cursor: default;
-
-    -fx-background-insets: -0.1666665em -0.45em -0.1666665em -0.45em; /* 4 7 4 7 -> this values are subtracted by 2px in em because of the border of the textfield */
-    -fx-background-color: #2D2C2C;  /* We must give it a color so that it reacts to the mouse */
+.dice {
+    -fx-text-fill: transparent;
+    -fx-pref-height: 48 !important;
+    -fx-pref-width: 48 !important;
+    -fx-background-color: #201F1F;
+    -fx-background-size: 32;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
 }
 
-.text-field {
-    -fx-background-color: #2D2C2C;
-    -fx-text-fill: #C8C6C4;
-    -fx-border-radius: 5px 5px 0 0;
-    -fx-border-color: #2D2C2C;
-    -fx-border-style: solid;
-    -fx-border-width: 2px;
-    -fx-background-radius: 5px 5px 0 0;
-    -fx-padding: 12px;
+.dice:thrown {
+    -fx-background-radius: 5em !important;
+    -fx-border-radius: 5em !important;
 }
 
-.text-field:hover {
-    -fx-background-color: #2D2C2C;
-    -fx-text-fill: #C8C6C4;
-    -fx-border-color: #2D2C2C;
-    -fx-border-style: solid;
+.diceResult {
+    -fx-padding: 0 0 0 16;
 }
 
-.text-field:focused {
-    -fx-text-fill: white !important;
-    -fx-border-color: #2D2C2C #2D2C2C #0066CC #2D2C2C;
-    -fx-background-color: #2D2C2C;
+.dice4{
+    -fx-background-image: url(images/4.png);
 }
 
-.combo-box-base  {
-    -fx-text-fill: #C8C6C4;
-    -fx-padding: 8px;
-    -fx-border-radius: 3px;
-    -fx-background-color: #2D2C2C;
-    -fx-background-radius: 3px;
-    -fx-font-family: "Segoe UI";
-    -fx-border-color: #2D2C2C;
-    -fx-border-style: solid;
-    -fx-border-width: 2px;
+.dice6{
+    -fx-background-image: url(images/6.png);
 }
 
-.combo-box-base > .list-cell {
-    -fx-text-fill: #C8C6C4;
+.dice8{
+    -fx-background-image: url(images/8.png);
 }
 
-.combo-box-base:hover {
-    -fx-background-color: #2D2C2C;
+.dice10{
+    -fx-background-image: url(images/10.png);
 }
 
-.combo-box-base:focused {
-    -fx-background-color: #2D2C2C;
-    -fx-background-insets: 0;
-    -fx-background-radius: 3px;
-    -fx-border-color: #2D2C2C #2D2C2C #0066CC #2D2C2C;
-
+.dice12{
+    -fx-background-image: url(images/12.png);
 }
 
-.combo-box-base:focused:hover {
-    -fx-background-color: #2D2C2C;
+.dice20{
+    -fx-background-image: url(images/20.png);
 }
 
-.combo-box-base:pressed,
-.combo-box-base:focused:pressed,
-.combo-box-base:showing,
-.combo-box-base:showing:hover,
-.combo-box-base:editable:showing {
-    -fx-background-color: #2D2C2C;
+.dice100{
+    -fx-background-image: url(images/100.png);
 }
 
-/* LIST (Popup)*/
-.combo-box-popup > .list-view {
-    -fx-translate-y: 2px;
-    -fx-border-style: none;
-    -fx-border-color: none;
-    -fx-padding: 2px 0 2px 0;
-    -fx-background-color: #2D2C2C;
-}
-
-.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
-    -fx-font-family: "Segoe UI";
-    -fx-padding: 12px;
-    -fx-background-color: #2D2C2C;
-}
-
-.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:hover{
-    -fx-background-color: list_cell_hover_color;
-    -fx-text-fill: text_color;
-}
-
-.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected{
-    -fx-background-color: #484644;
-    -fx-text-fill: #C8C6C4;
-}
-
-.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover{
-    -fx-background-color: #484644;
-}
 
