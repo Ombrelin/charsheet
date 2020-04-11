@@ -4,53 +4,51 @@ import fr.arsene.charsheet.model.character.Item;
 import fr.arsene.charsheet.ui.adapters.ItemAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ItemTable extends TreeTableView<ItemAdapter> {
+public class ItemTable extends TableView<ItemAdapter> {
 
-    private TreeTableColumn<ItemAdapter, String> nameColumn;
-    private TreeTableColumn<ItemAdapter, String> notesColmun;
-    private TreeTableColumn<ItemAdapter, Float> weightColumn;
-    private ObservableList<ItemAdapter> items = FXCollections.observableArrayList();
+    private TableColumn<ItemAdapter, String> nameColumn;
+    private TableColumn<ItemAdapter, String> notesColmun;
+    private TableColumn<ItemAdapter, Float> weightColumn;
 
     public ItemTable() {
 
-        this.nameColumn = new TreeTableColumn<ItemAdapter, String>("Nom");
-        this.nameColumn.setCellValueFactory(param -> param.getValue().getValue().nameProperty());
+        this.nameColumn = new TableColumn<ItemAdapter, String>("Nom");
+        this.nameColumn.setCellValueFactory(param -> param.getValue().nameProperty());
         this.nameColumn.setPrefWidth(140);
 
-        this.notesColmun = new TreeTableColumn<ItemAdapter, String>("Notes");
-        this.notesColmun.setCellValueFactory(param -> param.getValue().getValue().notesProperty());
+        this.notesColmun = new TableColumn<ItemAdapter, String>("Notes");
+        this.notesColmun.setCellValueFactory(param -> param.getValue().notesProperty());
         this.notesColmun.setPrefWidth(150);
 
-        this.weightColumn = new TreeTableColumn<ItemAdapter, Float>("Poids");
-        this.weightColumn.setCellValueFactory(param -> param.getValue().getValue().weightProperty().asObject());
+        this.weightColumn = new TableColumn<ItemAdapter, Float>("Poids");
+        this.weightColumn.setCellValueFactory(param -> param.getValue().weightProperty().asObject());
         this.weightColumn.setPrefWidth(50);
 
         this.getColumns().setAll(nameColumn, notesColmun, weightColumn);
     }
 
     public void add(ItemAdapter item) {
-        items.add(item);
+        this.itemsProperty().getValue().add(item);
     }
 
-    public void remove(TreeItem<ItemAdapter> selectedItem) {
-        items.remove(selectedItem.getValue());
+    public void remove(ItemAdapter selectedItem) {
+        itemsProperty().getValue().remove(selectedItem);
     }
 
     public List<Item> getAll() {
-        return this.items.stream().map(ItemAdapter::toItem).collect(Collectors.toList());
+        return this.itemsProperty().getValue().stream().map(ItemAdapter::toItem).collect(Collectors.toList());
     }
 
     public void setAll(List<Item> inventory) {
-        this.items.clear();
+        this.itemsProperty().getValue().clear();
         for(Item item:inventory){
-            this.items.add(new ItemAdapter(item));
+            this.itemsProperty().getValue().add(new ItemAdapter(item));
         }
     }
 }

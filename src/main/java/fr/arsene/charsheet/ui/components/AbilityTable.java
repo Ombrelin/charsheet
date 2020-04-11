@@ -4,50 +4,47 @@ import fr.arsene.charsheet.model.character.Ability;
 import fr.arsene.charsheet.ui.adapters.AbilityAdapter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AbilityTable extends TreeTableView<AbilityAdapter> {
+public class AbilityTable extends TableView<AbilityAdapter> {
 
 
-    private TreeTableColumn<AbilityAdapter, String> nameColumn;
-    private TreeTableColumn<AbilityAdapter, String> notesColmun;
-    private ObservableList<AbilityAdapter> items = FXCollections.observableArrayList();
+    private TableColumn<AbilityAdapter, String> nameColumn;
+    private TableColumn<AbilityAdapter, String> notesColmun;
 
     public AbilityTable() {
 
-        this.nameColumn = new TreeTableColumn<AbilityAdapter, String>("Nom");
-        this.nameColumn.setCellValueFactory(param -> param.getValue().getValue().nameProperty());
+        this.nameColumn = new TableColumn<AbilityAdapter, String>("Nom");
+        this.nameColumn.setCellValueFactory(param -> param.getValue().nameProperty());
         this.nameColumn.setPrefWidth(140);
 
-        this.notesColmun = new TreeTableColumn<AbilityAdapter, String>("Description");
-        this.notesColmun.setCellValueFactory(param -> param.getValue().getValue().descriptionProperty());
+        this.notesColmun = new TableColumn<AbilityAdapter, String>("Description");
+        this.notesColmun.setCellValueFactory(param -> param.getValue().descriptionProperty());
         this.notesColmun.setPrefWidth(150);
 
         this.getColumns().setAll(nameColumn, notesColmun);
     }
 
     public void add(AbilityAdapter item) {
-        items.add(item);
+        this.itemsProperty().getValue().add(item);
     }
 
-    public void remove(TreeItem<AbilityAdapter> selectedItem) {
-        items.remove(selectedItem.getValue());
+    public void remove(AbilityAdapter selectedItem) {
+        itemsProperty().getValue().remove(selectedItem);
     }
 
 
     public List<Ability> getAll() {
-        return this.items.stream().map(AbilityAdapter::toAbility).collect(Collectors.toList());
+        return this.itemsProperty().getValue().stream().map(AbilityAdapter::toAbility).collect(Collectors.toList());
     }
 
     public void setAll(List<Ability> abilities) {
-        this.items.clear();
+        this.itemsProperty().getValue().clear();
         for(Ability ability:abilities){
-            this.items.addAll(new AbilityAdapter(ability));
+            this.itemsProperty().getValue().addAll(new AbilityAdapter(ability));
         }
     }
 }
