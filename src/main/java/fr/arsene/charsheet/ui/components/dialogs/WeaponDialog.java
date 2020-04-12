@@ -1,4 +1,4 @@
-package fr.arsene.charsheet.ui.components;
+package fr.arsene.charsheet.ui.components.dialogs;
 
 import fr.arsene.charsheet.ui.adapters.WeaponAdapter;
 import javafx.beans.binding.Bindings;

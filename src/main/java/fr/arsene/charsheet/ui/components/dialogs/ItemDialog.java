@@ -1,6 +1,6 @@
-package fr.arsene.charsheet.ui.components;
+package fr.arsene.charsheet.ui.components.dialogs;
 
-import fr.arsene.charsheet.ui.adapters.ProtectionAdapter;
+import fr.arsene.charsheet.ui.adapters.ItemAdapter;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 @FxmlView
-public class ProtectionDialog extends AbstractDialog<ProtectionAdapter> {
+public class ItemDialog extends AbstractDialog<ItemAdapter> {
+
     @FXML
     private VBox dialog;
 
@@ -25,24 +26,16 @@ public class ProtectionDialog extends AbstractDialog<ProtectionAdapter> {
     private TextField poids;
 
     @FXML
-    private TextField rupture;
-
-    @FXML
-    private TextField defense;
-
-
-    @FXML
     @Override
     public void initialize() {
         super.initialize();
-        this.setResult(new ProtectionAdapter());
+        this.setResult(new ItemAdapter());
 
         this.getResult().nameProperty().bindBidirectional(name.textProperty());
         this.getResult().notesProperty().bindBidirectional(notes.textProperty());
         Bindings.bindBidirectional(poids.textProperty(), this.getResult().weightProperty(), new NumberStringConverter("###"));
-        Bindings.bindBidirectional(rupture.textProperty(), this.getResult().breakthroughProperty(), new NumberStringConverter("###"));
-        Bindings.bindBidirectional(defense.textProperty(), this.getResult().defenseProperty(), new NumberStringConverter("###"));
 
         this.getScene().setRoot(dialog);
     }
+
 }

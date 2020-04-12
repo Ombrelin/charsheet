@@ -3,7 +3,6 @@
 <?import fr.arsene.charsheet.ui.components.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.*?>
 <StackPane prefWidth="1280" prefHeight="720" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720"
            fx:controller="fr.arsene.charsheet.controller.MainController"
@@ -14,12 +13,14 @@
                 <menus>
                     <Menu mnemonicParsing="false" text="File">
                         <items>
-                            <MenuItem mnemonicParsing="false" text="Open" onAction="#handleClickLoad"/>
+                            <MenuItem mnemonicParsing="false" text="Ouvrir" onAction="#handleClickLoad"/>
+                            <MenuItem mnemonicParsing="false" text="Assistant Création de Personnage"
+                                      onAction="#openCharWizard"/>
                         </items>
                     </Menu>
                     <Menu mnemonicParsing="false" text="Help">
                         <items>
-                            <MenuItem mnemonicParsing="false" text="About" onAction="#handleClickAbout"/>
+                            <MenuItem mnemonicParsing="false" text="A propos" onAction="#handleClickAbout"/>
                         </items>
                     </Menu>
                 </menus>

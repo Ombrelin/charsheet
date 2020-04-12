@@ -9,6 +9,7 @@ import fr.arsene.charsheet.services.CharacterService;
 import fr.arsene.charsheet.services.GameModelService;
 import fr.arsene.charsheet.services.RichPresence;
 import fr.arsene.charsheet.ui.components.*;
+import fr.arsene.charsheet.ui.components.dialogs.*;
 import javafx.animation.RotateTransition;
 import javafx.beans.value.ObservableValue;
 import javafx.css.PseudoClass;
@@ -369,9 +370,7 @@ public class MainController {
         diceThrow.setVisible(true);
         diceThrow.pseudoClassStateChanged(PseudoClass.getPseudoClass("thrown"), true);
 
-        RotateTransition rotateTransition = new RotateTransition();
-        rotateTransition.setDuration(Duration.millis(1000));
-        rotateTransition.setNode(diceThrow);
+        RotateTransition rotateTransition = new RotateTransition(Duration.millis(1000),diceThrow);
         rotateTransition.setByAngle(360);
         rotateTransition.setCycleCount(1);
         rotateTransition.setAutoReverse(false);
@@ -385,5 +384,10 @@ public class MainController {
         });
 
 
+    }
+
+    @FXML
+    private void openCharWizard(ActionEvent event){
+        fxWeaver.loadController(CharWizardDialog.class).show(newCharacter -> {} );
     }
 }

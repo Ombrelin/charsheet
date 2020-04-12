@@ -1,6 +1,7 @@
 package fr.arsene.charsheet.ui.components;
 
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;

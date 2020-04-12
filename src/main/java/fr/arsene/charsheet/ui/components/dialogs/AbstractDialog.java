@@ -1,4 +1,4 @@
-package fr.arsene.charsheet.ui.components;
+package fr.arsene.charsheet.ui.components.dialogs;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;

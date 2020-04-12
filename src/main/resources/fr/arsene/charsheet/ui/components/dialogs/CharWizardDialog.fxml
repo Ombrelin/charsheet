@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fr.arsene.charsheet.ui.components.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="dialog" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.arsene.charsheet.ui.components.dialogs.CharWizardDialog"
+            prefHeight="600.0" prefWidth="800.0"
+>
+
+
+    <VBox>
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25"/>
+        </padding>
+
+        <GridPane fx:id="characteristicsStep" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+                  AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0">
+
+            <TextField promptText="Nom" fx:id="name" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label GridPane.columnIndex="0" GridPane.rowIndex="1" text="Courage"/>
+            <Label GridPane.columnIndex="0" GridPane.rowIndex="2" text="Intelligence"/>
+            <Label GridPane.columnIndex="0" GridPane.rowIndex="3" text="Charisme"/>
+            <Label GridPane.columnIndex="0" GridPane.rowIndex="4" text="Force"/>
+            <Label GridPane.columnIndex="0" GridPane.rowIndex="5" text="Adresse"/>
+
+            <Dice GridPane.columnIndex="1" GridPane.rowIndex="1" faceCount="20"/>
+            <Dice GridPane.columnIndex="1" GridPane.rowIndex="2" faceCount="20"/>
+            <Dice GridPane.columnIndex="1" GridPane.rowIndex="3" faceCount="20"/>
+            <Dice GridPane.columnIndex="1" GridPane.rowIndex="4" faceCount="20"/>
+            <Dice GridPane.columnIndex="1" GridPane.rowIndex="5" faceCount="20"/>
+
+            <Label GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="courageFinalScore"/>
+            <Label GridPane.columnIndex="2" GridPane.rowIndex="2" fx:id="intelligenceFinalScore"/>
+            <Label GridPane.columnIndex="2" GridPane.rowIndex="3" fx:id="charismeFinalScore"/>
+            <Label GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="forceFinalScore"/>
+            <Label GridPane.columnIndex="2" GridPane.rowIndex="5" fx:id="adresseFinalScore"/>
+
+        </GridPane>
+
+        <HBox>
+            <Button fx:id="prevBtn" onAction="#previous" defaultButton="true" text="Précédent"/>
+            <Button fx:id="nextBtn" onAction="#next" defaultButton="true" text="Suivant"/>
+        </HBox>
+    </VBox>
+</AnchorPane>
