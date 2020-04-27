@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Ability {
-    private String name;
-    private String description;
+public abstract class Requirement {
+
+    private int threshold;
+
+    public abstract boolean meets(Character character);
 }

@@ -29,20 +29,21 @@ public class CharsheetFX extends Application {
 
     @Override
     public void start(Stage stage) {
-        RichPresence.getINSTANCE().start();
-        FxWeaver fxWeaver = applicationContext.getBean(FxWeaver.class);
-        Parent root = fxWeaver.loadView(MainController.class);
-        Scene scene = new Scene(root);
-        JMetro jMetro = new JMetro(Style.DARK);
-        jMetro.setScene(scene);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("theme.css").toExternalForm());
-        stage.setMinWidth(1300);
-        stage.setMinHeight(780);
-        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
-        stage.setTitle("CharSheet");
-        stage.setScene(scene);
-        stage.show();
+            RichPresence.getINSTANCE().start();
+            FxWeaver fxWeaver = applicationContext.getBean(FxWeaver.class);
+            Parent root = fxWeaver.loadView(MainController.class);
+            Scene scene = new Scene(root);
+            JMetro jMetro = new JMetro(Style.DARK);
+            jMetro.setScene(scene);
+            scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getClassLoader().getResource("theme.css").toExternalForm());
+            stage.setMinWidth(1300);
+            stage.setMinHeight(780);
+            stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
+            stage.setTitle("CharSheet");
+            stage.setScene(scene);
+
+            stage.show();
     }
 
     @Override

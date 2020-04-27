@@ -60,6 +60,17 @@
     -fx-padding: 0 0 0 16;
 }
 
+.dragLabel:hover {
+    -fx-cursor: hand;
+}
+
+.dropLabel,.dragLabel {
+    -fx-background-color: #2D2C2C;
+    -fx-text-fill: #C8C6C4;
+    -fx-background-radius: 5px;
+    -fx-padding: 12px;
+}
+
 .dice4{
     -fx-background-image: url(images/4.png);
 }

@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 
@@ -20,6 +21,8 @@ public abstract class AbstractDialog<T> {
 
     public void initialize() {
         this.stage = new Stage();
+        this.stage.initStyle(StageStyle.UTILITY);
+        this.stage.setResizable(false);
         this.stage.initModality(Modality.APPLICATION_MODAL);
         this.stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         this.scene = new Scene(new FlowPane());
