@@ -9,18 +9,25 @@ public class CharacteristicsStep extends CharWizardState {
     }
 
     @Override
-    public void next() {
-
+    public CharWizardState next() {
+        return new AbilitiesStep(this.getController());
     }
 
     @Override
-    public void previous() {
+    public CharWizardState previous() {
         throw new IllegalArgumentException("This is the first step");
     }
 
     @Override
     public void initState() {
+        this.getController().getCharacteristicsStep().setManaged(true);
+        this.getController().getAbilitiesStep().setManaged(false);
+        this.getController().getFateStep().setManaged(false);
+
         this.getController().getCharacteristicsStep().setVisible(true);
-        this.getController().getPrevBtn().setDisable(true);
+        this.getController().getAbilitiesStep().setVisible(false);
+        this.getController().getFateStep().setVisible(false);
+
+        this.getController().getFinishBtn().setVisible(false);
     }
 }

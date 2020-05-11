@@ -5,7 +5,7 @@ import club.minnced.discord.rpc.DiscordEventHandlers;
 import club.minnced.discord.rpc.DiscordRPC;
 import club.minnced.discord.rpc.DiscordRichPresence;
 
-public class RichPresence  {
+public class RichPresence {
 
     private static RichPresence INSTANCE;
 
@@ -21,7 +21,7 @@ public class RichPresence  {
     DiscordRichPresence presence = new DiscordRichPresence();
     DiscordRPC lib = DiscordRPC.INSTANCE;
 
-    public void start(){
+    public void start() {
 
         String steamId = "";
         DiscordEventHandlers handlers = new DiscordEventHandlers();
@@ -34,12 +34,11 @@ public class RichPresence  {
         lib.Discord_UpdatePresence(presence);
     }
 
-    public void updateMessage(String character, String name){
+    public void updateMessage(String character, String name) {
         presence.details = name;
         presence.state = character;
         lib.Discord_UpdatePresence(presence);
     }
-
 
 
 }

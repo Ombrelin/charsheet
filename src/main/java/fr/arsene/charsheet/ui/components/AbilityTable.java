@@ -2,9 +2,8 @@ package fr.arsene.charsheet.ui.components;
 
 import fr.arsene.charsheet.model.character.Ability;
 import fr.arsene.charsheet.ui.adapters.AbilityAdapter;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,7 +42,7 @@ public class AbilityTable extends TableView<AbilityAdapter> {
 
     public void setAll(List<Ability> abilities) {
         this.itemsProperty().getValue().clear();
-        for(Ability ability:abilities){
+        for (Ability ability : abilities) {
             this.itemsProperty().getValue().addAll(new AbilityAdapter(ability));
         }
     }

@@ -2,8 +2,6 @@ package fr.arsene.charsheet.ui.components;
 
 import fr.arsene.charsheet.model.character.Item;
 import fr.arsene.charsheet.ui.adapters.ItemAdapter;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -47,7 +45,7 @@ public class ItemTable extends TableView<ItemAdapter> {
 
     public void setAll(List<Item> inventory) {
         this.itemsProperty().getValue().clear();
-        for(Item item:inventory){
+        for (Item item : inventory) {
             this.itemsProperty().getValue().add(new ItemAdapter(item));
         }
     }

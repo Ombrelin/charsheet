@@ -1,102 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import fr.arsene.charsheet.ui.components.*?>
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane fx:id="dialog" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.arsene.charsheet.ui.components.dialogs.CharWizardDialog">
+<AnchorPane fx:id="dialog" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.arsene.charsheet.ui.components.dialogs.CharWizardDialog">
 
 
     <VBox spacing="8">
         <padding>
-            <Insets bottom="25" left="25" right="25" top="25" />
+            <Insets bottom="25" left="25" right="25" top="25"/>
         </padding>
+        <VBox spacing="16" fx:id="characteristicsStep">
+            <AnchorPane>
+                <TextField fx:id="name" promptText="Nom" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="350.0"
+                           AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="24.0"/>
+            </AnchorPane>
+            <Label text="Jettez les dés puis mettez vos score dans les cases de caractéritiques par glissé-déposé. Choisissez ensuite une origine et un métier parmi ceux disponibles"/>
+
+            <Separator />
+            <AnchorPane prefWidth="200.0">
+                <children>
+                    <GridPane AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="128.0"
+                              AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="16.0">
+                        <Dice fx:id="dice1" faceCount="6" GridPane.columnIndex="0"/>
+                        <Dice fx:id="dice2" faceCount="6" GridPane.columnIndex="1"/>
+                        <Dice fx:id="dice3" faceCount="6" GridPane.columnIndex="2"/>
+                        <Dice fx:id="dice4" faceCount="6" GridPane.columnIndex="3"/>
+                        <Dice fx:id="dice5" faceCount="6" GridPane.columnIndex="4"/>
+
+                        <Label fx:id="dice1CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel"
+                               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label fx:id="dice2CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label fx:id="dice3CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel"
+                               GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <Label fx:id="dice4CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel"
+                               GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                        <Label fx:id="dice5CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel"
+                               GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+                        <columnConstraints>
+                            <ColumnConstraints/>
+                            <ColumnConstraints/>
+                            <ColumnConstraints/>
+                            <ColumnConstraints/>
+                            <ColumnConstraints/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                        </rowConstraints>
+                    </GridPane>
+                </children>
+            </AnchorPane>
+            <AnchorPane>
+                <children>
+                    <GridPane hgap="16.0" vgap="16.0" AnchorPane.bottomAnchor="16.0"
+                              AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="0">
+
+
+                        <Label text="Courage" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label text="Intelligence" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <Label text="Charisme" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <Label text="Force" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                        <Label text="Adresse" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+
+                        <Label fx:id="courageFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label fx:id="intelligenceFinalScore" onDragDetected="#handleDrag"
+                               onMouseDragReleased="#handleDrop" prefWidth="48" styleClass="dragLabel"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label fx:id="charismeFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label fx:id="forceFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <Label fx:id="adresseFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop"
+                               prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                        <Label alignment="CENTER" text="Métiers disponibles" textAlignment="CENTER"
+                               GridPane.columnIndex="2"/>
+                        <Label alignment="CENTER" text="Origines disponibles" textAlignment="CENTER"
+                               GridPane.columnIndex="3"/>
+
+                        <ListView fx:id="professionsList" GridPane.columnIndex="2" GridPane.rowIndex="1"
+                                  GridPane.rowSpan="5"/>
+                        <ListView fx:id="racesList" GridPane.columnIndex="3" GridPane.rowIndex="1"
+                                  GridPane.rowSpan="5"/>
+
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="10.0"/>
+                            <ColumnConstraints percentWidth="10.0"/>
+                            <ColumnConstraints percentWidth="40.0"/>
+                            <ColumnConstraints percentWidth="40.0"/>
+                            <ColumnConstraints/>
+                            <ColumnConstraints/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                        </rowConstraints>
+                    </GridPane>
+
+                </children>
+            </AnchorPane>
+            <Separator/>
+            <HBox/>
+        </VBox>
+
+        <VBox minWidth="600" alignment="CENTER" spacing="16" managed="false" fx:id="abilitiesStep">
+            <Label styleClass="title" text="Compétences"/>
+            <Label text="Choisissez 3 compétences dans chaque catégorie"/>
+            <Separator/>
+            <AnchorPane>
+                <GridPane alignment="CENTER" AnchorPane.topAnchor="32" AnchorPane.leftAnchor="32" AnchorPane.rightAnchor="32" AnchorPane.bottomAnchor="32" vgap="16" hgap="64">
+                    <Label text="Compétences d'origine"/>
+                    <ListView onMouseClicked="#handleChangeAbilitiesFromOrigin" GridPane.rowIndex="1" fx:id="abilitiesFromOrigin"/>
+                    <Label onMouseClicked="#handleChangeAbilitiesFromProfession" GridPane.columnIndex="1" text="Compétences de profession"/>
+                    <ListView GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="abilitiesFromProfession"/>
+                </GridPane>
+            </AnchorPane>
+            <Separator/>
+        </VBox>
+        <VBox spacing="16" managed="false" fx:id="fateStep">
+            <Label styleClass="title" text="Destin"/>
+            <Label text="Jettez le dé pour connaitre votre nombre de points de destin"/>
+            <Separator/>
+            <VBox prefHeight="500">
+            <Dice fx:id="destinyDice" faceCount="4"/>
+            <Label fx:id="destinyResult"/>
+            </VBox>
+            <Separator/>
+        </VBox>
 
         <AnchorPane>
-            <TextField fx:id="name" promptText="Nom" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="24.0" />
-        </AnchorPane>
-        <Label text="Jettez les dés puis mettez vos score dans les cases de caractéritiques par glissé-déposé. Choisissez ensuite une origine et un métier parmi ceux disponibles" />
-
-        <Separator />
-        <AnchorPane prefWidth="200.0">
             <children>
-                <GridPane AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="16.0">
-                    <Dice fx:id="dice1" faceCount="6" GridPane.columnIndex="0" />
-                    <Dice fx:id="dice2" faceCount="6" GridPane.columnIndex="1" />
-                    <Dice fx:id="dice3" faceCount="6" GridPane.columnIndex="2" />
-                    <Dice fx:id="dice4" faceCount="6" GridPane.columnIndex="3" />
-                    <Dice fx:id="dice5" faceCount="6" GridPane.columnIndex="4" />
-
-                    <Label fx:id="dice1CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <Label fx:id="dice2CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <Label fx:id="dice3CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <Label fx:id="dice4CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                    <Label fx:id="dice5CharResult" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" onMousePressed="#handlePress" prefWidth="48" styleClass="dragLabel" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                    <columnConstraints>
-                        <ColumnConstraints />
-                        <ColumnConstraints />
-                        <ColumnConstraints />
-                        <ColumnConstraints />
-                        <ColumnConstraints />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
-                    </rowConstraints>
-                </GridPane>
-            </children>
-        </AnchorPane>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-            <children>
-                <GridPane fx:id="characteristicsStep" hgap="16.0" vgap="16.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="0">
-
-
-                    <Label text="Courage" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <Label text="Intelligence" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <Label text="Charisme" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                    <Label text="Force" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                    <Label text="Adresse" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-
-                    <Label fx:id="courageFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" prefWidth="48" styleClass="dropLabel" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <Label fx:id="intelligenceFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" prefWidth="48" styleClass="dropLabel" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                    <Label fx:id="charismeFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" prefWidth="48" styleClass="dropLabel" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                    <Label fx:id="forceFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" prefWidth="48" styleClass="dropLabel" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                    <Label fx:id="adresseFinalScore" onDragDetected="#handleDrag" onMouseDragReleased="#handleDrop" prefWidth="48" styleClass="dropLabel" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-
-                    <Label alignment="CENTER" text="Métiers disponibles" textAlignment="CENTER" GridPane.columnIndex="2" />
-                    <Label alignment="CENTER" text="Origines disponibles" textAlignment="CENTER" GridPane.columnIndex="3" />
-
-                    <ListView GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="5" />
-                    <ListView GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="5" />
-
-                    <columnConstraints>
-                        <ColumnConstraints percentWidth="10.0" />
-                        <ColumnConstraints percentWidth="10.0" />
-                        <ColumnConstraints percentWidth="40.0" />
-                        <ColumnConstraints percentWidth="40.0" />
-                  <ColumnConstraints />
-                  <ColumnConstraints />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                  <RowConstraints />
-                    </rowConstraints>
-                </GridPane>
-            </children>
-        </AnchorPane>
-        <Separator />
-        <HBox />
-        <AnchorPane>
-            <children>
-                <HBox alignment="CENTER" spacing="24" AnchorPane.bottomAnchor="24" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="24.0">
+                <HBox alignment="CENTER" spacing="24" AnchorPane.bottomAnchor="24" AnchorPane.leftAnchor="350.0"
+                      AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="24.0">
                     <children>
-                        <Button fx:id="prevBtn" defaultButton="true" onAction="#previous" text="Précédent" />
-                        <Button fx:id="nextBtn" defaultButton="true" onAction="#next" text="Suivant" />
+                        <Button fx:id="finishBtn" defaultButton="true" onAction="#handleClickFinish" text="Terminer"/>
+                        <Button fx:id="nextBtn" defaultButton="true" onAction="#next" text="Suivant"/>
                     </children>
                 </HBox>
             </children>

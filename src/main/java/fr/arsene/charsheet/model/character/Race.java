@@ -13,6 +13,7 @@ public class Race {
 
     private String name;
     private String notes;
-    private List<Requirement> requirements;
+    private Requirement requirement;
+    private List<Ability> abilities;
 
 }

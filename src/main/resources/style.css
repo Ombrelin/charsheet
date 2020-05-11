@@ -64,7 +64,7 @@
     -fx-cursor: hand;
 }
 
-.dropLabel,.dragLabel {
+.dragLabel {
     -fx-background-color: #2D2C2C;
     -fx-text-fill: #C8C6C4;
     -fx-background-radius: 5px;

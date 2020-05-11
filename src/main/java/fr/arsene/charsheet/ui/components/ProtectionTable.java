@@ -2,11 +2,8 @@ package fr.arsene.charsheet.ui.components;
 
 import fr.arsene.charsheet.model.character.Protection;
 import fr.arsene.charsheet.ui.adapters.ProtectionAdapter;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TreeItem;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -58,7 +55,7 @@ public class ProtectionTable extends TableView<ProtectionAdapter> {
 
     public void setAll(List<Protection> protections) {
         this.itemsProperty().getValue().clear();
-        for(Protection protection:protections){
+        for (Protection protection : protections) {
             this.add(new ProtectionAdapter(protection));
         }
     }

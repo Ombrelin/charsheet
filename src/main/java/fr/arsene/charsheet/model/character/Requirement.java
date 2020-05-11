@@ -7,9 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class Requirement {
-
-    private int threshold;
-
-    public abstract boolean meets(Character character);
+public class Requirement {
+    private int courageThreshold;
+    private int intelligenceThreshold;
+    private int charismaThreshold;
+    private int agilityThreshold;
+    private int strengthThreshold;
+    private int attackThreshold;
+    private int blockThreshold;
 }

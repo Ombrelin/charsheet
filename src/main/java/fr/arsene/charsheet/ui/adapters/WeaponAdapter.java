@@ -37,7 +37,7 @@ public class WeaponAdapter {
         this.setRefireRate(w.getRefireRate());
     }
 
-    public Weapon toWeapon(){
+    public Weapon toWeapon() {
         return new Weapon(name.get(), notes.get(), weight.get(), breakthrough.get(), damage.get(), refireRate.get());
     }
 

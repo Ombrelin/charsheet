@@ -25,7 +25,7 @@ public class CharacterService {
     }
 
     public void save(Character character) {
-        if(this.file == null){
+        if (this.file == null) {
             this.file = fileChooser.showSaveDialog(new Stage());
         }
 
@@ -40,9 +40,9 @@ public class CharacterService {
         }
     }
 
-    public Character load(){
+    public Character load() {
         this.file = fileChooser.showOpenDialog(new Stage());
-        if(this.file != null){
+        if (this.file != null) {
             try {
                 return mapper.readValue(this.file, Character.class);
             } catch (IOException e) {

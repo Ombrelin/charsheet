@@ -149,6 +149,7 @@ public class MainController {
         this.forceBar.valueProperty().addListener(this::updateCalculatedCharacs);
 
         this.loader.setVisible(false);
+        this.name.applyCss();
     }
 
     private void updateCalculatedCharacs(ObservableValue<? extends Number> observableValue, Number object, Number object1) {
@@ -164,6 +165,13 @@ public class MainController {
         this.loader.setVisible(true);
 
         this.character = this.characterService.load();
+        updateCharacter();
+        this.loader.setVisible(false);
+        this.updateRichPresence();
+
+    }
+
+    private void updateCharacter() {
         if (this.character != null) {
 
 
@@ -208,16 +216,10 @@ public class MainController {
             this.items.setAll(character.getInventory());
             this.protections.setAll(character.getProtections());
 
-            character.getWeapons().forEach(System.out::println);
-            this.weapons.getAll().forEach(System.out::println);
-
             // Abilities
             this.abilities.setAll(character.getAbilities());
 
         }
-        this.loader.setVisible(false);
-        this.updateRichPresence();
-
     }
 
     @FXML
@@ -366,11 +368,11 @@ public class MainController {
         diceThrow.getStyleClass().addAll(
                 diceButton.getStyleClass().filtered(style -> style.contains("dice"))
         );
-        
+
         diceThrow.setVisible(true);
         diceThrow.pseudoClassStateChanged(PseudoClass.getPseudoClass("thrown"), true);
 
-        RotateTransition rotateTransition = new RotateTransition(Duration.millis(1000),diceThrow);
+        RotateTransition rotateTransition = new RotateTransition(Duration.millis(1000), diceThrow);
         rotateTransition.setByAngle(360);
         rotateTransition.setCycleCount(1);
         rotateTransition.setAutoReverse(false);
@@ -387,7 +389,10 @@ public class MainController {
     }
 
     @FXML
-    private void openCharWizard(ActionEvent event){
-        fxWeaver.loadController(CharWizardDialog.class).show(newCharacter -> {} );
+    private void openCharWizard(ActionEvent event) {
+        fxWeaver.loadController(CharWizardDialog.class).show(newCharacter -> {
+            this.character = newCharacter;
+            this.updateCharacter();
+        });
     }
 }

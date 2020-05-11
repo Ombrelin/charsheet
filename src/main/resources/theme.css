@@ -48,7 +48,6 @@
 }
 
 .text-field {
-    -fx-skin: "reset";
     -fx-background-color: #2D2C2C;
     -fx-text-fill: #C8C6C4;
     -fx-border-radius: 5px 5px 0 0;

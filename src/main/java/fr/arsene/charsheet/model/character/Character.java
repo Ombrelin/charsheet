@@ -6,9 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Character {
     private String name;
     private Gender gender;
