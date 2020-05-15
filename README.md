@@ -2,6 +2,11 @@
 
 Charsheet is a software to help a player create and manage his character sheet in a tabletop RPG. The RPG system is "Le donjon de Naheulbeuk".
 
+## Features
+
+* Create your character according to the RPG system's rules 
+* Manage your character and it's evolutions using a nice UI.
+
 ## Screenshots
 
 ![image1](https://github.com/Ombrelin/charsheet/blob/master/screenshots/2020-05-15%2014_40_50-CharSheet.png?raw=true)
@@ -9,8 +14,8 @@ Charsheet is a software to help a player create and manage his character sheet i
 
 ## Downloads
 
-* Windows Installer
-* Portable JAR
+* [Windows Installer](https://github.com/Ombrelin/charsheet/releases/download/1/charsheet-setup.exe)
+* [Portable JAR](https://github.com/Ombrelin/charsheet/releases/download/1/charsheet-0.0.1-SNAPSHOT.jar)
 
 ## Build
 
