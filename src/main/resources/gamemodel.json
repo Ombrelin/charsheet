@@ -1,106 +1,1841 @@
 {
-  "professions": [
-    {
-      "name": "Paladin",
-      "notes": "Personnage doué pour le combat au corps à corps, charismatique, pouvant faire appel occasionnellement à des prodiges."
-    },
-    {
-      "name": "Guerrier",
-      "notes": "Personnage destiné à la baston en première ligne."
-    },
-    {
-      "name": "Ninja, Assassin",
-      "notes": ""
-    },
-    {
-      "name": "Voleur",
-      "notes": ""
-    },
-    {
-      "name": "Prêtre",
-      "notes": ""
-    },
-    {
-      "name": "Mage, Sorcier",
-      "notes": ""
-    },
-    {
-      "name": "Ranger",
-      "notes": ""
-    },
-    {
-      "name": "Ménestrel",
-      "notes": ""
-    },
-    {
-      "name": "Pirate",
-      "notes": ""
-    },
-    {
-      "name": "Marchand",
-      "notes": ""
-    },
-    {
-      "name": "Ingénieur",
-      "notes": ""
-    },
-    {
-      "name": "Bourgeois",
-      "notes": ""
-    }
-  ],
   "races": [
     {
       "name": "Humain",
-      "notes": "L'humain est le personnage le plus polyvalent, il peut faire n'importe quoi, s'équiper comme il veut"
-    },
-    {
-      "name": "Elfe Sylvain",
-      "notes": "Personnage doué en milieu naturel, dangereux sur les attaques à distance. Pas d'arme à 2 mains."
+      "notes": "L'humain est le personnage le plus polyvalent, il peut faire n'importe quoi, s'équiper comme il veut",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "possibleAbilities": [
+        {
+          "name": "Chevaucher (AD, CHA)",
+          "notes": "Permet de monter à cheval sans épreuve, ou d'essayer de monter d'autres animaux."
+        },
+        {
+          "name": "Intimider (COU, CHA)",
+          "notes": "Le héros peut tenter d'effrayer quelqu'un à l'aide de son courage et son charisme."
+        },
+        {
+          "name": "Récupération (PA)",
+          "notes": "Besoin de lire/méditer 1H par jour pour régénérer ses pouvoirs (en plus du sommeil)."
+        },
+        {
+          "name": "SPECIALE: Selon dieu affilié",
+          "notes": "Le choix de certains dieux peut donner accès à une ou plusieurs compétences."
+        },
+        {
+          "name": "Armes de bourrin",
+          "notes": "Possibilité d'utiliser des armes à deux mains (sous réserve de restriction d'origine)."
+        },
+        {
+          "name": "Bourre-Pif",
+          "notes": "Le héros peut se battre à mains nues de façon efficace et accéder à des coups spéciaux."
+        },
+        {
+          "name": "Tirer Correctement (AD)",
+          "notes": "Le personnage peut utiliser un arc ou d'autres armes de jet (selon origine)."
+        },
+        {
+          "name": "Frapper Lâchement",
+          "notes": "Permet de doubler les dégâts d’une attaque lorsque celle-ci est placée dans le dos, une fois par combat."
+        },
+        {
+          "name": "Déplacement Silencieux",
+          "notes": "Bonus aux épreuves de discrétion et d'infiltration."
+        },
+        {
+          "name": "Appel des renforts",
+          "notes": "Permet de fuir un combat sans risquer d'être blessé."
+        },
+        {
+          "name": "Chouraver (AD)",
+          "notes": "Donne un bonus pour toutes les épreuves de vol à la tire."
+        },
+        {
+          "name": "Détection",
+          "notes": "Bonus pour toutes les épreuves de détection des pièges et du danger."
+        },
+        {
+          "name": "Serrurier",
+          "notes": "Peut tenter de crocheter des mécanismes et serrures, sans malus à l'épreuve."
+        },
+        {
+          "name": "Érudition (INT)",
+          "notes": "Le héros sait lire, écrire et compter sans passer d'épreuve."
+        },
+        {
+          "name": "Méfiance (INT)",
+          "notes": "Permet de savoir si un autre personnage ment."
+        },
+        {
+          "name": "SPÉCIALE : selon dieu affilié",
+          "notes": "Le choix de certains dieux peut donner accès à une ou plusieurs compétences."
+        },
+        {
+          "name": "Runes Bizarres (INT)",
+          "notes": "Permet de lire ou d'interpréter les écritures étranges et symboles."
+        },
+        {
+          "name": "Déplacements Silencieux (AD)",
+          "notes": "Donne un bonus aux épreuves de discrétion et d'infiltration."
+        },
+        {
+          "name": "Détection (INT)",
+          "notes": "Bonus pour toutes les épreuves de détection des pièges et du danger."
+        },
+        {
+          "name": "Chevaucher (AD,CHA)",
+          "notes": "Permet de monter à cheval sans épreuve, ou d'essayer de monter d'autres animaux."
+        },
+        {
+          "name": "Nager (AD,FO)",
+          "notes": "Le héros a déjà appris à nager et peut passer des épreuves en immersion."
+        },
+        {
+          "name": "Pister (INT)",
+          "notes": "Bonus aux épreuves de pistage, recherche de traces, filature."
+        },
+        {
+          "name": "Attire les monstres",
+          "notes": "Au début du combat, le héros est toujours pris pour cible par les monstres et les ennemis."
+        },
+        {
+          "name": "Erudition (INT)",
+          "notes": "Le héros sait lire, écrire et compter sans passer d'épreuve."
+        },
+        {
+          "name": "Fariboles (INT,CHA)",
+          "notes": "Bonus pour déstabiliser, distraire et captiver l'auditoire à l'aide de son baratin."
+        },
+        {
+          "name": "Jonglage et Danse (AD)",
+          "notes": "Possibilité d'improviser des spectacle pour distraire les gens.."
+        },
+        {
+          "name": "Naïveté touchante (CHA)",
+          "notes": "L'air gentil du héros lui permet de désamorcer certains conflits."
+        },
+        {
+          "name": "Appel du tonneau (INT)",
+          "notes": "Le héros a du mal à se tenir en présence d'alcool."
+        },
+        {
+          "name": "Arnaque et carambouille (CHA)",
+          "notes": "Permet d'arnaquer les marchands pour obtenir des remises."
+        },
+        {
+          "name": "Escalader (AD)",
+          "notes": "Permet de grimper un peu partout avec un bonus aux épreuves."
+        },
+        {
+          "name": "Nager (AD, FO)",
+          "notes": "Le héros a déjà appris à nager et peut passer des épreuves en immersion."
+        },
+        {
+          "name": "Fariboles (INT, CHA)",
+          "notes": "Bonus pour déstabiliser, distraire et captiver l'auditoire à l'aide de son baratin."
+        },
+        {
+          "name": "Bricolo du dimanche",
+          "notes": "Possibilité de fabriquer des objets variés à partir de matières premières, des réparations."
+        },
+        {
+          "name": "Désamorcer",
+          "notes": "Le héros peut s'aider d'un bonus pour désamorcer des pièges ou mécanismes."
+        },
+        {
+          "name": "Forgeron (AD)",
+          "notes": "Capacité spéciale permettant de réparer ou d'améliorer des armes."
+        },
+        {
+          "name": "Ressemble à rien",
+          "notes": "Permet de se faire oublier, de passer inaperçu."
+        },
+        {
+          "name": "Serrurier (AD)",
+          "notes": "Peut tenter de crocheter des mécanismes et serrures, sans malus à l'épreuve."
+        },
+        {
+          "name": "Pénible (INT)",
+          "notes": "Le héros agace les membre de son groupe, et ça peut lui valoir des baffes."
+        },
+        {
+          "name": "Ambidextrie (AD)",
+          "notes": "Possibilité d'utiliser deux armes en même temps dans les combats – sujet à restrictions."
+        },
+        {
+          "name": "Chercher des noises",
+          "notes": "Le héros frappe toujours en premier lors d'un combat."
+        },
+        {
+          "name": "Sentir des pieds",
+          "notes": "Eloigne les animaux (bivouac milieu naturel) – gêne les alliés pour dormir en milieu confiné."
+        },
+        {
+          "name": "Tête vide",
+          "notes": "Immunité à certains sortilèges ayant pour cible l'esprit du héros."
+        },
+        {
+          "name": "Instinct du trésor (INT)",
+          "notes": "Donne un bonus aux épreuves pour trouver des trésors."
+        },
+        {
+          "name": "Radin (CHA, INT)",
+          "notes": "Donne un bonus au marchandage, mais également un malus au partage !"
+        },
+        {
+          "name": "Runes bizarres (INT)",
+          "notes": "Permet de lire ou d'interpréter les écritures étranges et symboles."
+        },
+        {
+          "name": "Tomber dans les pièges",
+          "notes": "Le héros est toujours le premier à tomber dans un piège si l'équipe en croise un."
+        },
+        {
+          "name": "Premier soins (AD, INT)",
+          "notes": "Permet d'essayer de soigner un ami sur une épreuve de moyenne AD/INT."
+        },
+        {
+          "name": "Tirer correctement (AD)",
+          "notes": "Le personnage peut utiliser, sans malus, un arc ou d'autres armes de jet (selon origine)."
+        },
+        {
+          "name": "Agoraphobie (INT)",
+          "notes": "Le héros a du mal à garder son sang-froid en présence de foule."
+        },
+        {
+          "name": "Déplacements silencieux (AD)",
+          "notes": "Donne un bonus aux épreuves de discrétion et d'infiltration."
+        },
+        {
+          "name": "Appel du sauvage",
+          "notes": "Le héros a du mal à choisir son camp en présence d'une horde."
+        },
+        {
+          "name": "Instinct de survie",
+          "notes": "Capacité spéciale permettant de toujours trouver la nourriture."
+        },
+        {
+          "name": "Armes de bourrin",
+          "notes": "Possibilité d'utiliser des armes à deux mains."
+        },
+        {
+          "name": "Appel du ventre (INT)",
+          "notes": "Le héros doit se nourrir souvent, ou bien il s'attaque aux équipiers."
+        },
+        {
+          "name": "Cuistot (AD)",
+          "notes": "Permet à tout le groupe de récupérer des PV supplémentaires quand il prépare un repas."
+        },
+        {
+          "name": "Chouraver",
+          "notes": "Donne un bonus pour toutes les épreuves de vol à la tire."
+        }
+      ],
+      "abilities": []
     },
     {
       "name": "Barbare",
-      "notes": "Le Barbare a une endurance très élevée. Il n'aime pas tout ce qui est compliqué. Il résiste au froid, au chaud, à la douleur.\nC'est un humain différent des autres, car plus robuste et beaucoup moins polyvalent."
+      "notes": "Le Barbare a une endurance très élevée. Il n'aime pas tout ce qui est compliqué. Il résiste au froid, au chaud, à la douleur.\nC'est un humain différent des autres, car plus robuste et beaucoup moins polyvalent.",
+      "requirements": {
+        "courageMinThreshold": 12,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 13,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "possibleAbilities": [
+        {
+          "name": "Armes de bourrin (armes à 2 mains)",
+          "notes": null
+        },
+        {
+          "name": "Bourre-pif (accès au combat à mains nues)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher (monter un animal)",
+          "notes": null
+        },
+        {
+          "name": "Escalader",
+          "notes": null
+        },
+        {
+          "name": "Nager",
+          "notes": null
+        },
+        {
+          "name": "Intimider (pour faire peur aux ennemis)",
+          "notes": null
+        },
+        {
+          "name": "Pister",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement (utiliser des armes de jet)",
+          "notes": null
+        },
+        {
+          "name": "Truc de mauviette (résistance à la douleur)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Ambidextrie (AD)",
+          "notes": "Possibilité d'utiliser deux armes en même temps dans les combats – sujet à restrictions."
+        },
+        {
+          "name": "Chercher des noises",
+          "notes": "Le héros frappe toujours en premier lors d'un combat."
+        },
+        {
+          "name": "Sentir des pieds",
+          "notes": "Eloigne les animaux (bivouac milieu naturel) – gêne les alliés pour dormir en milieu confiné."
+        },
+        {
+          "name": "Tête vide",
+          "notes": "Immunité à certains sortilèges ayant pour cible l'esprit du héros."
+        }
+      ]
     },
     {
       "name": "Nain",
-      "notes": ""
+      "notes": "Personnage destiné au combat rapproché, à l'exploration. Bon pour la fouille et le marchandage. Les armes à 1 main classiques sont utilisées à 2 mains (+1 aux dégâts). Pas d'arme à distance sauf hache. Utilisation de bouclier possible avec arme « naine » à 1 main (d'artisan Nain ou Durandil). Relativement réfractaire à la Magie (sauf arme / protection). Pas de restriction d'armure.",
+      "requirements": {
+        "courageMinThreshold": 11,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 12,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "possibleAbilities": [
+        {
+          "name": "Appel des renforts (fuir sans se faire frapper dans le dos)",
+          "notes": null
+        },
+        {
+          "name": "Arnaque et carambouille (bonnes affaires chez les marchands)",
+          "notes": null
+        },
+        {
+          "name": "Bourre-pif (accès au combat à mains nues)",
+          "notes": null
+        },
+        {
+          "name": "Bricolo du dimanche (fabriquer des objets)",
+          "notes": null
+        },
+        {
+          "name": "Chercher des noises (attaque le premier)",
+          "notes": null
+        },
+        {
+          "name": "Fariboles (baratin pour déstabiliser, marchander, distraire, captiver...)",
+          "notes": null
+        },
+        {
+          "name": "Forgeron (améliorer/réparer des armes)",
+          "notes": null
+        },
+        {
+          "name": "Méfiance (découvrir si un PNJ ment)",
+          "notes": null
+        },
+        {
+          "name": "Truc de mauviette (résistance à la douleur)",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement (hache de jet)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Appel du tonneau (INT)",
+          "notes": "Le héros a du mal à se tenir en présence d'alcool."
+        },
+        {
+          "name": "Instinct du trésor (INT)",
+          "notes": "Donne un bonus aux épreuves pour trouver des trésors."
+        },
+        {
+          "name": "Pénible (INT)",
+          "notes": "Le héros agace les membre de son groupe, et ça peut lui valoir des baffes."
+        },
+        {
+          "name": "Radin (CHA, INT)",
+          "notes": "Donne un bonus au marchandage, mais également un malus au partage !"
+        }
+      ]
     },
     {
-      "name": "Haut Elfe\n",
-      "notes": ""
+      "name": "Haut Elfe",
+      "notes": "Personnage très polyvalent, doué pour la reconnaissance, la prêtrise, la magie, les combats tactiques. Armures max : PR4. Pas d'armes à 2 mains. Peut utiliser toute forme de magie. Transport de charges limité à 10 kilos – Excellente vue, nyctalopie moyenne.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 11,
+        "charismaMinThreshold": 12,
+        "agilityMinThreshold": 12,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 12
+      },
+      "possibleAbilities": [
+        {
+          "name": "Chef de groupe (décisionnel, persuader les alliés)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher",
+          "notes": null
+        },
+        {
+          "name": "Jonglage et danse",
+          "notes": null
+        },
+        {
+          "name": "Nager",
+          "notes": null
+        },
+        {
+          "name": "Premiers soins",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement (utiliser des armes de jet)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Erudition (INT)",
+          "notes": "Le héros sait lire, écrire et compter sans passer d'épreuve."
+        },
+        {
+          "name": "Runes bizarres (INT)",
+          "notes": "Permet de lire ou d'interpréter les écritures étranges et symboles."
+        },
+        {
+          "name": "Tomber dans les pièges",
+          "notes": "Le héros est toujours le premier à tomber dans un piège si l'équipe en croise un."
+        }
+      ]
     },
     {
       "name": "Demi-Elfe",
-      "notes": ""
+      "notes": "Personnage polyvalent. Transport de charges limité à 15 kilos – Excellente vue, nyctalopie moyenne. Armure max : PR5. Pas d'arme à 2 mains.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 10,
+        "agilityMinThreshold": 11,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "possibleAbilities": [
+        {
+          "name": "Nager",
+          "notes": null
+        },
+        {
+          "name": "Bricolo du dimanche (fabriquer des objets)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher (monter un animal)",
+          "notes": null
+        },
+        {
+          "name": "Érudition (savoir lire, écrire et compter – INT minimum 10)",
+          "notes": null
+        },
+        {
+          "name": "Escalader",
+          "notes": null
+        },
+        {
+          "name": "Fouiller dans les poubelles (trouver les meilleurs objets quand on fouille)",
+          "notes": null
+        },
+        {
+          "name": "Mendier et pleurnicher (gagner des PO entre deux aventures)",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement (utiliser des armes de jet)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Appel des renforts",
+          "notes": "Permet de fuir un combat sans risquer d'être blessé."
+        },
+        {
+          "name": "Détection",
+          "notes": "Bonus pour toutes les épreuves de détection des pièges et du danger."
+        },
+        {
+          "name": "Chouraver (AD)",
+          "notes": "Donne un bonus pour toutes les épreuves de vol à la tire."
+        },
+        {
+          "name": "Méfiance (INT)",
+          "notes": "Permet de savoir si un autre personnage ment."
+        }
+      ]
+    },
+    {
+      "name": "Elfe Sylvain",
+      "notes": "Personnage doué en milieu naturel, dangereux sur les attaques à distance. Pas d'arme à 2 mains. Transport de charges limité à 10 kilos – Sens développés, nyctalopie totale. Armure max : PR4. ",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 12,
+        "agilityMinThreshold": 10,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 11
+      },
+      "possibleAbilities": [
+        {
+          "name": "Comprendre les animaux",
+          "notes": null
+        },
+        {
+          "name": "Déplacements silencieux",
+          "notes": null
+        },
+        {
+          "name": "Jonglage et danse",
+          "notes": null
+        },
+        {
+          "name": "Nager",
+          "notes": null
+        },
+        {
+          "name": "Pister",
+          "notes": null
+        },
+        {
+          "name": "Tête vide (résiste aux sorts psychiques, faute de neurones)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Chevaucher (AD, CHA)",
+          "notes": "Permet de monter à cheval sans épreuve, ou d'essayer de monter d'autres animaux."
+        },
+        {
+          "name": "Naïveté touchante (CHA)",
+          "notes": "L'air gentil du héros lui permet de désamorcer certains conflits."
+        },
+        {
+          "name": "Premier soins (AD, INT)",
+          "notes": "Permet d'essayer de soigner un ami sur une épreuve de moyenne AD/INT."
+        },
+        {
+          "name": "Tirer correctement (AD)",
+          "notes": "Le personnage peut utiliser, sans malus, un arc ou d'autres armes de jet (selon origine)."
+        },
+        {
+          "name": "Tomber dans les pièges",
+          "notes": "Le héros est toujours le premier à tomber dans un piège si l'équipe en croise un."
+        }
+      ]
     },
     {
       "name": "Elfe Noir",
-      "notes": ""
+      "notes": "Personnage polyvalent, dangereux à distance aussi bien qu'au corps à corps. Transport de charges limité à 15 kilos – Pas de bouclier, pas d'arme à 2 mains. Sens développés, nyctalopie totale. Armure max : PR3. ",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 12,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 13,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "possibleAbilities": [
+        {
+          "name": "Ambidextrie (1 arme dans chaque main, 2AT/assaut si AD = 14)",
+          "notes": null
+        },
+        {
+          "name": "Chouraver",
+          "notes": null
+        },
+        {
+          "name": "Érudition (savoir lire, écrire et compter – INT minimum 10)",
+          "notes": null
+        },
+        {
+          "name": "Escalader",
+          "notes": null
+        },
+        {
+          "name": "Forgeron (améliorer/réparer des armes)",
+          "notes": null
+        },
+        {
+          "name": "Frapper lâchement",
+          "notes": null
+        },
+        {
+          "name": "Méfiance (découvrir si un PNJ ment)",
+          "notes": null
+        },
+        {
+          "name": "Pister",
+          "notes": null
+        },
+        {
+          "name": "Runes bizarres (lecture des langages compliqués)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Agoraphobie (INT)",
+          "notes": "Le héros a du mal à garder son sang-froid en présence de foule."
+        },
+        {
+          "name": "Déplacements silencieux (AD)",
+          "notes": "Donne un bonus aux épreuves de discrétion et d'infiltration."
+        },
+        {
+          "name": "Détection",
+          "notes": "Bonus pour toutes les épreuves de détection des pièges et du danger."
+        },
+        {
+          "name": "Tirer correctement (AD)",
+          "notes": "Le personnage peut utiliser, sans malus, un arc ou d'autres armes de jet (selon origine)."
+        }
+      ]
     },
     {
       "name": "Orque",
-      "notes": ""
+      "notes": "Personnage doué pour le combat « en première ligne » et l'exploration. Problèmes de communication. Excellent odorat : peut flairer le sang ou le danger à 50m. Mauvaise vue, mais nyctalopie totale. Réfractaire à toute forme de magie. Pas d'arbalète, pas d'arme complexe. Pas de restriction d'armure.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 12,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 8,
+        "charismaMaxThreshold": 10,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "possibleAbilities": [
+        {
+          "name": "Armes de bourrin (armes à 2 mains)",
+          "notes": null
+        },
+        {
+          "name": "Chercher des noises (attaque le premier)",
+          "notes": null
+        },
+        {
+          "name": "Fouiller dans les poubelles (trouver les meilleurs objets quand on fouille)",
+          "notes": null
+        },
+        {
+          "name": "Intimider (pour faire peur aux ennemis)",
+          "notes": null
+        },
+        {
+          "name": "Truc de mauviette (résistance à la douleur)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Agoraphobie (INT)",
+          "notes": "Le héros a du mal à garder son sang-froid en présence de foule."
+        },
+        {
+          "name": "Appel du sauvage",
+          "notes": "Le héros a du mal à choisir son camp en présence d'une horde."
+        },
+        {
+          "name": "Appel du tonneau (INT)",
+          "notes": "Le héros a du mal à se tenir en présence d'alcool."
+        },
+        {
+          "name": "Bourre-Pif",
+          "notes": "Le héros peut se battre à mains nues de façon efficace et accéder à des coups spéciaux."
+        },
+        {
+          "name": "Instinct de survie",
+          "notes": "Capacité spéciale permettant de toujours trouver la nourriture."
+        },
+        {
+          "name": "Sentir des pieds",
+          "notes": "Eloigne les animaux (bivouac milieu naturel) – gêne les alliés pour dormir en milieu confiné."
+        },
+        {
+          "name": "Tête vide",
+          "notes": "Immunité à certains sortilèges ayant pour cible l'esprit du héros."
+        }
+      ]
     },
     {
       "name": "Demi-Orque",
-      "notes": ""
+      "notes": "Personnage d'appui, assez polyvalent. Flaire le danger à 25m. Bon odorat, bonne ouïe, nyctalopie moyenne. Pas d'arbalète ou arme complexe.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 12,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 10,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 11,
+        "strengthMaxThreshold": 20
+      },
+      "possibleAbilities": [
+        {
+          "name": "Armes de bourrin (armes à 2 mains)",
+          "notes": null
+        },
+        {
+          "name": "Bourre-pif (accès au combat à mains nues)",
+          "notes": null
+        },
+        {
+          "name": "Fouiller dans les poubelles (trouver les meilleurs objets quand on fouille)",
+          "notes": null
+        },
+        {
+          "name": "Intimider (pour faire peur aux ennemis)",
+          "notes": null
+        },
+        {
+          "name": "Bourre-pif (accès au combat à mains nues)",
+          "notes": null
+        },
+        {
+          "name": "Truc de mauviette (résistance à la douleur)",
+          "notes": null
+        },
+        {
+          "name": "Nager",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement (utiliser des armes de jet)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Agoraphobie (INT)",
+          "notes": "Le héros a du mal à garder son sang-froid en présence de foule."
+        },
+        {
+          "name": "Chercher des noises",
+          "notes": "Le héros frappe toujours en premier lors d'un combat."
+        },
+        {
+          "name": "Instinct de survie",
+          "notes": "Capacité spéciale permettant de toujours trouver la nourriture."
+        },
+        {
+          "name": "Sentir des pieds",
+          "notes": "Eloigne les animaux (bivouac milieu naturel) – gêne les alliés pour dormir en milieu confiné."
+        },
+        {
+          "name": "Tête vide",
+          "notes": "Immunité à certains sortilèges ayant pour cible l'esprit du héros."
+        }
+      ]
     },
     {
       "name": "Gobelin",
-      "notes": ""
+      "notes": "Personnage doué pour l'infiltration et le bricolage, les expériences, les manœuvres un peu lâches. Sens développés, nyctalopie. Peut flairer le danger à 50m. Ne parle pas la langue commune. N'utilise pas de magie, quel que soit le support. Armure max : PR4.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 10,
+        "intelligenceMaxThreshold": 10,
+        "charismaMaxThreshold": 8,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 9
+      },
+      "possibleAbilities": [
+        {
+          "name": "Bricolo du dimanche (fabriquer des objets)",
+          "notes": null
+        },
+        {
+          "name": "Désamorcer (un piège non magique)",
+          "notes": null
+        },
+        {
+          "name": "Escalader",
+          "notes": null
+        },
+        {
+          "name": "Forgeron (améliorer/réparer des armes)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Agoraphobie (INT)",
+          "notes": "Le héros a du mal à garder son sang-froid en présence de foule."
+        },
+        {
+          "name": "Appel des renforts",
+          "notes": "Permet de fuir un combat sans risquer d'être blessé."
+        },
+        {
+          "name": "Appel du sauvage",
+          "notes": "Le héros a du mal à choisir son camp en présence d'une horde."
+        },
+        {
+          "name": "Sentir des pieds",
+          "notes": "Eloigne les animaux (bivouac milieu naturel) – gêne les alliés pour dormir en milieu confiné."
+        },
+        {
+          "name": "Tête vide",
+          "notes": "Immunité à certains sortilèges ayant pour cible l'esprit du héros."
+        },
+        {
+          "name": "Attire les monstres",
+          "notes": "Au début du combat, le héros est toujours pris pour cible par les monstres et les ennemis."
+        },
+        {
+          "name": "Instinct de survie",
+          "notes": "Capacité spéciale permettant de toujours trouver la nourriture."
+        },
+        {
+          "name": "Instinct du trésor (INT)",
+          "notes": "Donne un bonus aux épreuves pour trouver des trésors."
+        }
+      ]
     },
     {
-      "name": "OGRE",
-      "notes": ""
+      "name": "Ogre",
+      "notes": "Personnage doué pour taper les gens, parfait comme allié d'exploration et comme transporteur. Excellent odorat : flaire le sang ou le danger à 50m. Armure max : PR4. Relativement réfractaire à la magie (sauf arme / protection). Pas d'arbalète, d'arc, ni d'armes complexes. Transporte facilement 50 kilos. Bonus : capacité « Super bourrin » (PRD-5 contre une attaque de l'ogre) ",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 13,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 9,
+        "charismaMaxThreshold": 10,
+        "agilityMaxThreshold": 11,
+        "strengthMaxThreshold": 20
+      },
+      "possibleAbilities": [
+        {
+          "name": "Bourre-pif (accès au combat à mains nues)",
+          "notes": null
+        },
+        {
+          "name": "Chercher des noises (attaque le premier)",
+          "notes": null
+        },
+        {
+          "name": "Fouiller dans les poubelles (trouver les meilleurs objets quand on fouille)",
+          "notes": null
+        },
+        {
+          "name": "Langues des monstres",
+          "notes": null
+        },
+        {
+          "name": "Truc de mauviette (résistance à la douleur)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Armes de bourrin",
+          "notes": "Possibilité d'utiliser des armes à deux mains."
+        },
+        {
+          "name": "Appel du tonneau (INT)",
+          "notes": "Le héros a du mal à se tenir en présence d'alcool."
+        },
+        {
+          "name": "Appel du ventre (INT)",
+          "notes": "Le héros doit se nourrir souvent, ou bien il s'attaque aux équipiers."
+        },
+        {
+          "name": "Sentir des pieds",
+          "notes": "Eloigne les animaux (bivouac milieu naturel) – gêne les alliés pour dormir en milieu confiné."
+        },
+        {
+          "name": "Tête vide",
+          "notes": "Immunité à certains sortilèges ayant pour cible l'esprit du héros."
+        },
+        {
+          "name": "Intimider (COU, CHA)",
+          "notes": "Le héros peut tenter d'effrayer quelqu'un à l'aide de son courage et son charisme."
+        },
+        {
+          "name": "Instinct de survie",
+          "notes": "Capacité spéciale permettant de toujours trouver la nourriture."
+        }
+      ]
     },
     {
       "name": "Semi-Homme",
-      "notes": ""
+      "notes": "Personnage courageux mais peu gâté par la nature. Excellent cuistot, bon pour le moral des troupes. Les armes à 1 main classiques sont utilisées à 2 mains (sans modification aux dégâts). Armure max : PR3. Relativement réfractaire à la Magie (sauf arme / protection). Pas d'arc.",
+      "requirements": {
+        "courageMinThreshold": 12,
+        "intelligenceMinThreshold": 10,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 10
+      },
+      "possibleAbilities": [
+        {
+          "name": "Appel des renforts (fuir sans se faire frapper dans le dos)",
+          "notes": null
+        },
+        {
+          "name": "Chouraver (vol à la tire)",
+          "notes": null
+        },
+        {
+          "name": "Fouiller dans les poubelles (trouver les meilleurs objets quand on fouille)",
+          "notes": null
+        },
+        {
+          "name": "Érudition (savoir lire, écrire et compter – INT minimum 10)",
+          "notes": null
+        },
+        {
+          "name": "Fariboles (baratin pour déstabiliser, marchander, distraire, captiver...)",
+          "notes": null
+        },
+        {
+          "name": "Frapper lâchement (amélioration dégâts des lames courtes)",
+          "notes": null
+        },
+        {
+          "name": "Instinct du trésor (sentir trésors et cachettes)",
+          "notes": null
+        },
+        {
+          "name": "Mendier et pleurnicher (gagner des PO entre deux aventures)",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement (utiliser des armes de jet : lance-pierre, poignard et shuriken seulement)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Cuistot (AD)",
+          "notes": "Permet à tout le groupe de récupérer des PV supplémentaires quand il prépare un repas."
+        },
+        {
+          "name": "Appel du tonneau (INT)",
+          "notes": "Le héros a du mal à se tenir en présence d'alcool."
+        },
+        {
+          "name": "Attire les monstres",
+          "notes": "Au début du combat, le héros est toujours pris pour cible par les monstres et les ennemis."
+        },
+        {
+          "name": "Ressemble à rien",
+          "notes": "Permet de se faire oublier, de passer inaperçu."
+        },
+        {
+          "name": "Instinct de survie",
+          "notes": "Capacité spéciale permettant de toujours trouver la nourriture."
+        }
+      ]
     },
     {
       "name": "Gnôme des forêts du Nord",
-      "notes": ""
+      "notes": "Personnage contorsionniste, doué pour l'infiltration et l'esquive. Peut chevaucher n'importe quoi. N'utilise pas de magie, sauf sur arme ou protection. Ne parle pas la langue commune. Armes autorisées : poignards, couteaux – Transport de charges limité à deux kilos. Armure max : PR2.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 10,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 13,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 8
+      },
+      "possibleAbilities": [
+        {
+          "name": "Comprendre les animaux",
+          "notes": null
+        },
+        {
+          "name": "Désamorcer (un piège non magique)",
+          "notes": null
+        },
+        {
+          "name": "Détection (pièges et embûches, danger)",
+          "notes": null
+        },
+        {
+          "name": "Escalader",
+          "notes": null
+        },
+        {
+          "name": "Jonglage et danse",
+          "notes": null
+        },
+        {
+          "name": "Mendier et pleurnicher (gagner des PO entre deux aventures)",
+          "notes": null
+        },
+        {
+          "name": "Nager",
+          "notes": null
+        },
+        {
+          "name": "Serrurier (crocheter les mécanismes des portes/coffres)",
+          "notes": null
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Ambidextrie (AD)",
+          "notes": "Possibilité d'utiliser deux armes en même temps dans les combats – sujet à restrictions."
+        },
+        {
+          "name": "Appel des renforts",
+          "notes": "Permet de fuir un combat sans risquer d'être blessé."
+        },
+        {
+          "name": "Chevaucher (AD, CHA)",
+          "notes": "Permet de monter à cheval sans épreuve, ou d'essayer de monter d'autres animaux."
+        },
+        {
+          "name": "Chouraver",
+          "notes": "Donne un bonus pour toutes les épreuves de vol à la tire."
+        },
+        {
+          "name": "Déplacements silencieux (AD)",
+          "notes": "Donne un bonus aux épreuves de discrétion et d'infiltration."
+        },
+        {
+          "name": "Instinct du trésor (INT)",
+          "notes": "Donne un bonus aux épreuves pour trouver des trésors."
+        }
+      ]
+    }
+  ],
+  "professions": [
+    {
+      "name": "Paladin",
+      "notes": "Personnage doué pour le combat au corps à corps, charismatique, pouvant faire appel occasionnellement à des prodiges.",
+      "requirements": {
+        "courageMinThreshold": 12,
+        "intelligenceMinThreshold": 10,
+        "charismaMinThreshold": 11,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 9,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Chevaucher (AD, CHA)",
+          "notes": "Permet de monter à cheval sans épreuve, ou d'essayer de monter d'autres animaux."
+        },
+        {
+          "name": "Intimider (COU, CHA)",
+          "notes": "Le héros peut tenter d'effrayer quelqu'un à l'aide de son courage et son charisme."
+        },
+        {
+          "name": "Récupération (PA)",
+          "notes": "Besoin de lire/méditer 1H par jour pour régénérer ses pouvoirs (en plus du sommeil)."
+        },
+        {
+          "name": "SPECIALE: Selon dieu affilié",
+          "notes": "Le choix de certains dieux peut donner accès à une ou plusieurs compétences."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Armes de bourrin (armes à 2 mains – possibilité selon dieu choisi)",
+          "notes": null
+        },
+        {
+          "name": "Chercher des noises (attaque le premier)",
+          "notes": null
+        },
+        {
+          "name": "Érudition (savoir lire, écrire et compter)",
+          "notes": null
+        },
+        {
+          "name": "Fariboles (convaincre en racontant n'importe quoi)",
+          "notes": null
+        },
+        {
+          "name": "Premiers soins",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Guerrier, Gladiateur",
+      "notes": "Personnage destiné à la baston en première ligne.",
+      "requirements": {
+        "courageMinThreshold": 12,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 12,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Armes de bourrin",
+          "notes": "Possibilité d'utiliser des armes à deux mains (sous réserve de restriction d'origine)."
+        },
+        {
+          "name": "Bourre-Pif",
+          "notes": "Le héros peut se battre à mains nues de façon efficace et accéder à des coups spéciaux."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Ambidextrie (utilisation simultanée de 2 armes)",
+          "notes": null
+        },
+        {
+          "name": "Chercher des noises (attaque le premier)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher",
+          "notes": null
+        },
+        {
+          "name": "Forgeron (améliorer/réparer des armes",
+          "notes": null
+        },
+        {
+          "name": "Intimider (pour faire peur aux ennemis)",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement (utiliser des armes de jet)",
+          "notes": null
+        },
+        {
+          "name": "Truc de mauviette (résistance à la douleur)",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Ninja, Assassin",
+      "notes": "Personnage destiné à l'infiltration, aux manœuvres un peu lâches. Si l'intelligence naturelle est supérieure à 10 : peut utiliser des objets magiques. Armure max : PR3. En cas d'esquive réussie, il a 50 % de chances de pouvoir attaquer à l'assaut suivant (4, 5, 6 au D6).",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 13,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Tirer Correctement (AD)",
+          "notes": "Le personnage peut utiliser un arc ou d'autres armes de jet (selon origine)."
+        },
+        {
+          "name": "Frapper Lâchement",
+          "notes": "Permet de doubler les dégâts d’une attaque lorsque celle-ci est placée dans le dos, une fois par combat."
+        },
+        {
+          "name": "Déplacement Silencieux",
+          "notes": "Bonus aux épreuves de discrétion et d'infiltration."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Ambidextrie (utilisation simultanée de deux armes)",
+          "notes": null
+        },
+        {
+          "name": "Chercher des noises (attaque le premier)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher (monter un animal)",
+          "notes": null
+        },
+        {
+          "name": "Érudition (savoir lire, écrire et compter – INT minimum 10)",
+          "notes": null
+        },
+        {
+          "name": "Escalader",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Voleur",
+      "notes": "Personnage destiné à l'infiltration, aux manœuvres un peu lâches, à l'exploration, à l'escamotage. Si l'intelligence naturelle est supérieure à 10 : peut utiliser des objets magiques. Armure max : PR3.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 12,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Appel des renforts",
+          "notes": "Permet de fuir un combat sans risquer d'être blessé."
+        },
+        {
+          "name": "Chouraver (AD)",
+          "notes": "Donne un bonus pour toutes les épreuves de vol à la tire."
+        },
+        {
+          "name": "Déplacement Silencieux",
+          "notes": "Bonus aux épreuves de discrétion et d'infiltration."
+        },
+        {
+          "name": "Détection",
+          "notes": "Bonus pour toutes les épreuves de détection des pièges et du danger."
+        },
+        {
+          "name": "Serrurier",
+          "notes": "Peut tenter de crocheter des mécanismes et serrures, sans malus à l'épreuve."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Arnaque et carambouille (bonnes affaires chez les marchands)",
+          "notes": null
+        },
+        {
+          "name": "Désamorcer (un piège non magique)",
+          "notes": null
+        },
+        {
+          "name": "Fouiller dans les poubelles (trouver les meilleurs objets quand on fouille)",
+          "notes": null
+        },
+        {
+          "name": "Érudition (savoir lire, écrire et compter – INT minimum 10)",
+          "notes": null
+        },
+        {
+          "name": "Escalader",
+          "notes": null
+        },
+        {
+          "name": "Frapper lâchement (amélioration dégâts des lames courtes)",
+          "notes": null
+        },
+        {
+          "name": "Méfiance (découvrir si un PNJ ment)",
+          "notes": null
+        },
+        {
+          "name": "Ressemble à rien (être difficile à reconnaître)",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Prêtre",
+      "notes": "Personnage ayant accès à de nombreux prodiges, dont les pouvoirs dépendent du dieu choisi. Le prêtre reçoit également les restrictions et avantages relatifs au dieu (ou démon) affilié.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 12,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Érudition (INT)",
+          "notes": "Le héros sait lire, écrire et compter sans passer d'épreuve."
+        },
+        {
+          "name": "Méfiance (INT)",
+          "notes": "Permet de savoir si un autre personnage ment."
+        },
+        {
+          "name": "Récupération (PA)",
+          "notes": "Besoin de lire/méditer 1H par jour pour régénérer ses pouvoirs (en plus du sommeil)."
+        },
+        {
+          "name": "SPÉCIALE : selon dieu affilié",
+          "notes": "Le choix de certains dieux peut donner accès à une ou plusieurs compétences."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Arnaque et carambouille (bonnes affaires chez les marchands)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher",
+          "notes": null
+        },
+        {
+          "name": "Cuistot (améliore les repas et la récupération induite)",
+          "notes": null
+        },
+        {
+          "name": "Fariboles (baratin pour déstabiliser, marchander, distraire, captiver...)",
+          "notes": null
+        },
+        {
+          "name": "Premiers soins",
+          "notes": null
+        },
+        {
+          "name": "Radin (bonus pour marchander, malus pour partager)",
+          "notes": null
+        },
+        {
+          "name": "Runes bizarres (lecture des langages compliqués)",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Mage, Sorcier",
+      "notes": "Personnage qui lance des sorts variés, qui sait parlementer, qui peut résoudre les énigmes et détecter la magie. Armes utilisables : bâton, poignard, dague, gourdin (corps à corps). Pas d'arc ou arbalètes. N’utilise pas de bouclier. Peut utiliser toute forme de magie, parchemin, protections magiques, potions, etc. Bâton non obligatoire. Transport de charge limitée, dépendant de l'origine. Armure max : PR2.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 12,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Érudition (INT)",
+          "notes": "Le héros sait lire, écrire et compter sans passer d'épreuve."
+        },
+        {
+          "name": "Récupération (PA)",
+          "notes": "Besoin de lire/méditer 1H par jour pour régénérer ses pouvoirs (en plus du sommeil)."
+        },
+        {
+          "name": "Runes Bizarres (INT)",
+          "notes": "Permet de lire ou d'interpréter les écritures étranges et symboles."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Appel des renforts (fuir sans se faire frapper dans le dos)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher",
+          "notes": null
+        },
+        {
+          "name": "Chef de groupe (décisionnel, persuader les alliés)",
+          "notes": null
+        },
+        {
+          "name": "Fariboles (baratin pour déstabiliser, marchander, distraire, captiver...)",
+          "notes": null
+        },
+        {
+          "name": "Premiers soins",
+          "notes": null
+        },
+        {
+          "name": "Langues des monstres",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Ranger",
+      "notes": "Personnage très polyvalent, très bon en soutien et en exploration. Armure max : PR4.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 10,
+        "agilityMinThreshold": 10,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Déplacements Silencieux (AD)",
+          "notes": "Donne un bonus aux épreuves de discrétion et d'infiltration."
+        },
+        {
+          "name": "Détection (INT)",
+          "notes": "Bonus pour toutes les épreuves de détection des pièges et du danger."
+        },
+        {
+          "name": "Chevaucher (AD,CHA)",
+          "notes": "Permet de monter à cheval sans épreuve, ou d'essayer de monter d'autres animaux."
+        },
+        {
+          "name": "Nager (AD,FO)",
+          "notes": "Le héros a déjà appris à nager et peut passer des épreuves en immersion."
+        },
+        {
+          "name": "Pister (INT)",
+          "notes": "Bonus aux épreuves de pistage, recherche de traces, filature."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Ambidextrie (1 arme dans chaque main, 2AT/assaut si AD = 14)",
+          "notes": null
+        },
+        {
+          "name": "Comprendre les animaux",
+          "notes": null
+        },
+        {
+          "name": "Chef de groupe (décisionnel, persuader les alliés)",
+          "notes": null
+        },
+        {
+          "name": "Désamorcer (un piège non magique)",
+          "notes": null
+        },
+        {
+          "name": "Érudition (savoir lire, écrire et compter – INT minimum 10)",
+          "notes": null
+        },
+        {
+          "name": "Escalader",
+          "notes": null
+        },
+        {
+          "name": "Méfiance (découvrir si un PNJ ment)",
+          "notes": null
+        },
+        {
+          "name": "Premiers soins",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Ménestrel",
+      "notes": "Personnage un peu bruyant mais sympathique, et presque polyvalent. Bon pour la négociation. Armure max : PR2. Peut utiliser les objets magiques et parchemins, et les instruments. Armes autorisées : bâton, poignard, dague, gourdin. Pas de bouclier. Pas d'arbalètes.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 12,
+        "agilityMinThreshold": 11,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Attire les monstres",
+          "notes": "Au début du combat, le héros est toujours pris pour cible par les monstres et les ennemis."
+        },
+        {
+          "name": "Erudition (INT)",
+          "notes": "Le héros sait lire, écrire et compter sans passer d'épreuve."
+        },
+        {
+          "name": "Chevaucher (AD,CHA)",
+          "notes": "Permet de monter à cheval sans épreuve, ou d'essayer de monter d'autres animaux."
+        },
+        {
+          "name": "Fariboles (INT,CHA)",
+          "notes": "Bonus pour déstabiliser, distraire et captiver l'auditoire à l'aide de son baratin."
+        },
+        {
+          "name": "Jonglage et Danse (AD)",
+          "notes": "Possibilité d'improviser des spectacle pour distraire les gens.."
+        },
+        {
+          "name": "Naïveté touchante (CHA)",
+          "notes": "L'air gentil du héros lui permet de désamorcer certains conflits."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Méfiance (découvrir si un PNJ ment)",
+          "notes": null
+        },
+        {
+          "name": "Mendier et pleurnicher (gagner des PO entre deux aventures)",
+          "notes": null
+        },
+        {
+          "name": "Runes bizarres (lecture des langages compliqués)",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement",
+          "notes": null
+        },
+        {
+          "name": "Premiers soins",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Pirate",
+      "notes": "Personnage polyvalent, roublard et plutôt habile. Se promène une mauvaise réputation. Ne peut changer de métier (pirate pour la vie !). Armure max : PR3. Pas d'arme à deux mains. Peut utiliser les objets magiques ou parchemins.",
+      "requirements": {
+        "courageMinThreshold": 11,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 11,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Appel des renforts",
+          "notes": "Permet de fuir un combat sans risquer d'être blessé."
+        },
+        {
+          "name": "Appel du tonneau (INT)",
+          "notes": "Le héros a du mal à se tenir en présence d'alcool."
+        },
+        {
+          "name": "Arnaque et carambouille (CHA)",
+          "notes": "Permet d'arnaquer les marchands pour obtenir des remises."
+        },
+        {
+          "name": "Chouraver (AD)",
+          "notes": "Donne un bonus pour toutes les épreuves de vol à la tire."
+        },
+        {
+          "name": "Escalader (AD)",
+          "notes": "Permet de grimper un peu partout avec un bonus aux épreuves."
+        },
+        {
+          "name": "Nager (AD, FO)",
+          "notes": "Le héros a déjà appris à nager et peut passer des épreuves en immersion."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Détection (pièges et embûches, danger)",
+          "notes": null
+        },
+        {
+          "name": "Fouiller dans les poubelles (trouver les meilleurs objets quand on fouille)",
+          "notes": null
+        },
+        {
+          "name": "Instinct du trésor (sentir trésors et cachettes)",
+          "notes": null
+        },
+        {
+          "name": "Méfiance (découvrir si un PNJ ment)",
+          "notes": null
+        },
+        {
+          "name": "Mendier et pleurnicher (gagner des PO entre deux aventures)",
+          "notes": null
+        },
+        {
+          "name": "Tirer correctement",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Marchand, Négociant",
+      "notes": "Personnage doué pour accéder à son enrichissement personnel. Bon pour les relations publiques. Armure max : PR3. Pas d'arme à deux mains. Peut utiliser les objet magiques. Peut utiliser les parchemins s'il sait lire...",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 12,
+        "charismaMinThreshold": 11,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Appel des renforts",
+          "notes": "Permet de fuir un combat sans risquer d'être blessé."
+        },
+        {
+          "name": "Arnaque et carambouille (CHA)",
+          "notes": "Permet d'arnaquer les marchands pour obtenir des remises."
+        },
+        {
+          "name": "Erudition (INT)",
+          "notes": "Le héros sait lire, écrire et compter sans passer d'épreuve."
+        },
+        {
+          "name": "Fariboles (INT, CHA)",
+          "notes": "Bonus pour déstabiliser, distraire et captiver l'auditoire à l'aide de son baratin."
+        },
+        {
+          "name": "Méfiance (INT)",
+          "notes": "Permet de savoir si un autre personnage ment."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Chef de groupe (décisionnel, persuader les alliés)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher",
+          "notes": null
+        },
+        {
+          "name": "Cuistot (améliore les repas et la récupération induite)",
+          "notes": null
+        },
+        {
+          "name": "Forgeron (améliorer/réparer des armes)",
+          "notes": null
+        },
+        {
+          "name": "Instinct du trésor (sentir trésors et cachettes)",
+          "notes": null
+        },
+        {
+          "name": "Runes bizarres (lecture des langages compliqués)",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Ingénieur",
+      "notes": "Personnage doué pour le bricolage, l'utilisation de l'environnement, les plans (y compris mauvais). Armure max : PR3. Utilisation possible de magie si intelligence supérieure à 10. Pas d'arme à 2 mains.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 0,
+        "charismaMinThreshold": 0,
+        "agilityMinThreshold": 11,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Bricolo du dimanche",
+          "notes": "Possibilité de fabriquer des objets variés à partir de matières premières, des réparations."
+        },
+        {
+          "name": "Désamorcer",
+          "notes": "Le héros peut s'aider d'un bonus pour désamorcer des pièges ou mécanismes."
+        },
+        {
+          "name": "Forgeron (AD)",
+          "notes": "Capacité spéciale permettant de réparer ou d'améliorer des armes."
+        },
+        {
+          "name": "Ressemble à rien",
+          "notes": "Permet de se faire oublier, de passer inaperçu."
+        },
+        {
+          "name": "Serrurier (AD)",
+          "notes": "Peut tenter de crocheter des mécanismes et serrures, sans malus à l'épreuve."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Appel des renforts (fuir sans se faire frapper dans le dos)",
+          "notes": null
+        },
+        {
+          "name": "Chevaucher",
+          "notes": null
+        },
+        {
+          "name": "Cuistot (améliore les repas et la récupération induite)",
+          "notes": null
+        },
+        {
+          "name": "Érudition (savoir lire, écrire et compter – INT minimum 10)",
+          "notes": null
+        },
+        {
+          "name": "Nager",
+          "notes": null
+        },
+        {
+          "name": "Premiers soins",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "Bourgeois, Noble",
+      "notes": "Personnage destiné à... se la jouer en toute situation. Aucune restriction particulière, car le noble pense qu'il peut tout faire – ce qui est faux, bien sûr.",
+      "requirements": {
+        "courageMinThreshold": 0,
+        "intelligenceMinThreshold": 10,
+        "charismaMinThreshold": 11,
+        "agilityMinThreshold": 0,
+        "strengthMinThreshold": 0,
+        "courageMaxThreshold": 20,
+        "intelligenceMaxThreshold": 20,
+        "charismaMaxThreshold": 20,
+        "agilityMaxThreshold": 20,
+        "strengthMaxThreshold": 20
+      },
+      "abilities": [
+        {
+          "name": "Appel des renforts",
+          "notes": "Permet de fuir un combat sans risquer d'être blessé."
+        },
+        {
+          "name": "Attire les monstres",
+          "notes": "Au début du combat, le héros est toujours pris pour cible par les monstres et les ennemis."
+        },
+        {
+          "name": "Chevaucher (AD, CHA)",
+          "notes": "Permet de monter à cheval sans épreuve, ou d'essayer de monter d'autres animaux."
+        },
+        {
+          "name": "Erudition (INT)",
+          "notes": "Le héros sait lire, écrire et compter sans passer d'épreuve."
+        },
+        {
+          "name": "Pénible (INT)",
+          "notes": "Le héros agace les membre de son groupe, et ça peut lui valoir des baffes."
+        }
+      ],
+      "possibleAbilities": [
+        {
+          "name": "Arnaque et carambouille (bonnes affaires chez les marchands)",
+          "notes": null
+        },
+        {
+          "name": "Chef de groupe (décisionnel, persuader les alliés)",
+          "notes": null
+        },
+        {
+          "name": "Jonglage et danse",
+          "notes": null
+        },
+        {
+          "name": "Méfiance (découvrir si un PNJ ment)",
+          "notes": null
+        },
+        {
+          "name": "Nager",
+          "notes": null
+        },
+        {
+          "name": "Runes bizarres (lecture des langages compliqués)",
+          "notes": null
+        }
+      ]
     }
   ]
 }

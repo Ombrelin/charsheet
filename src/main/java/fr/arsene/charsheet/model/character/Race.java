@@ -13,7 +13,12 @@ public class Race {
 
     private String name;
     private String notes;
-    private Requirement requirement;
+    private Requirement requirements;
+    private List<Ability> possibleAbilities;
     private List<Ability> abilities;
 
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

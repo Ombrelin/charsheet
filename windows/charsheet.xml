@@ -3,7 +3,7 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>C:\Users\arsen\git\charsheet\target\charsheet-0.0.1-SNAPSHOT.jar</jar>
-  <outfile>C:\Users\arsen\git\charsheet\Charsheet.exe</outfile>
+  <outfile>C:\Users\arsen\git\charsheet\windows\Charsheet.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -13,7 +13,7 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>C:\Users\arsen\git\charsheet\icon.ico</icon>
+  <icon>C:\Users\arsen\git\charsheet\windows\icon.ico</icon>
   <jre>
     <path></path>
     <bundledJre64Bit>false</bundledJre64Bit>
@@ -24,7 +24,7 @@
     <runtimeBits>64/32</runtimeBits>
   </jre>
   <splash>
-    <file>C:\Users\arsen\git\charsheet\splash.bmp</file>
+    <file>C:\Users\arsen\git\charsheet\windows\splash.bmp</file>
     <waitForWindow>true</waitForWindow>
     <timeout>60</timeout>
     <timeoutErr>true</timeoutErr>

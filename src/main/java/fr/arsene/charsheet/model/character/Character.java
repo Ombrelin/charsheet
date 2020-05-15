@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class Character {
     private String name;
@@ -54,4 +54,10 @@ public class Character {
     private List<Item> inventory;
 
     private int maxWeightCarried;
+
+    public Character(){
+        this.protections = new ArrayList<>();
+        this.weapons = new ArrayList<>();
+        this.inventory = new ArrayList<>();
+    }
 }

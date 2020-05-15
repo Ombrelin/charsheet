@@ -8,11 +8,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Requirement {
-    private int courageThreshold;
-    private int intelligenceThreshold;
-    private int charismaThreshold;
-    private int agilityThreshold;
-    private int strengthThreshold;
-    private int attackThreshold;
-    private int blockThreshold;
+    private int courageMinThreshold;
+    private int intelligenceMinThreshold;
+    private int charismaMinThreshold;
+    private int agilityMinThreshold;
+    private int strengthMinThreshold;
+
+    private int courageMaxThreshold;
+    private int intelligenceMaxThreshold;
+    private int charismaMaxThreshold;
+    private int agilityMaxThreshold;
+    private int strengthMaxThreshold;
 }

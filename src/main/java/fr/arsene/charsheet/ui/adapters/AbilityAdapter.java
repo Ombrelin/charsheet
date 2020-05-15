@@ -17,7 +17,7 @@ public class AbilityAdapter {
     public AbilityAdapter(Ability e) {
         this();
         this.setName(e.getName());
-        this.setDescription(e.getDescription());
+        this.setDescription(e.getNotes());
     }
 
     public String getName() {

@@ -1,9 +1,7 @@
 package fr.arsene.charsheet.ui.components.dialogs;
 
-import fr.arsene.charsheet.model.character.Ability;
+import fr.arsene.charsheet.model.character.*;
 import fr.arsene.charsheet.model.character.Character;
-import fr.arsene.charsheet.model.character.Profession;
-import fr.arsene.charsheet.model.character.Race;
 import fr.arsene.charsheet.services.GameModelService;
 import fr.arsene.charsheet.ui.components.Dice;
 import fr.arsene.charsheet.ui.components.dialogs.charwizard.CharacteristicsStep;
@@ -20,7 +18,9 @@ import lombok.Getter;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 @Component
 @FxmlView
@@ -29,6 +29,8 @@ public class CharWizardDialog extends AbstractDialog<Character> {
     // Services & Data
 
     private GameModelService gameModelService;
+
+    @Getter
     private Character character = new Character();
 
     public CharWizardDialog(GameModelService gameModelService) {
@@ -39,6 +41,9 @@ public class CharWizardDialog extends AbstractDialog<Character> {
 
     @FXML
     private TextField name;
+
+    @FXML
+    private ComboBox<String> comboboxGender;
 
     private StepperState stepperState;
 
@@ -127,6 +132,11 @@ public class CharWizardDialog extends AbstractDialog<Character> {
     @Override
     public void initialize() {
         super.initialize();
+
+        this.comboboxGender.getItems().addAll(Arrays.stream(Gender.values()).map(Enum::name).collect(Collectors.toList()));
+        this.comboboxGender.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            character.setGender(Gender.valueOf(newValue));
+        });
         this.name.applyCss();
         this.getScene().setRoot(dialog);
 
@@ -163,9 +173,11 @@ public class CharWizardDialog extends AbstractDialog<Character> {
 
         this.racesList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.character.setRace(newValue);
+            abilitiesFromOrigin.setItems(FXCollections.observableList(this.character.getRace().getPossibleAbilities()));
         });
         this.professionsList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.character.setProfession(newValue);
+            abilitiesFromProfession.setItems(FXCollections.observableList(this.character.getProfession().getPossibleAbilities()));
         });
 
         this.abilitiesFromOrigin.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);

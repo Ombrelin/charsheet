@@ -36,11 +36,11 @@ public class GameModelService {
                 .stream()
                 .filter(profession -> {
                     return
-                            character.getCourage() >= profession.getRequirement().getCourageThreshold() &&
-                                    character.getIntelligence() >= profession.getRequirement().getIntelligenceThreshold() &&
-                                    character.getCharisma() >= profession.getRequirement().getCharismaThreshold() &&
-                                    character.getAgility() >= profession.getRequirement().getAgilityThreshold() &&
-                                    character.getStrength() >= profession.getRequirement().getStrengthThreshold();
+                            character.getCourage() >= profession.getRequirements().getCourageMinThreshold() && character.getCourage() <= profession.getRequirements().getCourageMaxThreshold() &&
+                                    character.getIntelligence() >= profession.getRequirements().getIntelligenceMinThreshold() && character.getIntelligence() <= profession.getRequirements().getIntelligenceMaxThreshold() &&
+                                    character.getCharisma() >= profession.getRequirements().getCharismaMinThreshold() && character.getCharisma() <= profession.getRequirements().getCharismaMaxThreshold() &&
+                                    character.getAgility() >= profession.getRequirements().getAgilityMinThreshold() && character.getAgility() <= profession.getRequirements().getAgilityMaxThreshold() &&
+                                    character.getStrength() >= profession.getRequirements().getStrengthMinThreshold() && character.getStrength() <= profession.getRequirements().getStrengthMaxThreshold();
                 })
                 .collect(Collectors.toList());
     }
@@ -51,11 +51,12 @@ public class GameModelService {
                 .stream()
                 .filter(race -> {
                     return
-                            character.getCourage() >= race.getRequirement().getCourageThreshold() &&
-                                    character.getIntelligence() >= race.getRequirement().getIntelligenceThreshold() &&
-                                    character.getCharisma() >= race.getRequirement().getCharismaThreshold() &&
-                                    character.getAgility() >= race.getRequirement().getAgilityThreshold() &&
-                                    character.getStrength() >= race.getRequirement().getStrengthThreshold();
+                            character.getCourage() >= race.getRequirements().getCourageMinThreshold() && character.getCourage() <= race.getRequirements().getCourageMaxThreshold() &&
+                                    character.getIntelligence() >= race.getRequirements().getIntelligenceMinThreshold() && character.getIntelligence() <= race.getRequirements().getIntelligenceMaxThreshold() &&
+                                    character.getCharisma() >= race.getRequirements().getCharismaMinThreshold() && character.getCharisma() <= race.getRequirements().getCharismaMaxThreshold() &&
+                                    character.getAgility() >= race.getRequirements().getAgilityMinThreshold() && character.getAgility() <= race.getRequirements().getAgilityMaxThreshold() &&
+                                    character.getStrength() >= race.getRequirements().getStrengthMinThreshold() && character.getStrength() <= race.getRequirements().getStrengthMaxThreshold();
+                    
                 })
                 .collect(Collectors.toList());
     }

@@ -9,5 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Ability {
     private String name;
-    private String description;
+    private String notes;
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

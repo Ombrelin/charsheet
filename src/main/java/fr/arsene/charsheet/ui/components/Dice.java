@@ -34,7 +34,6 @@ public class Dice extends Component {
         super("Dice.fxml");
         this.faceCount = faceCount;
         this.diceIcon.getStyleClass().add("dice" + faceCount);
-        this.diceIcon.getStyleClass().forEach(System.out::println);
     }
 
     @FXML

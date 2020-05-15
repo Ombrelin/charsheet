@@ -13,6 +13,12 @@ public class Profession {
 
     private String name;
     private String notes;
-    private Requirement requirement;
+    private Requirement requirements;
     private List<Ability> abilities;
+    private List<Ability> possibleAbilities;
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

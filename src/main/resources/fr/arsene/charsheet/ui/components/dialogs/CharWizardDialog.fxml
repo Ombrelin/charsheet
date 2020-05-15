@@ -15,12 +15,17 @@
         </padding>
         <VBox spacing="16" fx:id="characteristicsStep">
             <AnchorPane>
-                <TextField fx:id="name" promptText="Nom" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="350.0"
-                           AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="24.0"/>
+                <HBox spacing="32" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="350.0"
+                      AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="24.0">
+                    <TextField fx:id="name" promptText="Nom"/>
+                    <ComboBox fx:id="comboboxGender" promptText="Sexe"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="0"/>
+                </HBox>
             </AnchorPane>
             <Label text="Jettez les dés puis mettez vos score dans les cases de caractéritiques par glissé-déposé. Choisissez ensuite une origine et un métier parmi ceux disponibles"/>
 
-            <Separator />
+            <Separator/>
             <AnchorPane prefWidth="200.0">
                 <children>
                     <GridPane AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="128.0"
@@ -90,9 +95,9 @@
                                GridPane.columnIndex="3"/>
 
                         <ListView fx:id="professionsList" GridPane.columnIndex="2" GridPane.rowIndex="1"
-                                  GridPane.rowSpan="5"/>
+                                  GridPane.rowSpan="6"/>
                         <ListView fx:id="racesList" GridPane.columnIndex="3" GridPane.rowIndex="1"
-                                  GridPane.rowSpan="5"/>
+                                  GridPane.rowSpan="6"/>
 
                         <columnConstraints>
                             <ColumnConstraints percentWidth="10.0"/>
@@ -103,6 +108,7 @@
                             <ColumnConstraints/>
                         </columnConstraints>
                         <rowConstraints>
+                            <RowConstraints/>
                             <RowConstraints/>
                             <RowConstraints/>
                             <RowConstraints/>
@@ -121,7 +127,6 @@
         <VBox minWidth="600" alignment="CENTER" spacing="16" managed="false" fx:id="abilitiesStep">
             <Label styleClass="title" text="Compétences"/>
             <Label text="Choisissez 3 compétences dans chaque catégorie"/>
-            <Separator/>
             <AnchorPane>
                 <GridPane alignment="CENTER" AnchorPane.topAnchor="32" AnchorPane.leftAnchor="32" AnchorPane.rightAnchor="32" AnchorPane.bottomAnchor="32" vgap="16" hgap="64">
                     <Label text="Compétences d'origine"/>
@@ -130,17 +135,14 @@
                     <ListView GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="abilitiesFromProfession"/>
                 </GridPane>
             </AnchorPane>
-            <Separator/>
         </VBox>
         <VBox spacing="16" managed="false" fx:id="fateStep">
             <Label styleClass="title" text="Destin"/>
             <Label text="Jettez le dé pour connaitre votre nombre de points de destin"/>
-            <Separator/>
             <VBox prefHeight="500">
             <Dice fx:id="destinyDice" faceCount="4"/>
             <Label fx:id="destinyResult"/>
             </VBox>
-            <Separator/>
         </VBox>
 
         <AnchorPane>
