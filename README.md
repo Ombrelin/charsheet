@@ -6,6 +6,7 @@ Charsheet is a software to help a player create and manage his character sheet i
 
 * Create your character according to the RPG system's rules 
 * Manage your character and it's evolutions using a nice UI.
+* Throw dices
 
 ## Screenshots
 
