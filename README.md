@@ -45,4 +45,5 @@ java -jar ./target/charsheet-0.0.1-SNAPSHOT.jar
 
 ## Special Thanks
 
-Special for [Pen of Chaos](http://www.penofchaos.com/) for creating ["Le Donjon de Naheulbeuk"](http://www.penofchaos.com/warham/donjon.htm) and ["Le Donjon de Naheulbeuk" Tabletop RPG](https://www.naheulbeuk.com/).
+- Special thank to [Pen of Chaos](http://www.penofchaos.com/) for creating ["Le Donjon de Naheulbeuk"](http://www.penofchaos.com/warham/donjon.htm) and ["Le Donjon de Naheulbeuk" Tabletop RPG](https://www.naheulbeuk.com/).
+- Special thank to [Edmond Lapostolet](https://twitter.com/1Arthimes) for helping me to process the game data into usable JSON.
