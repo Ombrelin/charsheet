@@ -4,6 +4,9 @@ Charsheet is a software to help a player create and manage his character sheet i
 
 ## Screenshots
 
+![image1](https://github.com/Ombrelin/charsheet/blob/master/screenshots/2020-05-15%2014_40_50-CharSheet.png?raw=true)
+![image2](https://github.com/Ombrelin/charsheet/blob/master/screenshots/2020-05-15%2014_41_12-charsheet%20%E2%80%93%20README.md%20IntelliJ%20IDEA.png?raw=true)
+
 ## Downloads
 
 * Windows Installer
